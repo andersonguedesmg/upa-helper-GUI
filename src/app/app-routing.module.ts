@@ -28,7 +28,7 @@ const routes: Routes = [
   },
   {
     path: 'cadastro-de-usuario',
-    component: PatientRegisterComponent,
+    component: UsersRegisterComponent,
   },
   {
     path: 'paciente',
@@ -36,7 +36,7 @@ const routes: Routes = [
   },
   {
     path: 'cadastro-de-paciente',
-    component: UsersRegisterComponent,
+    component: PatientRegisterComponent,
   },
 ];
 

@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { AngularMaterialModule } from 'src/app/shared/angular-material/angular-material.module';
 
 @NgModule({
   declarations: [UsersComponent, UsersRegisterComponent],
@@ -19,6 +20,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     ReactiveFormsModule,
     HttpClientModule,
     SharedModule,
+    RouterModule,
+    AngularMaterialModule,
   ],
 })
 export class ManagementModule {}
