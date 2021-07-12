@@ -1,1 +1,14 @@
-<router-outlet></router-outlet>
+<ng-container>
+  <app-navbar [inputSideNav]="sidenav"></app-navbar>
+
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="side" opened class="sidenav">
+      <app-sidebar></app-sidebar>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+  <app-footer></app-footer>
+</ng-container>

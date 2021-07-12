@@ -18,5 +18,6 @@ import { RouterModule } from '@angular/router';
     HttpClientModule,
     AngularMaterialModule,
   ],
+  exports: [NavbarComponent, FooterComponent, SidebarComponent],
 })
 export class SharedModule {}

@@ -1,1 +1,13 @@
-<p>sidebar works!</p>
+<mat-nav-list>
+  <a mat-list-item [routerLink]="'/'"> Dashboard </a>
+  <a mat-list-item [routerLink]="'/paciente'"> Paciente </a>
+  <a mat-list-item [routerLink]="'/cadastro-de-paciente'">
+    Cadastro de Paciente
+  </a>
+  <a mat-list-item [routerLink]="'/contacts'"> Atendimento </a>
+  <a mat-list-item [routerLink]="'/usuario'"> Usuário </a>
+  <a mat-list-item [routerLink]="'/cadastro-de-usuario'">
+    Cadastro de Usuário
+  </a>
+  <a mat-list-item [routerLink]="'/create-activity'"> Create Activity </a>
+</mat-nav-list>
