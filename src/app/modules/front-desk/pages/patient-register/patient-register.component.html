@@ -1,1 +1,167 @@
-<p>patient-register works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h3 class="header__title">Cadastrar Pacientes</h3>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <mat-card class="mat-elevation-z8">
+    <form class="">
+      <div class="row">
+        <div class="col-6">
+          <mat-form-field class="form-field-full-width" appearance="fill">
+            <mat-label>Nome</mat-label>
+            <input matInput />
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-form-field class="form-field-full-width" appearance="fill">
+            <mat-label>Nome Social</mat-label>
+            <input matInput />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <mat-form-field class="form-field-full-width" appearance="fill">
+            <mat-label>Nascimento</mat-label>
+            <input matInput [matDatepicker]="picker" />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="col-4">
+          <mat-form-field class="form-field-full-width" appearance="fill">
+            <mat-label>Sexo</mat-label>
+            <mat-select>
+              <mat-option value="M">Masculino</mat-option>
+              <mat-option value="F">Feminino</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-4">
+          <mat-form-field class="form-field-full-width" appearance="fill">
+            <mat-label>Cor ou Raça/Etnia</mat-label>
+            <mat-select>
+              <mat-option value="M">branca</mat-option>
+              <mat-option value="F">preta</mat-option>
+              <mat-option value="F">parda</mat-option>
+              <mat-option value="F">indígena</mat-option>
+              <mat-option value="F">amarela</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <mat-form-field class="form-field-full-width" appearance="fill">
+            <mat-label>CNS</mat-label>
+            <input matInput />
+          </mat-form-field>
+        </div>
+        <div class="col-4">
+          <mat-form-field class="form-field-full-width" appearance="fill">
+            <mat-label>RG</mat-label>
+            <input matInput />
+          </mat-form-field>
+        </div>
+        <div class="col-4">
+          <mat-form-field class="form-field-full-width" appearance="fill">
+            <mat-label>CPF</mat-label>
+            <input matInput />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <mat-form-field class="form-field-full-width" appearance="fill">
+            <mat-label>CEP</mat-label>
+            <input matInput />
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-form-field class="form-field-full-width" appearance="fill">
+            <mat-label>Logradouro</mat-label>
+            <input matInput />
+          </mat-form-field>
+        </div>
+        <div class="col-2">
+          <mat-form-field class="form-field-full-width" appearance="fill">
+            <mat-label>Número</mat-label>
+            <input matInput />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <mat-form-field class="form-field-full-width" appearance="fill">
+            <mat-label>Bairro</mat-label>
+            <input matInput />
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-form-field class="form-field-full-width" appearance="fill">
+            <mat-label>Cidade</mat-label>
+            <input matInput />
+          </mat-form-field>
+        </div>
+        <div class="col-2">
+          <mat-form-field class="form-field-full-width" appearance="fill">
+            <mat-label>Estado</mat-label>
+            <input matInput />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <mat-form-field class="form-field-full-width" appearance="fill">
+            <mat-label>Complemento</mat-label>
+            <input matInput />
+          </mat-form-field>
+        </div>
+        <div class="col-4">
+          <mat-form-field class="form-field-full-width" appearance="fill">
+            <mat-label>Celular</mat-label>
+            <input matInput />
+          </mat-form-field>
+        </div>
+        <div class="col-4">
+          <mat-form-field class="form-field-full-width" appearance="fill">
+            <mat-label>Telefone</mat-label>
+            <input matInput />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <mat-form-field class="form-field-full-width" appearance="fill">
+            <mat-label>Nome da Mãe</mat-label>
+            <input matInput />
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-form-field class="form-field-full-width" appearance="fill">
+            <mat-label>Nome do Pai</mat-label>
+            <input matInput />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-1">
+          <button mat-raised-button color="warn">
+            <mat-icon matTooltip="Limpar Formulario">add</mat-icon>
+          </button>
+        </div>
+        <div class="col-1">
+          <button mat-raised-button color="primary">
+            <mat-icon matTooltip="Cadastrar Paciente">add</mat-icon>
+          </button>
+        </div>
+      </div>
+    </form>
+  </mat-card>
+</div>
