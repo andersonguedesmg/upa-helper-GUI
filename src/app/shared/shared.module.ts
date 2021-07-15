@@ -7,6 +7,7 @@ import { AngularMaterialModule } from './angular-material/angular-material.modul
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [NavbarComponent, FooterComponent, SidebarComponent],
@@ -17,6 +18,7 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     HttpClientModule,
     AngularMaterialModule,
+    NgSelectModule,
   ],
   exports: [NavbarComponent, FooterComponent, SidebarComponent],
 })

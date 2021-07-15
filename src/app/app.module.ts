@@ -9,6 +9,7 @@ import { AuthModule } from './modules/auth/auth.module';
 import { FrontDeskModule } from './modules/front-desk/front-desk.module';
 import { ManagementModule } from './modules/management/management.module';
 import { SharedModule } from './shared/shared.module';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +23,7 @@ import { SharedModule } from './shared/shared.module';
     ManagementModule,
     AuthModule,
     SharedModule,
+    NgSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

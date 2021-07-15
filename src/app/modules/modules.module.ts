@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AngularMaterialModule } from '../shared/angular-material/angular-material.module';
 import { SharedModule } from '../shared/shared.module';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [],
@@ -16,6 +17,7 @@ import { SharedModule } from '../shared/shared.module';
     HttpClientModule,
     SharedModule,
     AngularMaterialModule,
+    NgSelectModule,
   ],
 })
 export class ModulesModule {}

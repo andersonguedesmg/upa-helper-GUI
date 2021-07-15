@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AngularMaterialModule } from 'src/app/shared/angular-material/angular-material.module';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [HomeComponent],
@@ -20,6 +21,7 @@ import { AngularMaterialModule } from 'src/app/shared/angular-material/angular-m
     HttpClientModule,
     SharedModule,
     AngularMaterialModule,
+    NgSelectModule,
   ],
 })
 export class HomeModule {}
