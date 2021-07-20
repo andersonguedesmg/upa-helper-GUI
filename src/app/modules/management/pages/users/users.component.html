@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <h3 class="header__title">Todos os Usuários</h3>
+      <h3 class="header__title">Usuários</h3>
     </div>
   </div>
   <div class="row">
@@ -51,19 +51,19 @@
           </ng-container>
 
           <ng-container matColumnDef="progress">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>CPF</th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Função</th>
             <td mat-cell *matCellDef="let row">{{ row.progress }}%</td>
           </ng-container>
 
           <ng-container matColumnDef="fruit">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>RG</th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              Especialidade
+            </th>
             <td mat-cell *matCellDef="let row">{{ row.fruit }}</td>
           </ng-container>
 
           <ng-container matColumnDef="date">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>
-              Nascimento
-            </th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Celular</th>
             <td mat-cell *matCellDef="let row">{{ row.date }}</td>
           </ng-container>
 
