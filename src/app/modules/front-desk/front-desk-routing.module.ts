@@ -5,7 +5,7 @@ import { PatientComponent } from './pages/patient/patient.component';
 
 const routes: Routes = [
   {
-    path: 'paciente',
+    path: 'pacientes',
     children: [
       {
         path: '',
@@ -15,6 +15,15 @@ const routes: Routes = [
   },
   {
     path: 'cadastro-de-paciente',
+    children: [
+      {
+        path: '',
+        component: PatientRegisterComponent,
+      },
+    ],
+  },
+  {
+    path: 'atendimentos',
     children: [
       {
         path: '',

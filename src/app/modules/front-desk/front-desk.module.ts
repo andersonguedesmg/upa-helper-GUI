@@ -10,9 +10,10 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AngularMaterialModule } from 'src/app/shared/angular-material/angular-material.module';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { AttendanceComponent } from './pages/attendance/attendance.component';
 
 @NgModule({
-  declarations: [PatientComponent, PatientRegisterComponent],
+  declarations: [PatientComponent, PatientRegisterComponent, AttendanceComponent],
   imports: [
     CommonModule,
     FrontDeskRoutingModule,

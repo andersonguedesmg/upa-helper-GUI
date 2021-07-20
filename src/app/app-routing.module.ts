@@ -7,6 +7,7 @@ import {
 } from '@angular/router';
 import { LoginComponent } from './modules/auth/pages/login/login.component';
 import { NotFoundComponent } from './modules/auth/pages/not-found/not-found.component';
+import { AttendanceComponent } from './modules/front-desk/pages/attendance/attendance.component';
 import { PatientRegisterComponent } from './modules/front-desk/pages/patient-register/patient-register.component';
 import { PatientComponent } from './modules/front-desk/pages/patient/patient.component';
 import { HomeComponent } from './modules/home/pages/home/home.component';
@@ -23,7 +24,7 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
-    path: 'usuario',
+    path: 'usuarios',
     component: UsersComponent,
   },
   {
@@ -31,12 +32,16 @@ const routes: Routes = [
     component: UsersRegisterComponent,
   },
   {
-    path: 'paciente',
+    path: 'pacientes',
     component: PatientComponent,
   },
   {
     path: 'cadastro-de-paciente',
     component: PatientRegisterComponent,
+  },
+  {
+    path: 'atendimentos',
+    component: AttendanceComponent,
   },
 ];
 
