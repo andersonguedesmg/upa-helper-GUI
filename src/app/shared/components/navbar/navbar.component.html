@@ -1,6 +1,9 @@
 <mat-toolbar class="header">
-  <a [routerLink]="'/'">UPA Helper</a>
-  <button mat-button (click)="inputSideNav.toggle()">
+  <div class="row header__logo">
+    <a class="row header__" [routerLink]="'/'">UPA Helper</a>
+  </div>
+
+  <button class="header__button" mat-button (click)="inputSideNav.toggle()">
     <mat-icon>swap_horiz</mat-icon>
   </button>
 </mat-toolbar>

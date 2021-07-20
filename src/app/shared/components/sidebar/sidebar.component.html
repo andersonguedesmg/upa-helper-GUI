@@ -1,13 +1,22 @@
 <mat-nav-list>
-  <a mat-list-item [routerLink]="'/'"> Dashboard </a>
-  <a mat-list-item [routerLink]="'/paciente'"> Paciente </a>
-  <a mat-list-item [routerLink]="'/cadastro-de-paciente'">
+  <a mat-list-item [routerLink]="'/'"
+    ><mat-icon class="sidebar__icon">dashboard</mat-icon> Dashboard
+  </a>
+  <a mat-list-item [routerLink]="'/contacts'"
+    ><mat-icon class="sidebar__icon">family_restroom</mat-icon> Atendimentos
+  </a>
+  <a mat-list-item [routerLink]="'/paciente'"
+    ><mat-icon class="sidebar__icon">group</mat-icon> Pacientes
+  </a>
+  <a mat-list-item [routerLink]="'/cadastro-de-paciente'"
+    ><mat-icon class="sidebar__icon">person_add</mat-icon>
     Cadastro de Paciente
   </a>
-  <a mat-list-item [routerLink]="'/contacts'"> Atendimento </a>
-  <a mat-list-item [routerLink]="'/usuario'"> Usuário </a>
-  <a mat-list-item [routerLink]="'/cadastro-de-usuario'">
+  <a mat-list-item [routerLink]="'/usuario'"
+    ><mat-icon class="sidebar__icon">person</mat-icon> Usuários
+  </a>
+  <a mat-list-item [routerLink]="'/cadastro-de-usuario'"
+    ><mat-icon class="sidebar__icon">person_add</mat-icon>
     Cadastro de Usuário
   </a>
-  <a mat-list-item [routerLink]="'/create-activity'"> Create Activity </a>
 </mat-nav-list>
