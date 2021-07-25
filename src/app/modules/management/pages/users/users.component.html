@@ -50,20 +50,20 @@
             <td mat-cell *matCellDef="let row">{{ row.name }}</td>
           </ng-container>
 
-          <ng-container matColumnDef="progress">
+          <ng-container matColumnDef="occupation">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Função</th>
-            <td mat-cell *matCellDef="let row">{{ row.progress }}%</td>
+            <td mat-cell *matCellDef="let row">{{ row.occupation }}</td>
           </ng-container>
 
-          <ng-container matColumnDef="fruit">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>
-              Especialidade
-            </th>
-            <td mat-cell *matCellDef="let row">{{ row.fruit }}</td>
+          <ng-container matColumnDef="cell">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Celular</th>
+            <td mat-cell *matCellDef="let row">{{ row.cell }}</td>
           </ng-container>
 
           <ng-container matColumnDef="date">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Celular</th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              Contratação
+            </th>
             <td mat-cell *matCellDef="let row">{{ row.date }}</td>
           </ng-container>
 

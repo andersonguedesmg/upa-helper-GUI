@@ -6,21 +6,11 @@ import { MatTableDataSource } from '@angular/material/table';
 export interface UserData {
   id: string;
   name: string;
-  progress: string;
-  fruit: string;
+  cpf: string;
+  cns: string;
   date: string;
 }
 
-const FRUITS: string[] = [
-  'blueberry',
-  'lychee',
-  'kiwi',
-  'mango',
-  'peach',
-  'lime',
-  'pomegranate',
-  'pineapple',
-];
 const NAMES: string[] = [
   'Maia',
   'Asher',
@@ -49,7 +39,7 @@ const NAMES: string[] = [
   styleUrls: ['./patient.component.scss'],
 })
 export class PatientComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'name', 'progress', 'fruit', 'date'];
+  displayedColumns: string[] = ['id', 'name', 'cpf', 'cns', 'date'];
   dataSource: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -82,14 +72,15 @@ function createNewUser(id: number): UserData {
   const name =
     NAMES[Math.round(Math.random() * (NAMES.length - 1))] +
     ' ' +
-    NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) +
-    '.';
+    NAMES[Math.round(Math.random() * (NAMES.length - 1))];
+
+  const value = Math.round(Math.random() * 100).toString();
 
   return {
     id: id.toString(),
     name: name,
-    progress: Math.round(Math.random() * 100).toString(),
-    fruit: FRUITS[Math.round(Math.random() * (FRUITS.length - 1))],
-    date: Math.round(Math.random() * 100).toString(),
+    cpf: value + '1.' + value + '2.' + value + '3.' + value,
+    cns: value + '.' + value + '2.' + value + '3.' + value,
+    date: value + '/' + value + '/' + value,
   };
 }
