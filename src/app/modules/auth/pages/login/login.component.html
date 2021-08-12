@@ -3,16 +3,11 @@
     <mat-card-content>
       <form>
         <!-- <form [formGroup]="form" (ngSubmit)="onSubmit()"> -->
-        <p>Please login to continue</p>
+        <p class="login__title">Login</p>
         <mat-form-field class="login__full-width-input">
-          <input
-            matInput
-            placeholder="Usuário"
-            formControlName="userName"
-            required
-          />
+          <input matInput placeholder="CPF" formControlName="cpf" required />
           <!-- <mat-error *ngIf="isFieldInvalid('userName')"> -->
-          <mat-error> Please inform your user name </mat-error>
+          <mat-error>Por favor, informe o seu CPF</mat-error>
         </mat-form-field>
         <mat-form-field class="login__full-width-input">
           <input
@@ -23,9 +18,11 @@
             required
           />
           <!-- <mat-error *ngIf="isFieldInvalid('userName')"> -->
-          <mat-error> Please inform your password </mat-error>
+          <mat-error>Por favor informe sua senha</mat-error>
         </mat-form-field>
-        <button mat-raised-button color="primary" type="submit">Login</button>
+        <button mat-raised-button class="login__button" type="submit">
+          Entrar
+        </button>
       </form>
     </mat-card-content>
   </mat-card>

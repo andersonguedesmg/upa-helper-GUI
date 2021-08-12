@@ -1,9 +1,17 @@
 <mat-toolbar class="header">
   <div class="row header__logo">
-    <a class="row header__" [routerLink]="'/'">UPA Helper</a>
+    <p><a class="row header__text" [routerLink]="'/'">UPA Helper</a></p>
   </div>
 
   <button class="header__button" mat-button (click)="inputSideNav.toggle()">
     <mat-icon>swap_horiz</mat-icon>
   </button>
+
+  <span class="header__spacer"></span>
+
+  <button mat-button [matMenuTriggerFor]="beforeMenu">Olá, Anderson</button>
+  <mat-menu #beforeMenu="matMenu" xPosition="before">
+    <button mat-menu-item [routerLink]="'/perfil'">Perfil</button>
+    <button mat-menu-item [routerLink]="'/login'">Sair</button>
+  </mat-menu>
 </mat-toolbar>

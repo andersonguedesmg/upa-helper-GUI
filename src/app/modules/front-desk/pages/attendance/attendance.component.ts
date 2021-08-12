@@ -87,7 +87,7 @@ function createNewUser(id: number): UserData {
   return {
     id: id.toString(),
     name: name,
-    age: value + ' anos ' + value + ' meses ' + value + ' dias',
+    age: value + ' anos',
     arrival:
       value + '/' + value + '/' + value + ' - ' + value + 'h' + value + 'm',
     status: STATUS[Math.round(Math.random() * (STATUS.length - 1))],

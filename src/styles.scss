@@ -1,6 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
 @import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
-
+@import url("https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap");
 @import "~@ng-select/ng-select/themes/material.theme.css";
 
 html,
@@ -14,4 +13,38 @@ body {
 
 .form-field-full-width {
   width: 100%;
+}
+
+.form-first-row {
+  padding-top: 15px;
+}
+
+.header__add-button {
+  color: #ffffff !important;
+  background-color: #78b8f7 !important;
+}
+
+.btn-action-row {
+  padding: 7.5px 0 15px 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header__title {
+  margin-top: 18px !important;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.btn-new {
+  background-color: #008000;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.btn-clean {
+  background-color: #6a5acd;
+  color: #ffffff;
+  text-transform: uppercase;
 }

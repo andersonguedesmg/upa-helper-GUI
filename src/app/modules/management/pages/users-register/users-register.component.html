@@ -7,18 +7,23 @@
 </div>
 <div class="container">
   <mat-card class="mat-elevation-z8">
-    <form class="">
-      <div class="row">
-        <div class="col-6">
+    <form>
+      <div class="row form-first-row">
+        <div class="col-8">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>Nome</mat-label>
             <input matInput />
           </mat-form-field>
         </div>
-        <div class="col-6">
+        <div class="col-4">
           <mat-form-field class="form-field-full-width" appearance="fill">
-            <mat-label>Nome Social</mat-label>
-            <input matInput />
+            <mat-label>Tipo</mat-label>
+            <mat-select>
+              <mat-option value="1">Médico(a)</mat-option>
+              <mat-option value="2">Enfermeiro(a)</mat-option>
+              <mat-option value="3">Auxiliar Administrativo</mat-option>
+              <mat-option value="0">Outro</mat-option>
+            </mat-select>
           </mat-form-field>
         </div>
       </div>
@@ -136,15 +141,23 @@
           </mat-form-field>
         </div>
       </div>
-      <div class="row">
+      <div class="row btn-action-row">
         <div class="col-1">
-          <button mat-raised-button color="warn">
-            <mat-icon matTooltip="Limpar Formulario">add</mat-icon>
+          <button
+            mat-raised-button
+            class="btn-clean"
+            matTooltip="Limpar Formulario"
+          >
+            Limpar
           </button>
         </div>
-        <div class="col-1">
-          <button mat-raised-button color="primary">
-            <mat-icon matTooltip="Cadastrar Paciente">add</mat-icon>
+        <div class="col-2">
+          <button
+            mat-raised-button
+            class="btn-new"
+            matTooltip="Cadastrar Usuário"
+          >
+            Cadastrar
           </button>
         </div>
       </div>

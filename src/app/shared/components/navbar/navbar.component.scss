@@ -3,6 +3,8 @@
   top: 0;
   left: 0;
   right: 0;
+  background-color: #78b8f7;
+  align-items: center;
 }
 
 .header__button {
@@ -13,9 +15,22 @@
   background-color: #ffffff;
   width: 220px;
   height: 60px;
-  text-decoration: none;
+  position: relative;
+  top: -2px;
+  left: -4px;
 }
 
-.header__ {
+.header__text {
   text-decoration: none;
+  font-family: "Mouse Memoirs", sans-serif;
+  font-size: 24px;
+  color: #78b8f7;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.header__spacer {
+  flex: 1 1 auto;
 }

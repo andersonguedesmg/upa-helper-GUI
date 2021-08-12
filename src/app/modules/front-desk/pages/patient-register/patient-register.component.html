@@ -7,8 +7,8 @@
 </div>
 <div class="container">
   <mat-card class="mat-elevation-z8">
-    <form class="">
-      <div class="row">
+    <form>
+      <div class="row form-first-row">
         <div class="col-6">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>Nome</mat-label>
@@ -150,15 +150,23 @@
           </mat-form-field>
         </div>
       </div>
-      <div class="row">
+      <div class="row btn-action-row">
         <div class="col-1">
-          <button mat-raised-button color="warn">
-            <mat-icon matTooltip="Limpar Formulario">add</mat-icon>
+          <button
+            mat-raised-button
+            class="btn-clean"
+            matTooltip="Limpar Formulario"
+          >
+            Limpar
           </button>
         </div>
-        <div class="col-1">
-          <button mat-raised-button color="primary">
-            <mat-icon matTooltip="Cadastrar Paciente">add</mat-icon>
+        <div class="col-2">
+          <button
+            mat-raised-button
+            class="btn-new"
+            matTooltip="Cadastrar Paciente"
+          >
+            Cadastrar
           </button>
         </div>
       </div>
