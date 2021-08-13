@@ -10,9 +10,10 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AngularMaterialModule } from 'src/app/shared/angular-material/angular-material.module';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { UsersProfileComponent } from './pages/users-profile/users-profile.component';
 
 @NgModule({
-  declarations: [UsersComponent, UsersRegisterComponent],
+  declarations: [UsersComponent, UsersRegisterComponent, UsersProfileComponent],
   imports: [
     CommonModule,
     ManagementRoutingModule,

@@ -7,12 +7,16 @@ import {
 } from '@angular/router';
 import { LoginComponent } from './modules/auth/pages/login/login.component';
 import { NotFoundComponent } from './modules/auth/pages/not-found/not-found.component';
+import { AttendanceRegisterComponent } from './modules/front-desk/pages/attendance-register/attendance-register.component';
 import { AttendanceComponent } from './modules/front-desk/pages/attendance/attendance.component';
 import { PatientRegisterComponent } from './modules/front-desk/pages/patient-register/patient-register.component';
 import { PatientComponent } from './modules/front-desk/pages/patient/patient.component';
 import { HomeComponent } from './modules/home/pages/home/home.component';
+import { UsersProfileComponent } from './modules/management/pages/users-profile/users-profile.component';
 import { UsersRegisterComponent } from './modules/management/pages/users-register/users-register.component';
 import { UsersComponent } from './modules/management/pages/users/users.component';
+import { TriagesRegisterComponent } from './modules/triage/pages/triages-register/triages-register.component';
+import { TriagesComponent } from './modules/triage/pages/triages/triages.component';
 
 const routes: Routes = [
   {
@@ -32,6 +36,10 @@ const routes: Routes = [
     component: UsersRegisterComponent,
   },
   {
+    path: 'perfil',
+    component: UsersProfileComponent,
+  },
+  {
     path: 'pacientes',
     component: PatientComponent,
   },
@@ -42,6 +50,18 @@ const routes: Routes = [
   {
     path: 'atendimentos',
     component: AttendanceComponent,
+  },
+  {
+    path: 'cadastro-de-atendimento',
+    component: AttendanceRegisterComponent,
+  },
+  {
+    path: 'triagem',
+    component: TriagesComponent,
+  },
+  {
+    path: 'cadastro-de-triagem',
+    component: TriagesRegisterComponent,
   },
 ];
 

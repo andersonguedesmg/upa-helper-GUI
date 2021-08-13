@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AttendanceRegisterComponent } from './pages/attendance-register/attendance-register.component';
+import { AttendanceComponent } from './pages/attendance/attendance.component';
 import { PatientRegisterComponent } from './pages/patient-register/patient-register.component';
 import { PatientComponent } from './pages/patient/patient.component';
 
@@ -27,7 +29,16 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: PatientRegisterComponent,
+        component: AttendanceComponent,
+      },
+    ],
+  },
+  {
+    path: 'cadastro-de-atendimento',
+    children: [
+      {
+        path: '',
+        component: AttendanceRegisterComponent,
       },
     ],
   },
