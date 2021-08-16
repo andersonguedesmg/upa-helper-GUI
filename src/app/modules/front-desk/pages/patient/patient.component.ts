@@ -39,7 +39,7 @@ const NAMES: string[] = [
   styleUrls: ['./patient.component.scss'],
 })
 export class PatientComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'name', 'cpf', 'cns', 'date'];
+  displayedColumns: string[] = ['id', 'name', 'cpf', 'cns', 'date', 'actions'];
   dataSource: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

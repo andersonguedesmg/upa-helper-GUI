@@ -1,1 +1,93 @@
-<p>attendance-register works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h3 class="header__title">Cadastro de Atendimento</h3>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <mat-card class="mat-elevation-z8">
+    <div class="row form-first-row">
+      <div class="col-4"><h3>Ficha de atendimento ambulatórial</h3></div>
+      <div class="col-4"><h3>Atendimento: 007</h3></div>
+      <div class="col-4">
+        <h3>Data/Horário de Chegada: 16/08/2021 - 11h11min</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12"><p>Nome: Bart Simpson</p></div>
+    </div>
+    <div class="row">
+      <div class="col-3"><p>Nascimento: 01/04/1981</p></div>
+      <div class="col-3"><p>Idade: 10 anos</p></div>
+      <div class="col-3"><p>Sexo: Masculino</p></div>
+      <div class="col-3"><p>Cor ou Raça/Etnia: Amarelo</p></div>
+    </div>
+
+    <div class="row">
+      <div class="col-4"><p>RG: 00.000.000-0</p></div>
+      <div class="col-4"><p>CPF: 000.000.000-00</p></div>
+      <div class="col-4"><p>CNS: 00000000000000</p></div>
+    </div>
+
+    <div class="row">
+      <div class="col-6"><p>Pai: Homer Simpson</p></div>
+      <div class="col-6"><p>Mãe: Marge Simpson</p></div>
+    </div>
+
+    <div class="row">
+      <div class="col-6"><p>Endereço: Evergreen Terrace</p></div>
+      <div class="col-6"><p>Número: 742</p></div>
+    </div>
+    <div class="row">
+      <div class="col-5"><p>Bairro:</p></div>
+      <div class="col-5"><p>Cidade: Springfield</p></div>
+      <div class="col-2"><p>Estado:</p></div>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="row">
+      <div class="col-6">
+        <mat-form-field class="form-field-full-width" appearance="fill">
+          <mat-label>Dados da Recepção</mat-label>
+          <textarea matInput></textarea>
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <div class="row">
+          <div class="col-6">
+            <button
+              mat-raised-button
+              class="btn-new"
+              matTooltip="Cadastrar Atendimento"
+            >
+              Salvar
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <button
+              mat-raised-button
+              class="btn-clean"
+              matTooltip="Cancelar Atendimento"
+            >
+              Cancelar
+            </button>
+          </div>
+          <div class="col-6">
+            <button
+              mat-raised-button
+              class="btn-new"
+              matTooltip="Atualizar Paciente"
+            >
+              Atualizar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</div>

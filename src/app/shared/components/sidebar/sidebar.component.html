@@ -1,22 +1,34 @@
 <mat-nav-list>
-  <a mat-list-item [routerLink]="'/'"
-    ><mat-icon class="sidebar__icon">dashboard</mat-icon> Dashboard
-  </a>
-  <a mat-list-item [routerLink]="'/atendimentos'"
-    ><mat-icon class="sidebar__icon">family_restroom</mat-icon> Atendimentos
-  </a>
-  <a mat-list-item [routerLink]="'/pacientes'"
-    ><mat-icon class="sidebar__icon">group</mat-icon> Pacientes
-  </a>
-  <a mat-list-item [routerLink]="'/cadastro-de-paciente'"
-    ><mat-icon class="sidebar__icon">person_add</mat-icon>
-    Cadastro de Paciente
-  </a>
-  <a mat-list-item [routerLink]="'/usuarios'"
-    ><mat-icon class="sidebar__icon">person</mat-icon> Usuários
-  </a>
-  <a mat-list-item [routerLink]="'/cadastro-de-usuario'"
-    ><mat-icon class="sidebar__icon">person_add</mat-icon>
-    Cadastro de Usuário
-  </a>
+  <span *ngFor="let item of menu">
+    <span *ngIf="item.children && item.children.length > 0">
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <div fxLayout="row" fxLayoutAlign="space-between center">
+                <mat-icon>{{ item.iconName }}</mat-icon>
+                {{ item.displayName }}
+              </div>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <span *ngFor="let child of item.children">
+            <mat-list-item routerLink="{{ child.route }}">
+              <div fxLayout="row" fxLayoutAlign="space-between center">
+                <mat-icon>{{ child.iconName }}</mat-icon>
+                {{ child.displayName }}
+              </div>
+            </mat-list-item>
+          </span>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </span>
+    <span *ngIf="!item.children || item.children.length === 0">
+      <mat-list-item routerLink="{{ item.route }}">
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          <mat-icon>{{ item.iconName }}</mat-icon>
+          {{ item.displayName }}
+        </div>
+      </mat-list-item>
+    </span>
+  </span>
 </mat-nav-list>

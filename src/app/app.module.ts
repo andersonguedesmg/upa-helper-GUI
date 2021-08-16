@@ -10,6 +10,7 @@ import { FrontDeskModule } from './modules/front-desk/front-desk.module';
 import { ManagementModule } from './modules/management/management.module';
 import { SharedModule } from './shared/shared.module';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { TriageModule } from './modules/triage/triage.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +23,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     FrontDeskModule,
     ManagementModule,
     AuthModule,
+    TriageModule,
     SharedModule,
     NgSelectModule,
   ],

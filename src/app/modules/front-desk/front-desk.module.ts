@@ -14,7 +14,12 @@ import { AttendanceComponent } from './pages/attendance/attendance.component';
 import { AttendanceRegisterComponent } from './pages/attendance-register/attendance-register.component';
 
 @NgModule({
-  declarations: [PatientComponent, PatientRegisterComponent, AttendanceComponent, AttendanceRegisterComponent],
+  declarations: [
+    PatientComponent,
+    PatientRegisterComponent,
+    AttendanceComponent,
+    AttendanceRegisterComponent,
+  ],
   imports: [
     CommonModule,
     FrontDeskRoutingModule,
