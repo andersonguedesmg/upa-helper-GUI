@@ -12,6 +12,8 @@ import { AngularMaterialModule } from 'src/app/shared/angular-material/angular-m
 import { NgSelectModule } from '@ng-select/ng-select';
 import { AttendanceComponent } from './pages/attendance/attendance.component';
 import { AttendanceRegisterComponent } from './pages/attendance-register/attendance-register.component';
+import { WaitingRoomComponent } from './pages/waiting-room/waiting-room.component';
+import { AttendanceFileRegisterComponent } from './pages/attendance-file-register/attendance-file-register.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { AttendanceRegisterComponent } from './pages/attendance-register/attenda
     PatientRegisterComponent,
     AttendanceComponent,
     AttendanceRegisterComponent,
+    WaitingRoomComponent,
+    AttendanceFileRegisterComponent,
   ],
   imports: [
     CommonModule,

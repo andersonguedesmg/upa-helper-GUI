@@ -7,10 +7,12 @@ import {
 } from '@angular/router';
 import { LoginComponent } from './modules/auth/pages/login/login.component';
 import { NotFoundComponent } from './modules/auth/pages/not-found/not-found.component';
+import { AttendanceFileRegisterComponent } from './modules/front-desk/pages/attendance-file-register/attendance-file-register.component';
 import { AttendanceRegisterComponent } from './modules/front-desk/pages/attendance-register/attendance-register.component';
 import { AttendanceComponent } from './modules/front-desk/pages/attendance/attendance.component';
 import { PatientRegisterComponent } from './modules/front-desk/pages/patient-register/patient-register.component';
 import { PatientComponent } from './modules/front-desk/pages/patient/patient.component';
+import { WaitingRoomComponent } from './modules/front-desk/pages/waiting-room/waiting-room.component';
 import { HomeComponent } from './modules/home/pages/home/home.component';
 import { UsersProfileComponent } from './modules/management/pages/users-profile/users-profile.component';
 import { UsersRegisterComponent } from './modules/management/pages/users-register/users-register.component';
@@ -32,7 +34,7 @@ const routes: Routes = [
     component: UsersComponent,
   },
   {
-    path: 'cadastro-de-usuario',
+    path: 'usuario/novo',
     component: UsersRegisterComponent,
   },
   {
@@ -44,7 +46,7 @@ const routes: Routes = [
     component: PatientComponent,
   },
   {
-    path: 'cadastro-de-paciente',
+    path: 'paciente/novo',
     component: PatientRegisterComponent,
   },
   {
@@ -52,15 +54,23 @@ const routes: Routes = [
     component: AttendanceComponent,
   },
   {
-    path: 'cadastro-de-atendimento',
+    path: 'atendimento/novo',
     component: AttendanceRegisterComponent,
+  },
+  {
+    path: 'atendimento/ficha',
+    component: AttendanceFileRegisterComponent,
+  },
+  {
+    path: 'sala-de-espera',
+    component: WaitingRoomComponent,
   },
   {
     path: 'triagem',
     component: TriagesComponent,
   },
   {
-    path: 'cadastro-de-triagem',
+    path: 'triagem/nova',
     component: TriagesRegisterComponent,
   },
 ];

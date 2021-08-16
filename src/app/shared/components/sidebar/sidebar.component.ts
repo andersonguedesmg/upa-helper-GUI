@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -23,17 +23,17 @@ export class SidebarComponent implements OnInit {
         {
           displayName: 'Novo',
           iconName: 'add_circle',
-          route: '/atendimentos',
+          route: '/atendimento/novo',
         },
         {
-          displayName: 'Lista de Espera',
+          displayName: 'Sala de Espera',
           iconName: 'assignment',
-          route: '/pacientes',
+          route: '/sala-de-espera',
         },
         {
           displayName: 'Todos',
           iconName: 'source',
-          route: '/',
+          route: '/atendimentos',
         },
       ],
     },
@@ -44,7 +44,7 @@ export class SidebarComponent implements OnInit {
         {
           displayName: 'Novo',
           iconName: 'person_add',
-          route: '/cadastro-de-paciente',
+          route: '/paciente/novo',
         },
         {
           displayName: 'Todos',
@@ -60,12 +60,12 @@ export class SidebarComponent implements OnInit {
         {
           displayName: 'Novo',
           iconName: 'person_add',
-          route: '/cadastro-de-usuario',
+          route: '/usuario/novo',
         },
         {
           displayName: 'Todos',
           iconName: 'source',
-          route: '/',
+          route: '/usuarios',
         },
       ],
     },

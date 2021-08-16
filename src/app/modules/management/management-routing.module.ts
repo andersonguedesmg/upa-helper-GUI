@@ -15,7 +15,7 @@ const routes: Routes = [
     ],
   },
   {
-    path: 'cadastro-de-usuario',
+    path: 'usuario/novo',
     children: [
       {
         path: '',

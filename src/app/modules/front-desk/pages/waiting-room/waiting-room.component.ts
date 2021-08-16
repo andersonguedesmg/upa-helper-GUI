@@ -6,10 +6,18 @@ import { MatTableDataSource } from '@angular/material/table';
 export interface UserData {
   id: string;
   name: string;
-  cpf: string;
-  cns: string;
-  date: string;
+  age: string;
+  arrival: string;
+  status: string;
 }
+
+const STATUS: string[] = [
+  'Consulta ',
+  'Triagem',
+  'Observação',
+  'Tratamento',
+  'Espera',
+];
 
 const NAMES: string[] = [
   'Maia',
@@ -34,12 +42,12 @@ const NAMES: string[] = [
 ];
 
 @Component({
-  selector: 'app-triages',
-  templateUrl: './triages.component.html',
-  styleUrls: ['./triages.component.scss'],
+  selector: 'app-waiting-room',
+  templateUrl: './waiting-room.component.html',
+  styleUrls: ['./waiting-room.component.scss'],
 })
-export class TriagesComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'name', 'cpf', 'cns', 'date', 'actions'];
+export class WaitingRoomComponent implements AfterViewInit {
+  displayedColumns: string[] = ['id', 'name', 'age', 'arrival', 'status'];
   dataSource: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -79,8 +87,9 @@ function createNewUser(id: number): UserData {
   return {
     id: id.toString(),
     name: name,
-    cpf: value + '1.' + value + '2.' + value + '3.' + value,
-    cns: value + '.' + value + '2.' + value + '3.' + value,
-    date: value + '/' + value + '/' + value,
+    age: value + ' anos',
+    arrival:
+      value + '/' + value + '/' + value + ' - ' + value + 'h' + value + 'm',
+    status: STATUS[Math.round(Math.random() * (STATUS.length - 1))],
   };
 }
