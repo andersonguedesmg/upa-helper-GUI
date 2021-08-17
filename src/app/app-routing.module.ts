@@ -5,20 +5,20 @@ import {
   RouterModule,
   Routes,
 } from '@angular/router';
+import { UserProfileComponent } from './modules/administrative/pages/user/user-profile/user-profile.component';
+import { UserRegisterComponent } from './modules/administrative/pages/user/user-register/user-register.component';
+import { UserComponent } from './modules/administrative/pages/user/user/user.component';
 import { LoginComponent } from './modules/auth/pages/login/login.component';
 import { NotFoundComponent } from './modules/auth/pages/not-found/not-found.component';
-import { AttendanceFileRegisterComponent } from './modules/front-desk/pages/attendance-file-register/attendance-file-register.component';
-import { AttendanceRegisterComponent } from './modules/front-desk/pages/attendance-register/attendance-register.component';
-import { AttendanceComponent } from './modules/front-desk/pages/attendance/attendance.component';
-import { PatientRegisterComponent } from './modules/front-desk/pages/patient-register/patient-register.component';
-import { PatientComponent } from './modules/front-desk/pages/patient/patient.component';
-import { WaitingRoomComponent } from './modules/front-desk/pages/waiting-room/waiting-room.component';
 import { HomeComponent } from './modules/home/pages/home/home.component';
-import { UsersProfileComponent } from './modules/management/pages/users-profile/users-profile.component';
-import { UsersRegisterComponent } from './modules/management/pages/users-register/users-register.component';
-import { UsersComponent } from './modules/management/pages/users/users.component';
-import { TriagesRegisterComponent } from './modules/triage/pages/triages-register/triages-register.component';
-import { TriagesComponent } from './modules/triage/pages/triages/triages.component';
+import { AttendanceFileRegisterComponent } from './modules/medical-care/pages/attendance/attendance-file-register/attendance-file-register.component';
+import { AttendanceRegisterComponent } from './modules/medical-care/pages/attendance/attendance-register/attendance-register.component';
+import { AttendanceComponent } from './modules/medical-care/pages/attendance/attendance/attendance.component';
+import { PatientRegisterComponent } from './modules/medical-care/pages/patient/patient-register/patient-register.component';
+import { PatientComponent } from './modules/medical-care/pages/patient/patient/patient.component';
+import { WaitingRoomComponent } from './modules/medical-care/pages/reception/waiting-room/waiting-room.component';
+import { TriageRegisterComponent } from './modules/medical-care/pages/triage/triage-register/triage-register.component';
+import { TriageComponent } from './modules/medical-care/pages/triage/triage/triage.component';
 
 const routes: Routes = [
   {
@@ -31,15 +31,15 @@ const routes: Routes = [
   },
   {
     path: 'usuarios',
-    component: UsersComponent,
+    component: UserComponent,
   },
   {
     path: 'usuario/novo',
-    component: UsersRegisterComponent,
+    component: UserRegisterComponent,
   },
   {
     path: 'perfil',
-    component: UsersProfileComponent,
+    component: UserProfileComponent,
   },
   {
     path: 'pacientes',
@@ -67,11 +67,11 @@ const routes: Routes = [
   },
   {
     path: 'triagem',
-    component: TriagesComponent,
+    component: TriageComponent,
   },
   {
     path: 'triagem/nova',
-    component: TriagesRegisterComponent,
+    component: TriageRegisterComponent,
   },
 ];
 
