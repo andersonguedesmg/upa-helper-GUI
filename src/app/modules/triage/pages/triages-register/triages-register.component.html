@@ -9,51 +9,234 @@
 <div class="container">
   <mat-card class="mat-elevation-z8">
     <div class="row form-first-row">
-      <div class="col-4"><h3>Ficha de atendimento ambulatórial</h3></div>
-      <div class="col-4"><h3>Atendimento: 007</h3></div>
-      <div class="col-4">
-        <h3>Data/Horário de Chegada: 16/08/2021 - 11h11min</h3>
+      <div class="col-10"><h2>Ficha de Atendimento Ambulatórial</h2></div>
+      <div class="col-2">
+        <p>Atendimento: <b>007</b></p>
       </div>
     </div>
     <div class="row">
-      <div class="col-12"><p>Nome: Bart Simpson</p></div>
+      <div class="col-12">
+        <p>Data/Horário de Chegada: <b>16/08/2021 - 11h11min</b></p>
+      </div>
+    </div>
+    <div class="row" style="margin-top: 5px">
+      <div class="col-12">
+        <p>Nome: <b>Bart Simpson</b></p>
+      </div>
     </div>
     <div class="row">
-      <div class="col-3"><p>Nascimento: 01/04/1981</p></div>
-      <div class="col-3"><p>Idade: 10 anos</p></div>
-      <div class="col-3"><p>Sexo: Masculino</p></div>
-      <div class="col-3"><p>Cor ou Raça/Etnia: Amarelo</p></div>
+      <div class="col-3">
+        <p>Nascimento: <b>01/04/1981</b></p>
+      </div>
+      <div class="col-3">
+        <p>Idade: <b>10 anos</b></p>
+      </div>
+      <div class="col-3">
+        <p>Sexo: <b>Masculino</b></p>
+      </div>
+      <div class="col-3">
+        <p>Cor ou Raça/Etnia: <b>Amarelo</b></p>
+      </div>
     </div>
 
     <div class="row">
-      <div class="col-4"><p>RG: 00.000.000-0</p></div>
-      <div class="col-4"><p>CPF: 000.000.000-00</p></div>
-      <div class="col-4"><p>CNS: 00000000000000</p></div>
+      <div class="col-6">
+        <p>Pai: <b>Homer Simpson</b></p>
+      </div>
+      <div class="col-6">
+        <p>Mãe: <b>Marge Simpson</b></p>
+      </div>
     </div>
 
-    <div class="row">
-      <div class="col-6"><p>Pai: Homer Simpson</p></div>
-      <div class="col-6"><p>Mãe: Marge Simpson</p></div>
+    <div class="row" style="margin-top: 5px">
+      <div class="col-4">
+        <p>RG: <b>00.000.000-0</b></p>
+      </div>
+      <div class="col-4">
+        <p>CPF: <b>000.000.000-00</b></p>
+      </div>
+      <div class="col-4">
+        <p>CNS: <b>00000000000000</b></p>
+      </div>
     </div>
 
-    <div class="row">
-      <div class="col-6"><p>Endereço: Evergreen Terrace</p></div>
-      <div class="col-6"><p>Número: 742</p></div>
+    <div class="row" style="margin-top: 5px">
+      <div class="col-6">
+        <p>Endereço: <b>Evergreen Terrace</b></p>
+      </div>
+      <div class="col-6">
+        <p>Número: <b>742</b></p>
+      </div>
     </div>
     <div class="row">
-      <div class="col-5"><p>Bairro:</p></div>
-      <div class="col-5"><p>Cidade: Springfield</p></div>
-      <div class="col-2"><p>Estado:</p></div>
+      <div class="col-5">
+        <p>Bairro: <b></b></p>
+      </div>
+      <div class="col-5">
+        <p>Cidade: <b>Springfield</b></p>
+      </div>
+      <div class="col-2">
+        <p>Estado: <b></b></p>
+      </div>
     </div>
-    <div class="row">
-      <div class="col-6"><p>Dados da Recepção:</p></div>
+
+    <div class="row" style="margin-top: 5px">
+      <div class="col-6">
+        <p>Dados da Recepção: <b>Ay, Caramba!</b></p>
+      </div>
     </div>
 
     <mat-divider></mat-divider>
 
-    <div class="row">
-      <div class="col-6"></div>
-      <div class="col-6"></div>
+    <div class="row" style="margin-top: 15px">
+      <div class="col-8">
+        <div class="row">
+          <div class="col-6">
+            <mat-form-field class="form-field-full-width" appearance="fill">
+              <mat-label>Informações pré-consulta</mat-label>
+              <textarea matInput></textarea>
+            </mat-form-field>
+          </div>
+          <div class="col-6">
+            <mat-form-field class="form-field-full-width" appearance="fill">
+              <mat-label>Medicamentos em uso</mat-label>
+              <textarea matInput></textarea>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <label>Hipertensão:</label>
+            <mat-radio-group>
+              <mat-radio-button value="1">Sim</mat-radio-button>
+              <mat-radio-button value="2">Nao</mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <div class="col-4">
+            <label>Diabetes:</label>
+            <mat-radio-group>
+              <mat-radio-button value="1">Sim</mat-radio-button>
+              <mat-radio-button value="2">Nao</mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <div class="col-4">
+            <label>Fumante:</label>
+            <mat-radio-group>
+              <mat-radio-button value="1">Sim</mat-radio-button>
+              <mat-radio-button value="2">Nao</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <label>Cancer:</label>
+            <mat-radio-group>
+              <mat-radio-button value="1">Sim</mat-radio-button>
+              <mat-radio-button value="2">Nao</mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <div class="col-4">
+            <label>Transplantado:</label>
+            <mat-radio-group>
+              <mat-radio-button value="1">Sim</mat-radio-button>
+              <mat-radio-button value="2">Nao</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+        <div class="row" style="margin-top: 15px">
+          <div class="col-3">
+            <mat-form-field class="form-field-full-width" appearance="fill">
+              <mat-label>P.A.</mat-label>
+              <input matInput />
+            </mat-form-field>
+          </div>
+          <div class="col-3">
+            <mat-form-field class="form-field-full-width" appearance="fill">
+              <mat-label>Temperatura</mat-label>
+              <input matInput />
+            </mat-form-field>
+          </div>
+          <div class="col-3">
+            <mat-form-field class="form-field-full-width" appearance="fill">
+              <mat-label>Sat O2</mat-label>
+              <input matInput />
+            </mat-form-field>
+          </div>
+          <div class="col-3">
+            <mat-form-field class="form-field-full-width" appearance="fill">
+              <mat-label>Glicemia Capilar</mat-label>
+              <input matInput />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">
+            <mat-form-field class="form-field-full-width" appearance="fill">
+              <mat-label>Pulso</mat-label>
+              <input matInput />
+            </mat-form-field>
+          </div>
+          <div class="col-3">
+            <mat-form-field class="form-field-full-width" appearance="fill">
+              <mat-label>Freq. Respiratória</mat-label>
+              <input matInput />
+            </mat-form-field>
+          </div>
+          <div class="col-3">
+            <mat-form-field class="form-field-full-width" appearance="fill">
+              <mat-label>Peso</mat-label>
+              <input matInput />
+            </mat-form-field>
+          </div>
+          <div class="col-3">
+            <mat-form-field class="form-field-full-width" appearance="fill">
+              <mat-label>Altura</mat-label>
+              <input matInput />
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="row">
+          <mat-form-field class="form-field-full-width" appearance="fill">
+            <mat-label>Classificação de Risco</mat-label>
+            <mat-select>
+              <mat-option value="0">Alto</mat-option>
+              <mat-option value="1">Baixo</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field class="form-field-full-width" appearance="fill">
+            <mat-label>Dor</mat-label>
+            <mat-select>
+              <mat-option value="0">Alta</mat-option>
+              <mat-option value="1">Baixa</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <button
+              mat-raised-button
+              [routerLink]="'/atendimento/novo'"
+              class="btn-clean"
+              matTooltip="Cancelar Atendimento"
+            >
+              Cancelar
+            </button>
+          </div>
+          <div class="col-6">
+            <button
+              mat-raised-button
+              class="btn-new"
+              matTooltip="Salvar Triagem"
+            >
+              Salvar
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </mat-card>
 </div>
