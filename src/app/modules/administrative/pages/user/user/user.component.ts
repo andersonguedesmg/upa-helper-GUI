@@ -1,14 +1,9 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-export interface UserData {
-  id: string;
-  name: string;
-  occupation: string;
-  cell: string;
-  date: string;
-}
+import User from '../../../models/user.model';
+import { UserService } from '../../../services/user.service';
 
 const OCCUPATION: string[] = [
   'Médico(a)',
@@ -17,46 +12,30 @@ const OCCUPATION: string[] = [
   'Técnico em Radiologia',
   'Assistente Administrativo',
 ];
-const NAMES: string[] = [
-  'Maia',
-  'Asher',
-  'Olivia',
-  'Atticus',
-  'Amelia',
-  'Jack',
-  'Charlotte',
-  'Theodore',
-  'Isla',
-  'Oliver',
-  'Isabella',
-  'Jasper',
-  'Cora',
-  'Levi',
-  'Violet',
-  'Arthur',
-  'Mia',
-  'Thomas',
-  'Elizabeth',
-];
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss'],
 })
-export class UserComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'name', 'occupation', 'cell', 'date'];
-  dataSource: MatTableDataSource<UserData>;
+export class UserComponent implements OnInit {
+  displayedColumns: string[] = ['id', 'name', 'userType', 'cell', 'createdAt'];
+  listUser: User[] = [];
+  dataSource = new MatTableDataSource<User>(this.listUser);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor() {
-    // Create 100 users
-    const users = Array.from({ length: 100 }, (_, k) => createNewUser(k + 1));
+  constructor(public userService: UserService) {}
 
-    // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(users);
+  ngOnInit(): void {
+    this.getUsers();
+  }
+
+  getUsers() {
+    this.userService.getUsers().subscribe((response) => {
+      this.dataSource.data = response as User[];
+    });
   }
 
   ngAfterViewInit() {
@@ -72,21 +51,4 @@ export class UserComponent implements AfterViewInit {
       this.dataSource.paginator.firstPage();
     }
   }
-}
-
-function createNewUser(id: number): UserData {
-  const name =
-    NAMES[Math.round(Math.random() * (NAMES.length - 1))] +
-    ' ' +
-    NAMES[Math.round(Math.random() * (NAMES.length - 1))];
-
-  const value = Math.round(Math.random() * 100).toString();
-
-  return {
-    id: id.toString(),
-    name: name,
-    occupation: OCCUPATION[Math.round(Math.random() * (OCCUPATION.length - 1))],
-    cell: '(' + value + ') 9' + value + value + '-' + value + value,
-    date: value + '/' + value + '/' + value + value,
-  };
 }

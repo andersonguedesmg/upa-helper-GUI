@@ -48,9 +48,9 @@
             <td mat-cell *matCellDef="let row">{{ row.name }}</td>
           </ng-container>
 
-          <ng-container matColumnDef="occupation">
+          <ng-container matColumnDef="userType">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Função</th>
-            <td mat-cell *matCellDef="let row">{{ row.occupation }}</td>
+            <td mat-cell *matCellDef="let row">{{ row.userType }}</td>
           </ng-container>
 
           <ng-container matColumnDef="cell">
@@ -58,11 +58,11 @@
             <td mat-cell *matCellDef="let row">{{ row.cell }}</td>
           </ng-container>
 
-          <ng-container matColumnDef="date">
+          <ng-container matColumnDef="createdAt">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>
               Contratação
             </th>
-            <td mat-cell *matCellDef="let row">{{ row.date }}</td>
+            <td mat-cell *matCellDef="let row">{{ row.createdAt }}</td>
           </ng-container>
 
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
