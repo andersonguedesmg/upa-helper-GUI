@@ -5,14 +5,6 @@ import { MatTableDataSource } from '@angular/material/table';
 import User from '../../../models/user.model';
 import { UserService } from '../../../services/user.service';
 
-const OCCUPATION: string[] = [
-  'Médico(a)',
-  'Enfermeiro(a)',
-  'Técnico de Enfermagem',
-  'Técnico em Radiologia',
-  'Assistente Administrativo',
-];
-
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',

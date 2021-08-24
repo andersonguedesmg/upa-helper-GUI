@@ -82,48 +82,50 @@
 
     <mat-divider></mat-divider>
 
-    <div class="row" style="margin-top: 15px">
-      <div class="col-8">
-        <mat-form-field class="form-field-full-width" appearance="fill">
-          <mat-label>Dados da Recepção</mat-label>
-          <textarea matInput></textarea>
-        </mat-form-field>
-      </div>
-      <div class="col-4">
-        <div class="row">
-          <div class="col-6">
-            <button
-              mat-raised-button
-              class="btn-new"
-              matTooltip="Cadastrar Atendimento"
-            >
-              Salvar
-            </button>
+    <form [formGroup]="form">
+      <div class="row" style="margin-top: 15px">
+        <div class="col-8">
+          <mat-form-field class="form-field-full-width" appearance="fill">
+            <mat-label>Dados da Recepção</mat-label>
+            <textarea matInput [formControl]="receptionInformation"></textarea>
+          </mat-form-field>
+        </div>
+        <div class="col-4">
+          <div class="row">
+            <div class="col-6">
+              <button
+                mat-raised-button
+                class="btn-new"
+                matTooltip="Cadastrar Atendimento"
+              >
+                Salvar
+              </button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <button
+                mat-raised-button
+                [routerLink]="'/atendimento/novo'"
+                class="btn-clean"
+                matTooltip="Cancelar Atendimento"
+              >
+                Cancelar
+              </button>
+            </div>
+            <div class="col-6">
+              <button
+                mat-raised-button
+                class="btn-new"
+                [routerLink]="'/paciente/novo'"
+                matTooltip="Atualizar Paciente"
+              >
+                Atualizar
+              </button>
+            </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-6">
-            <button
-              mat-raised-button
-              [routerLink]="'/atendimento/novo'"
-              class="btn-clean"
-              matTooltip="Cancelar Atendimento"
-            >
-              Cancelar
-            </button>
-          </div>
-          <div class="col-6">
-            <button
-              mat-raised-button
-              class="btn-new"
-              [routerLink]="'/paciente/novo'"
-              matTooltip="Atualizar Paciente"
-            >
-              Atualizar
-            </button>
-          </div>
-        </div>
       </div>
-    </div>
+    </form>
   </mat-card>
 </div>

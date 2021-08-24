@@ -7,18 +7,18 @@
 </div>
 <div class="container">
   <mat-card class="mat-elevation-z8">
-    <form>
+    <form [formGroup]="form">
       <div class="row form-first-row">
         <div class="col-6">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>Nome</mat-label>
-            <input matInput />
+            <input matInput [formControl]="name" />
           </mat-form-field>
         </div>
         <div class="col-6">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>Nome Social</mat-label>
-            <input matInput />
+            <input matInput [formControl]="socialName" />
           </mat-form-field>
         </div>
       </div>
@@ -37,21 +37,21 @@
         <div class="col-4">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>Sexo</mat-label>
-            <mat-select>
-              <mat-option value="M">Masculino</mat-option>
-              <mat-option value="F">Feminino</mat-option>
+            <mat-select [formControl]="gender">
+              <mat-option value="1">Masculino</mat-option>
+              <mat-option value="2">Feminino</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
         <div class="col-4">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>Cor ou Raça/Etnia</mat-label>
-            <mat-select>
-              <mat-option value="M">Branca</mat-option>
-              <mat-option value="F">Preta</mat-option>
-              <mat-option value="F">Parda</mat-option>
-              <mat-option value="F">Indígena</mat-option>
-              <mat-option value="F">Amarela</mat-option>
+            <mat-select [formControl]="ethnicity">
+              <mat-option value="1">Branca</mat-option>
+              <mat-option value="2">Preta</mat-option>
+              <mat-option value="3">Parda</mat-option>
+              <mat-option value="4">Indígena</mat-option>
+              <mat-option value="5">Amarela</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
@@ -60,19 +60,19 @@
         <div class="col-4">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>CNS</mat-label>
-            <input matInput />
+            <input matInput [formControl]="cns" />
           </mat-form-field>
         </div>
         <div class="col-4">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>RG</mat-label>
-            <input matInput />
+            <input matInput [formControl]="rg" />
           </mat-form-field>
         </div>
         <div class="col-4">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>CPF</mat-label>
-            <input matInput />
+            <input matInput [formControl]="cpf" />
           </mat-form-field>
         </div>
       </div>
@@ -80,19 +80,19 @@
         <div class="col-4">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>CEP</mat-label>
-            <input matInput />
+            <input matInput [formControl]="zipCode" />
           </mat-form-field>
         </div>
         <div class="col-6">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>Logradouro</mat-label>
-            <input matInput />
+            <input matInput [formControl]="address" />
           </mat-form-field>
         </div>
         <div class="col-2">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>Número</mat-label>
-            <input matInput />
+            <input matInput [formControl]="number" />
           </mat-form-field>
         </div>
       </div>
@@ -100,19 +100,19 @@
         <div class="col-4">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>Bairro</mat-label>
-            <input matInput />
+            <input matInput [formControl]="neighborhood" />
           </mat-form-field>
         </div>
         <div class="col-6">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>Cidade</mat-label>
-            <input matInput />
+            <input matInput [formControl]="city" />
           </mat-form-field>
         </div>
         <div class="col-2">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>Estado</mat-label>
-            <input matInput />
+            <input matInput [formControl]="state" />
           </mat-form-field>
         </div>
       </div>
@@ -120,19 +120,19 @@
         <div class="col-4">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>Complemento</mat-label>
-            <input matInput />
+            <input matInput [formControl]="complement" />
           </mat-form-field>
         </div>
         <div class="col-4">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>Celular</mat-label>
-            <input matInput />
+            <input matInput [formControl]="cell" />
           </mat-form-field>
         </div>
         <div class="col-4">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>Telefone</mat-label>
-            <input matInput />
+            <input matInput [formControl]="telephone" />
           </mat-form-field>
         </div>
       </div>
@@ -140,13 +140,13 @@
         <div class="col-6">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>Nome do Pai</mat-label>
-            <input matInput />
+            <input matInput [formControl]="fatherName" />
           </mat-form-field>
         </div>
         <div class="col-6">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>Nome da Mãe</mat-label>
-            <input matInput />
+            <input matInput [formControl]="motherName" />
           </mat-form-field>
         </div>
       </div>

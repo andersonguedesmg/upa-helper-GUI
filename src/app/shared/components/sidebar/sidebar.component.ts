@@ -74,11 +74,6 @@ export class SidebarComponent implements OnInit {
       iconName: 'local_hospital',
       children: [
         {
-          displayName: 'Nova',
-          iconName: 'add_circle',
-          route: '/',
-        },
-        {
           displayName: 'Todas',
           iconName: 'source',
           route: '/triagem',
