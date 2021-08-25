@@ -47,7 +47,7 @@ const NAMES: string[] = [
   styleUrls: ['./waiting-room.component.scss'],
 })
 export class WaitingRoomComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'name', 'age', 'arrival', 'status'];
+  displayedColumns: string[] = ['name', 'age', 'arrival', 'status'];
   dataSource: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

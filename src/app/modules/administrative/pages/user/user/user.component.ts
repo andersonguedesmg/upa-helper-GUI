@@ -11,7 +11,7 @@ import { UserService } from '../../../services/user.service';
   styleUrls: ['./user.component.scss'],
 })
 export class UserComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'name', 'userType', 'cell', 'createdAt'];
+  displayedColumns: string[] = ['name', 'userType', 'cell', 'actions'];
   listUser: User[] = [];
   dataSource = new MatTableDataSource<User>(this.listUser);
 

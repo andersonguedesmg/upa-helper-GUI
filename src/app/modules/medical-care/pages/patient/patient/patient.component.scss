@@ -1,15 +1,6 @@
-table {
-  width: 100%;
-}
-
+table,
 .mat-form-field {
-  font-size: 14px;
   width: 100%;
-}
-
-td,
-th {
-  width: 25%;
 }
 
 .mat-elevation-z8 {
@@ -18,4 +9,45 @@ th {
 
 .header__title {
   margin-top: 14px;
+}
+
+.mat-column-name,
+.mat-column-cpf,
+.mat-column-cns,
+.mat-column-birthday,
+.mat-column-actions {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.mat-column-name {
+  flex: 0 0 40% !important;
+  width: 40% !important;
+}
+
+.mat-column-cpf {
+  flex: 0 0 10% !important;
+  width: 10% !important;
+}
+
+.mat-column-cns {
+  flex: 0 0 10% !important;
+  width: 10% !important;
+}
+
+.mat-column-birthday {
+  flex: 0 0 8% !important;
+  width: 8% !important;
+}
+
+.mat-column-actions {
+  flex: 0 0 10% !important;
+  width: 10% !important;
 }

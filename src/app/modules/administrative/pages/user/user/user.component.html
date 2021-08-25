@@ -38,11 +38,6 @@
     <div class="col">
       <div class="mat-elevation-z8">
         <table mat-table [dataSource]="dataSource" matSort>
-          <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
-            <td mat-cell *matCellDef="let row">{{ row.id }}</td>
-          </ng-container>
-
           <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Nome</th>
             <td mat-cell *matCellDef="let row">{{ row.name }}</td>
@@ -58,11 +53,13 @@
             <td mat-cell *matCellDef="let row">{{ row.cell }}</td>
           </ng-container>
 
-          <ng-container matColumnDef="createdAt">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>
-              Contratação
-            </th>
-            <td mat-cell *matCellDef="let row">{{ row.createdAt }}</td>
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Ações</th>
+            <td mat-cell *matCellDef="let row">
+              <mat-icon>account_circle</mat-icon>
+              <mat-icon>edit</mat-icon>
+              <mat-icon>delete_outline</mat-icon>
+            </td>
           </ng-container>
 
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

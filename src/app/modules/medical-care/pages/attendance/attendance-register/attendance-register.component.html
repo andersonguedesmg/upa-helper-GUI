@@ -31,13 +31,8 @@
     <div class="col">
       <div class="mat-elevation-z8">
         <table mat-table [dataSource]="dataSource" matSort>
-          <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
-            <td mat-cell *matCellDef="let row">{{ row.id }}</td>
-          </ng-container>
-
           <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Nome</th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Paciente</th>
             <td mat-cell *matCellDef="let row">{{ row.name }}</td>
           </ng-container>
 
@@ -64,7 +59,7 @@
               <mat-icon
                 [routerLink]="'/atendimento/ficha'"
                 matTooltip="Nova Ficha"
-                >visibility</mat-icon
+                >add_box</mat-icon
               >
             </td>
           </ng-container>
@@ -79,7 +74,7 @@
           </tr>
         </table>
 
-        <mat-paginator [pageSizeOptions]="[10, 50, 25, 100]"></mat-paginator>
+        <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]"></mat-paginator>
       </div>
     </div>
   </div>

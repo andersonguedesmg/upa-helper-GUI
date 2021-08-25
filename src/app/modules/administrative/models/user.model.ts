@@ -17,7 +17,6 @@ class User {
   cell: string;
   userType: number;
   isActive: boolean;
-  createdAt: string;
 
   constructor() {
     this.id = 0;
@@ -38,7 +37,6 @@ class User {
     this.cell = '';
     this.userType = 0;
     this.isActive = true;
-    this.createdAt = '';
   }
 }
 

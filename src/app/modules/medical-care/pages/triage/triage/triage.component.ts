@@ -11,7 +11,7 @@ import { TriageService } from '../../../services/triage.service';
   styleUrls: ['./triage.component.scss'],
 })
 export class TriageComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'name', 'cpf', 'cns', 'date', 'actions'];
+  displayedColumns: string[] = ['name', 'cpf', 'cns', 'date', 'actions'];
   triageList: Triage[] = [];
   dataSource = new MatTableDataSource<Triage>(this.triageList);
 

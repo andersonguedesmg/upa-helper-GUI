@@ -39,7 +39,7 @@ const NAMES: string[] = [
   styleUrls: ['./attendance-register.component.scss'],
 })
 export class AttendanceRegisterComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'name', 'cpf', 'cns', 'date', 'actions'];
+  displayedColumns: string[] = ['name', 'cpf', 'cns', 'date', 'actions'];
   dataSource: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

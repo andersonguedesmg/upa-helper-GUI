@@ -11,7 +11,7 @@ import { AttendanceService } from '../../../services/attendance.service';
   styleUrls: ['./attendance.component.scss'],
 })
 export class AttendanceComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'name', 'age', 'arrivalDate', 'status'];
+  displayedColumns: string[] = ['name', 'age', 'arrivalDate', 'actions'];
   attendanceList: Attendance[] = [];
   dataSource = new MatTableDataSource<Attendance>(this.attendanceList);
 
