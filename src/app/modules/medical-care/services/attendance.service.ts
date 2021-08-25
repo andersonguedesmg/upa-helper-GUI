@@ -13,6 +13,10 @@ export class AttendanceService {
     return this.http.get<Attendance[]>(environment.baseApiUrl + 'attendances');
   }
 
+  public getAttendancesForTable() {
+    return this.http.get<Attendance[]>(environment.baseApiUrl + 'attendances/table');
+  }
+
   public addAttendance(attendance: Attendance) {
     return this.http.post(environment.baseApiUrl + 'attendances', attendance);
   }

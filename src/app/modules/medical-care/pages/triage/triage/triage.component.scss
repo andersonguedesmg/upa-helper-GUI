@@ -1,15 +1,6 @@
-table {
-  width: 100%;
-}
-
+table,
 .mat-form-field {
-  font-size: 14px;
   width: 100%;
-}
-
-td,
-th {
-  width: 25%;
 }
 
 .mat-elevation-z8 {
@@ -18,4 +9,45 @@ th {
 
 .header__title {
   margin-top: 14px;
+}
+
+.mat-column-id,
+.mat-column-patientName,
+.mat-column-patientAge,
+.mat-column-date,
+.mat-column-actions {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.mat-column-id {
+  flex: 0 0 11% !important;
+  width: 11% !important;
+}
+
+.mat-column-patientName {
+  flex: 0 0 55% !important;
+  width: 55% !important;
+}
+
+.mat-column-patientAge {
+  flex: 0 0 12% !important;
+  width: 12% !important;
+}
+
+.mat-column-date {
+  flex: 0 0 15% !important;
+  width: 15% !important;
+}
+
+.mat-column-actions {
+  flex: 0 0 8% !important;
+  width: 8% !important;
 }

@@ -11,7 +11,12 @@ import { AttendanceService } from '../../../services/attendance.service';
   styleUrls: ['./attendance.component.scss'],
 })
 export class AttendanceComponent implements AfterViewInit {
-  displayedColumns: string[] = ['name', 'age', 'arrivalDate', 'actions'];
+  displayedColumns: string[] = [
+    'patientName',
+    'patientAge',
+    'date',
+    'actions',
+  ];
   attendanceList: Attendance[] = [];
   dataSource = new MatTableDataSource<Attendance>(this.attendanceList);
 
@@ -21,11 +26,11 @@ export class AttendanceComponent implements AfterViewInit {
   constructor(public attendanceService: AttendanceService) {}
 
   ngOnInit(): void {
-    this.getAttendances();
+    this.getAttendancesForTable();
   }
 
-  getAttendances() {
-    this.attendanceService.getAttendances().subscribe((response) => {
+  getAttendancesForTable() {
+    this.attendanceService.getAttendancesForTable().subscribe((response) => {
       this.dataSource.data = response as Attendance[];
     });
   }

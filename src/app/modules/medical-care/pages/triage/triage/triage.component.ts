@@ -2,7 +2,9 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import Attendance from '../../../models/attendance.model';
 import Triage from '../../../models/triage.model';
+import { AttendanceService } from '../../../services/attendance.service';
 import { TriageService } from '../../../services/triage.service';
 
 @Component({
@@ -11,22 +13,31 @@ import { TriageService } from '../../../services/triage.service';
   styleUrls: ['./triage.component.scss'],
 })
 export class TriageComponent implements AfterViewInit {
-  displayedColumns: string[] = ['name', 'cpf', 'cns', 'date', 'actions'];
-  triageList: Triage[] = [];
-  dataSource = new MatTableDataSource<Triage>(this.triageList);
+  displayedColumns: string[] = [
+    'id',
+    'patientName',
+    'patientAge',
+    'date',
+    'actions',
+  ];
+  attendanceList: Attendance[] = [];
+  dataSource = new MatTableDataSource<Attendance>(this.attendanceList);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(public triageService: TriageService) {}
+  constructor(
+    public triageService: TriageService,
+    public attendanceService: AttendanceService
+  ) {}
 
   ngOnInit(): void {
-    this.getTriages();
+    this.getAttendancesForTable();
   }
 
-  getTriages() {
-    this.triageService.getTriages().subscribe((response) => {
-      this.dataSource.data = response as Triage[];
+  getAttendancesForTable() {
+    this.attendanceService.getAttendancesForTable().subscribe((response) => {
+      this.dataSource.data = response as Attendance[];
     });
   }
 

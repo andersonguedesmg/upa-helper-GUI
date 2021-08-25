@@ -14,7 +14,7 @@ table,
 .mat-column-name,
 .mat-column-cpf,
 .mat-column-cns,
-.mat-column-date,
+.mat-column-birthday,
 .mat-column-actions {
   word-wrap: break-word !important;
   white-space: unset !important;
@@ -33,18 +33,18 @@ table,
 }
 
 .mat-column-cpf {
-  flex: 0 0 12% !important;
-  width: 12% !important;
+  flex: 0 0 10% !important;
+  width: 10% !important;
 }
 
 .mat-column-cns {
-  flex: 0 0 12% !important;
-  width: 12% !important;
+  flex: 0 0 10.5% !important;
+  width: 10.5% !important;
 }
 
-.mat-column-date {
-  flex: 0 0 10% !important;
-  width: 10% !important;
+.mat-column-birthday {
+  flex: 0 0 8% !important;
+  width: 8% !important;
 }
 
 .mat-column-actions {

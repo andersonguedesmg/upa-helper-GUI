@@ -11,8 +11,8 @@ table,
   margin-top: 14px;
 }
 
-.mat-column-name,
-.mat-column-age,
+.mat-column-patientName,
+.mat-column-patientAge,
 .mat-column-arrivalDate,
 .mat-column-actions {
   word-wrap: break-word !important;
@@ -26,12 +26,12 @@ table,
   hyphens: auto;
 }
 
-.mat-column-name {
+.mat-column-patientName {
   flex: 0 0 60% !important;
   width: 60% !important;
 }
 
-.mat-column-age {
+.mat-column-patientAge {
   flex: 0 0 12% !important;
   width: 12% !important;
 }
