@@ -13,6 +13,10 @@ export class UserService {
     return this.http.get<User[]>(environment.baseApiUrl + 'users');
   }
 
+  public getUsersForTable() {
+    return this.http.get<User[]>(environment.baseApiUrl + 'users/table');
+  }
+
   public addUser(user: User) {
     return this.http.post(environment.baseApiUrl + 'users', user);
   }

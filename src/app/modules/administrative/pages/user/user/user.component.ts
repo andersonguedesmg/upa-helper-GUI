@@ -21,11 +21,11 @@ export class UserComponent implements OnInit {
   constructor(public userService: UserService) {}
 
   ngOnInit(): void {
-    this.getUsers();
+    this.getUsersForTable();
   }
 
-  getUsers() {
-    this.userService.getUsers().subscribe((response) => {
+  getUsersForTable() {
+    this.userService.getUsersForTable().subscribe((response) => {
       this.dataSource.data = response as User[];
     });
   }
