@@ -10,6 +10,8 @@ import { SharedModule } from './shared/shared.module';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { AdministrativeModule } from './modules/administrative/administrative.module';
 import { MedicalCareModule } from './modules/medical-care/medical-care.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { InterceptorService } from './shared/services/interceptor.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,7 +27,9 @@ import { MedicalCareModule } from './modules/medical-care/medical-care.module';
     SharedModule,
     NgSelectModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

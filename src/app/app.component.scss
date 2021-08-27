@@ -13,3 +13,12 @@
   width: 220px;
   background: #f5f5f5;
 }
+
+.loader-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: black;
+  opacity: 0.8;
+  z-index: 99;
+}
