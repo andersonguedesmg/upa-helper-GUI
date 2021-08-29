@@ -10,83 +10,83 @@ import { PatientService } from '../../../services/patient.service';
 export class PatientRegisterComponent implements OnInit {
   public form: FormGroup;
   public name = this.fb.control('', {
-    validators: [Validators.required, Validators.maxLength(128)],
+    validators: [Validators.required, Validators.maxLength(255)],
     updateOn: 'blur',
   });
   public socialName = this.fb.control('', {
-    validators: [Validators.required, Validators.maxLength(100)],
+    validators: [Validators.maxLength(255)],
     updateOn: 'blur',
   });
   public birthday = this.fb.control('', {
-    validators: [Validators.maxLength(256)],
+    validators: [Validators.required],
     updateOn: 'blur',
   });
   public rg = this.fb.control('', {
-    validators: [Validators.required],
+    validators: [Validators.maxLength(15)],
     updateOn: 'blur',
   });
   public cpf = this.fb.control('', {
-    validators: [Validators.required],
+    validators: [Validators.required, Validators.maxLength(14)],
     updateOn: 'blur',
   });
   public cns = this.fb.control('', {
-    validators: [Validators.required, Validators.maxLength(100)],
+    validators: [Validators.maxLength(15)],
     updateOn: 'blur',
   });
   public zipCode = this.fb.control('', {
-    validators: [Validators.required],
+    validators: [Validators.maxLength(9)],
     updateOn: 'blur',
   });
   public address = this.fb.control('', {
-    validators: [Validators.required],
+    validators: [Validators.required, Validators.maxLength(255)],
     updateOn: 'blur',
   });
   public number = this.fb.control('', {
-    validators: [Validators.required],
+    validators: [Validators.required, Validators.maxLength(20)],
     updateOn: 'blur',
   });
   public neighborhood = this.fb.control('', {
-    validators: [Validators.required],
+    validators: [Validators.required, Validators.maxLength(255)],
     updateOn: 'blur',
   });
   public city = this.fb.control('', {
-    validators: [Validators.required],
+    validators: [Validators.required, Validators.maxLength(100)],
     updateOn: 'blur',
   });
   public state = this.fb.control('', {
-    validators: [Validators.required],
+    validators: [Validators.required, Validators.maxLength(25)],
     updateOn: 'blur',
   });
   public complement = this.fb.control('', {
-    validators: [],
+    validators: [Validators.maxLength(255)],
     updateOn: 'blur',
   });
   public telephone = this.fb.control('', {
-    validators: [Validators.required],
+    validators: [Validators.maxLength(13)],
     updateOn: 'blur',
   });
   public cell = this.fb.control('', {
-    validators: [Validators.required],
+    validators: [Validators.maxLength(14)],
     updateOn: 'blur',
   });
   public fatherName = this.fb.control('', {
-    validators: [Validators.required, Validators.maxLength(100)],
+    validators: [Validators.maxLength(255)],
     updateOn: 'blur',
   });
   public motherName = this.fb.control('', {
-    validators: [Validators.required, Validators.maxLength(100)],
+    validators: [Validators.required, Validators.maxLength(255)],
     updateOn: 'blur',
   });
   public ethnicity = this.fb.control('', {
-    validators: [Validators.required, Validators.maxLength(100)],
+    validators: [],
     updateOn: 'blur',
   });
   public gender = this.fb.control('', {
-    validators: [Validators.required, Validators.maxLength(100)],
+    validators: [],
     updateOn: 'blur',
   });
 
-  constructor(public userService: PatientService, private fb: FormBuilder) {
+  constructor(public patientService: PatientService, private fb: FormBuilder) {
     this.form = this.fb.group({
       name: this.name,
       socialName: this.socialName,
@@ -103,10 +103,27 @@ export class PatientRegisterComponent implements OnInit {
       complement: this.complement,
       telephone: this.telephone,
       cell: this.cell,
+      fatherName: this.fatherName,
+      motherName: this.motherName,
       ethnicity: this.ethnicity,
       gender: this.gender,
+      isActive: true,
     });
   }
 
   ngOnInit(): void {}
+
+  saveNewPatient() {
+    if (this.form.valid) {
+      var request = this.form.value;
+      this.patientService.addPatient(request).subscribe(() => {
+        location.reload();
+        this.clearForm();
+      });
+    }
+  }
+
+  clearForm() {
+    this.form.reset();
+  }
 }

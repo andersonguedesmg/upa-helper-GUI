@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, throwError } from 'rxjs';
+import { catchError, take } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import User from '../models/user.model';
 
@@ -9,23 +11,38 @@ import User from '../models/user.model';
 export class UserService {
   constructor(private http: HttpClient) {}
 
-  public getUsers() {
-    return this.http.get<User[]>(environment.baseApiUrl + 'users');
+  protected handleError(error: any): Observable<any> {
+    console.error('Erro =>', error);
+    return throwError(error.error.message);
   }
 
-  public getUsersForTable() {
-    return this.http.get<User[]>(environment.baseApiUrl + 'users/table');
+  public getUsers(): Observable<User[]> {
+    return this.http
+      .get<User[]>(environment.baseApiUrl + 'users')
+      .pipe(catchError(this.handleError), take(1));
   }
 
-  public addUser(user: User) {
-    return this.http.post(environment.baseApiUrl + 'users', user);
+  public getUsersForTable(): Observable<User[]> {
+    return this.http
+      .get<User[]>(environment.baseApiUrl + 'users/table')
+      .pipe(catchError(this.handleError), take(1));
+  }
+
+  public addUser(user: User): Observable<User[]> {
+    return this.http
+      .post(environment.baseApiUrl + 'auth/signup', user)
+      .pipe(catchError(this.handleError), take(1));
   }
 
   public getUserById(id: number) {
-    return this.http.get(environment.baseApiUrl + 'users/' + id);
+    return this.http
+      .get(environment.baseApiUrl + 'users/' + id)
+      .pipe(catchError(this.handleError), take(1));
   }
 
   public updateUser(id: number, user: User) {
-    return this.http.put(environment.baseApiUrl + 'users/' + id, user);
+    return this.http
+      .put(environment.baseApiUrl + 'users/' + id, user)
+      .pipe(catchError(this.handleError), take(1));
   }
 }
