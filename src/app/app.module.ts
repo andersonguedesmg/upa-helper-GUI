@@ -12,6 +12,7 @@ import { AdministrativeModule } from './modules/administrative/administrative.mo
 import { MedicalCareModule } from './modules/medical-care/medical-care.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './shared/services/interceptor.service';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +27,7 @@ import { InterceptorService } from './shared/services/interceptor.service';
     MedicalCareModule,
     SharedModule,
     NgSelectModule,
+    NgxMaskModule.forRoot({ dropSpecialCharacters: false }),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },

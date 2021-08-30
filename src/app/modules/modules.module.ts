@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { AngularMaterialModule } from '../shared/angular-material/angular-material.module';
 import { SharedModule } from '../shared/shared.module';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [],
@@ -18,6 +19,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     SharedModule,
     AngularMaterialModule,
     NgSelectModule,
+    NgxMaskModule.forChild(),
   ],
 })
 export class ModulesModule {}

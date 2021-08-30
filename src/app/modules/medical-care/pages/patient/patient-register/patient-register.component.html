@@ -60,19 +60,19 @@
         <div class="col-4">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>CNS</mat-label>
-            <input matInput [formControl]="cns" />
+            <input matInput [formControl]="cns" mask="000000000000000" />
           </mat-form-field>
         </div>
         <div class="col-4">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>RG</mat-label>
-            <input matInput [formControl]="rg" />
+            <input matInput [formControl]="rg" mask="00.000.000-0" />
           </mat-form-field>
         </div>
         <div class="col-4">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>CPF</mat-label>
-            <input matInput [formControl]="cpf" />
+            <input matInput [formControl]="cpf" mask="000.000.000-00" />
           </mat-form-field>
         </div>
       </div>
@@ -80,7 +80,7 @@
         <div class="col-4">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>CEP</mat-label>
-            <input matInput [formControl]="zipCode" />
+            <input matInput [formControl]="zipCode" mask="00000-000" />
           </mat-form-field>
         </div>
         <div class="col-6">
@@ -112,7 +112,12 @@
         <div class="col-2">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>Estado</mat-label>
-            <input matInput [formControl]="state" />
+            <input
+              matInput
+              [formControl]="state"
+              mask="AA"
+              style="text-transform: uppercase"
+            />
           </mat-form-field>
         </div>
       </div>
@@ -126,13 +131,13 @@
         <div class="col-4">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>Celular</mat-label>
-            <input matInput [formControl]="cell" />
+            <input matInput [formControl]="cell" mask="(00)00000-0000" />
           </mat-form-field>
         </div>
         <div class="col-4">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>Telefone</mat-label>
-            <input matInput [formControl]="telephone" />
+            <input matInput [formControl]="telephone" mask="(00)0000-0000" />
           </mat-form-field>
         </div>
       </div>

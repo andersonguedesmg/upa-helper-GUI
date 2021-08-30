@@ -15,6 +15,7 @@ import { RouterModule } from '@angular/router';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { AngularMaterialModule } from 'src/app/shared/angular-material/angular-material.module';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     SharedModule,
     AngularMaterialModule,
     NgSelectModule,
+    NgxMaskModule.forChild(),
   ],
 })
 export class MedicalCareModule {}
