@@ -11,6 +11,8 @@ import { UserComponent } from './modules/administrative/pages/user/user/user.com
 import { LoginComponent } from './modules/auth/pages/login/login.component';
 import { NotFoundComponent } from './modules/auth/pages/not-found/not-found.component';
 import { HomeComponent } from './modules/home/pages/home/home.component';
+import { AppointmentRegisterComponent } from './modules/medical-care/pages/appointment/appointment-register/appointment-register.component';
+import { AppointmentComponent } from './modules/medical-care/pages/appointment/appointment/appointment.component';
 import { AttendanceFileRegisterComponent } from './modules/medical-care/pages/attendance/attendance-file-register/attendance-file-register.component';
 import { AttendanceRegisterComponent } from './modules/medical-care/pages/attendance/attendance-register/attendance-register.component';
 import { AttendanceComponent } from './modules/medical-care/pages/attendance/attendance/attendance.component';
@@ -72,6 +74,14 @@ const routes: Routes = [
   {
     path: 'triagem/nova/:id',
     component: TriageRegisterComponent,
+  },
+  {
+    path: 'consulta',
+    component: AppointmentComponent,
+  },
+  {
+    path: 'consulta/nova/:id',
+    component: AppointmentRegisterComponent,
   },
 ];
 

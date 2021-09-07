@@ -80,5 +80,16 @@ export class SidebarComponent implements OnInit {
         },
       ],
     },
+    {
+      displayName: 'Consulta',
+      iconName: 'medical_services',
+      children: [
+        {
+          displayName: 'Nova',
+          iconName: 'add_circle',
+          route: '/consulta',
+        },
+      ],
+    },
   ];
 }

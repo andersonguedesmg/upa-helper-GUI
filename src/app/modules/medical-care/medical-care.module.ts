@@ -16,6 +16,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { AngularMaterialModule } from 'src/app/shared/angular-material/angular-material.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NgxMaskModule } from 'ngx-mask';
+import { AppointmentComponent } from './pages/appointment/appointment/appointment.component';
+import { AppointmentRegisterComponent } from './pages/appointment/appointment-register/appointment-register.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { NgxMaskModule } from 'ngx-mask';
     WaitingRoomComponent,
     TriageComponent,
     TriageRegisterComponent,
+    AppointmentComponent,
+    AppointmentRegisterComponent,
   ],
   imports: [
     CommonModule,
