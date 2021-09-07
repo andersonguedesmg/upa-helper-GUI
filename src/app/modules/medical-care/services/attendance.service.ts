@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, throwError } from 'rxjs';
+import { catchError, take } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import Attendance from '../models/attendance.model';
 
@@ -9,26 +11,41 @@ import Attendance from '../models/attendance.model';
 export class AttendanceService {
   constructor(private http: HttpClient) {}
 
-  public getAttendances() {
-    return this.http.get<Attendance[]>(environment.baseApiUrl + 'attendances');
+  protected handleError(error: any): Observable<any> {
+    console.error('Erro =>', error);
+    return throwError(error.error.message);
   }
 
-  public getAttendancesForTable() {
-    return this.http.get<Attendance[]>(environment.baseApiUrl + 'attendances/table');
+  public getAttendances(): Observable<Attendance[]> {
+    return this.http
+      .get<Attendance[]>(environment.baseApiUrl + 'attendances')
+      .pipe(catchError(this.handleError), take(1));
   }
 
-  public addAttendance(attendance: Attendance) {
-    return this.http.post(environment.baseApiUrl + 'attendances', attendance);
+  public getAttendancesForTable(): Observable<Attendance[]> {
+    return this.http
+      .get<Attendance[]>(environment.baseApiUrl + 'attendances/table')
+      .pipe(catchError(this.handleError), take(1));
   }
 
-  public getAttendanceById(id: number) {
-    return this.http.get(environment.baseApiUrl + 'attendances/' + id);
+  public addAttendance(attendance: Attendance): Observable<Attendance> {
+    return this.http
+      .post(environment.baseApiUrl + 'attendances', attendance)
+      .pipe(catchError(this.handleError), take(1));
   }
 
-  public updateAttendance(id: number, attendance: Attendance) {
-    return this.http.put(
-      environment.baseApiUrl + 'attendances/' + id,
-      attendance
-    );
+  public getAttendanceById(id: number): Observable<Attendance> {
+    return this.http
+      .get(environment.baseApiUrl + 'attendances/' + id)
+      .pipe(catchError(this.handleError), take(1));
+  }
+
+  public updateAttendance(
+    id: number,
+    attendance: Attendance
+  ): Observable<Attendance> {
+    return this.http
+      .put(environment.baseApiUrl + 'attendances/' + id, attendance)
+      .pipe(catchError(this.handleError), take(1));
   }
 }

@@ -58,7 +58,7 @@ const routes: Routes = [
     component: AttendanceRegisterComponent,
   },
   {
-    path: 'atendimento/ficha',
+    path: 'atendimento/ficha/:id',
     component: AttendanceFileRegisterComponent,
   },
   {
@@ -70,7 +70,7 @@ const routes: Routes = [
     component: TriageComponent,
   },
   {
-    path: 'triagem/nova',
+    path: 'triagem/nova/:id',
     component: TriageRegisterComponent,
   },
 ];

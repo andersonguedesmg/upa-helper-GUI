@@ -17,8 +17,8 @@ class Patient {
   cell: string;
   fatherName: string;
   motherName: string;
-  ethnicity: number;
-  gender: number;
+  ethnicityId: number;
+  genderId: number;
 
   constructor() {
     this.id = 0;
@@ -39,8 +39,8 @@ class Patient {
     this.cell = '';
     this.fatherName = '';
     this.motherName = '';
-    this.ethnicity = 0;
-    this.gender = 0;
+    this.ethnicityId = 0;
+    this.genderId = 0;
   }
 }
 

@@ -34,13 +34,13 @@ export class UserService {
       .pipe(catchError(this.handleError), take(1));
   }
 
-  public getUserById(id: number) {
+  public getUserById(id: number): Observable<User> {
     return this.http
       .get(environment.baseApiUrl + 'users/' + id)
       .pipe(catchError(this.handleError), take(1));
   }
 
-  public updateUser(id: number, user: User) {
+  public updateUser(id: number, user: User): Observable<User> {
     return this.http
       .put(environment.baseApiUrl + 'users/' + id, user)
       .pipe(catchError(this.handleError), take(1));

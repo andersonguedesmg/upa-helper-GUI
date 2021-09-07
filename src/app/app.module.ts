@@ -13,6 +13,10 @@ import { MedicalCareModule } from './modules/medical-care/medical-care.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './shared/services/interceptor.service';
 import { NgxMaskModule } from 'ngx-mask';
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
+
+registerLocaleData(localePt);
 
 @NgModule({
   declarations: [AppComponent],

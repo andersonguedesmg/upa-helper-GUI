@@ -9,74 +9,109 @@
 <div class="container">
   <mat-card class="mat-elevation-z8">
     <div class="row form-first-row">
-      <div class="col-10"><h2>Ficha de Atendimento Ambulatórial</h2></div>
-      <div class="col-2">
-        <p>Atendimento: <b>007</b></p>
-      </div>
+      <div class="col-12"><h2>Ficha de Atendimento Ambulatórial</h2></div>
     </div>
     <div class="row">
       <div class="col-12">
-        <p>Data/Horário de Chegada: <b>16/08/2021 - 11h11min</b></p>
+        <p>
+          Data/Horário de Chegada:
+          <b>{{ arrival | date: "EEEE, dd 'de' MMMM 'de' y 'às' h:mm:ss" }}</b>
+        </p>
       </div>
     </div>
     <div class="row" style="margin-top: 5px">
       <div class="col-12">
-        <p>Nome: <b>Bart Simpson</b></p>
+        <p>
+          Nome: <b>{{ patientData?.name }}</b>
+        </p>
       </div>
     </div>
     <div class="row">
       <div class="col-3">
-        <p>Nascimento: <b>01/04/1981</b></p>
+        <p>
+          Nascimento: <b>{{ patientData?.birthday | date: "dd/MM/yyyy" }}</b>
+        </p>
       </div>
       <div class="col-3">
-        <p>Idade: <b>10 anos</b></p>
+        <p>
+          Idade: <b>{{ patientAge }}</b>
+        </p>
       </div>
       <div class="col-3">
-        <p>Sexo: <b>Masculino</b></p>
+        <p>
+          Sexo: <b>{{ patientData?.genderId }}</b>
+        </p>
       </div>
       <div class="col-3">
-        <p>Cor ou Raça/Etnia: <b>Amarelo</b></p>
+        <p>
+          Cor ou Raça/Etnia: <b>{{ patientData?.ethnicityId }}</b>
+        </p>
       </div>
     </div>
 
     <div class="row">
       <div class="col-6">
-        <p>Pai: <b>Homer Simpson</b></p>
+        <p>
+          Pai: <b>{{ patientData?.fatherName }}</b>
+        </p>
       </div>
       <div class="col-6">
-        <p>Mãe: <b>Marge Simpson</b></p>
+        <p>
+          Mãe: <b>{{ patientData?.motherName }}</b>
+        </p>
       </div>
     </div>
 
     <div class="row" style="margin-top: 5px">
-      <div class="col-4">
-        <p>RG: <b>00.000.000-0</b></p>
+      <div class="col-3">
+        <p>
+          RG: <b>{{ patientData?.rg }}</b>
+        </p>
       </div>
-      <div class="col-4">
-        <p>CPF: <b>000.000.000-00</b></p>
+      <div class="col-3">
+        <p>
+          CPF: <b>{{ patientData?.cpf }}</b>
+        </p>
       </div>
-      <div class="col-4">
-        <p>CNS: <b>00000000000000</b></p>
+      <div class="col-3">
+        <p>
+          CNS: <b>{{ patientData?.cns }}</b>
+        </p>
+      </div>
+      <div class="col-3">
+        <p>
+          CEP: <b>{{ patientData?.zipCode }}</b>
+        </p>
       </div>
     </div>
 
     <div class="row" style="margin-top: 5px">
       <div class="col-6">
-        <p>Endereço: <b>Evergreen Terrace</b></p>
+        <p>
+          Endereço: <b>{{ patientData?.address }}</b>
+        </p>
       </div>
       <div class="col-6">
-        <p>Número: <b>742</b></p>
+        <p>
+          Número: <b>{{ patientData?.number }}</b>
+        </p>
       </div>
     </div>
     <div class="row">
       <div class="col-5">
-        <p>Bairro: <b></b></p>
+        <p>
+          Bairro: <b>{{ patientData?.neighborhood }}</b>
+        </p>
       </div>
       <div class="col-5">
-        <p>Cidade: <b>Springfield</b></p>
+        <p>
+          Cidade: <b>{{ patientData?.city }}</b>
+        </p>
       </div>
       <div class="col-2">
-        <p>Estado: <b></b></p>
+        <p>
+          Estado: <b>{{ patientData?.state }}</b>
+        </p>
       </div>
     </div>
 
@@ -96,6 +131,7 @@
               <button
                 mat-raised-button
                 class="btn-new"
+                (click)="saveNewAttendance()"
                 matTooltip="Cadastrar Atendimento"
               >
                 Salvar

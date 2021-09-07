@@ -8,9 +8,10 @@ import { PatientService } from '../../../services/patient.service';
   styleUrls: ['./patient-register.component.scss'],
 })
 export class PatientRegisterComponent implements OnInit {
+  startDate = new Date(1990, 0, 1);
   public form: FormGroup;
   public name = this.fb.control('', {
-    validators: [Validators.required, Validators.maxLength(255)],
+    validators: [Validators.maxLength(255)],
     updateOn: 'blur',
   });
   public socialName = this.fb.control('', {
@@ -18,7 +19,7 @@ export class PatientRegisterComponent implements OnInit {
     updateOn: 'blur',
   });
   public birthday = this.fb.control('', {
-    validators: [Validators.required],
+    validators: [],
     updateOn: 'blur',
   });
   public rg = this.fb.control('', {
@@ -26,7 +27,7 @@ export class PatientRegisterComponent implements OnInit {
     updateOn: 'blur',
   });
   public cpf = this.fb.control('', {
-    validators: [Validators.required, Validators.maxLength(14)],
+    validators: [Validators.maxLength(14)],
     updateOn: 'blur',
   });
   public cns = this.fb.control('', {
@@ -38,23 +39,23 @@ export class PatientRegisterComponent implements OnInit {
     updateOn: 'blur',
   });
   public address = this.fb.control('', {
-    validators: [Validators.required, Validators.maxLength(255)],
+    validators: [Validators.maxLength(255)],
     updateOn: 'blur',
   });
   public number = this.fb.control('', {
-    validators: [Validators.required, Validators.maxLength(20)],
+    validators: [Validators.maxLength(20)],
     updateOn: 'blur',
   });
   public neighborhood = this.fb.control('', {
-    validators: [Validators.required, Validators.maxLength(255)],
+    validators: [Validators.maxLength(255)],
     updateOn: 'blur',
   });
   public city = this.fb.control('', {
-    validators: [Validators.required, Validators.maxLength(100)],
+    validators: [Validators.maxLength(100)],
     updateOn: 'blur',
   });
   public state = this.fb.control('', {
-    validators: [Validators.required, Validators.maxLength(25)],
+    validators: [Validators.maxLength(25)],
     updateOn: 'blur',
   });
   public complement = this.fb.control('', {
@@ -74,14 +75,14 @@ export class PatientRegisterComponent implements OnInit {
     updateOn: 'blur',
   });
   public motherName = this.fb.control('', {
-    validators: [Validators.required, Validators.maxLength(255)],
+    validators: [Validators.maxLength(255)],
     updateOn: 'blur',
   });
-  public ethnicity = this.fb.control('', {
+  public ethnicityId = this.fb.control('', {
     validators: [],
     updateOn: 'blur',
   });
-  public gender = this.fb.control('', {
+  public genderId = this.fb.control('', {
     validators: [],
     updateOn: 'blur',
   });
@@ -105,8 +106,8 @@ export class PatientRegisterComponent implements OnInit {
       cell: this.cell,
       fatherName: this.fatherName,
       motherName: this.motherName,
-      ethnicity: this.ethnicity,
-      gender: this.gender,
+      ethnicityId: this.ethnicityId,
+      genderId: this.genderId,
       isActive: true,
     });
   }

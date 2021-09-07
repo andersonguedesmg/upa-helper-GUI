@@ -2,8 +2,8 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import Attendance from '../../../models/attendance.model';
-import Triage from '../../../models/triage.model';
 import { AttendanceService } from '../../../services/attendance.service';
 import { TriageService } from '../../../services/triage.service';
 
@@ -28,7 +28,8 @@ export class TriageComponent implements AfterViewInit {
 
   constructor(
     public triageService: TriageService,
-    public attendanceService: AttendanceService
+    public attendanceService: AttendanceService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -53,5 +54,9 @@ export class TriageComponent implements AfterViewInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  newTriage(id: number) {
+    this.router.navigate(['/triagem/nova', id]);
   }
 }

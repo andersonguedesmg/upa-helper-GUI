@@ -11,78 +11,134 @@
     <div class="row form-first-row">
       <div class="col-10"><h2>Ficha de Atendimento Ambulatórial</h2></div>
       <div class="col-2">
-        <p>Atendimento: <b>007</b></p>
+        <p>
+          Atendimento: <b>{{ attendanceData?.id }}</b>
+        </p>
       </div>
     </div>
     <div class="row">
       <div class="col-12">
-        <p>Data/Horário de Chegada: <b>16/08/2021 - 11h11min</b></p>
+        <p>
+          Data/Horário da Triagem:
+          <b>{{
+            triageDate | date: "EEEE, dd 'de' MMMM 'de' y 'às' h:mm:ss"
+          }}</b>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <p>
+          Data/Horário de Chegada:
+          <b>{{
+            attendanceData?.arrivalDate
+              | date: "EEEE, dd 'de' MMMM 'de' y 'às' h:mm:ss"
+          }}</b>
+        </p>
       </div>
     </div>
     <div class="row" style="margin-top: 5px">
       <div class="col-12">
-        <p>Nome: <b>Bart Simpson</b></p>
+        <p>
+          Nome: <b>{{ attendanceData?.patient.name }}</b>
+        </p>
       </div>
     </div>
     <div class="row">
       <div class="col-3">
-        <p>Nascimento: <b>01/04/1981</b></p>
+        <p>
+          Nascimento:
+          <b>{{ attendanceData?.patient.birthday | date: "dd/MM/yyyy" }}</b>
+        </p>
       </div>
       <div class="col-3">
-        <p>Idade: <b>10 anos</b></p>
+        <p>
+          Idade: <b>{{ attendanceData?.patientAge }}</b>
+        </p>
       </div>
       <div class="col-3">
-        <p>Sexo: <b>Masculino</b></p>
+        <p>
+          Sexo: <b>{{ attendanceData?.patient.genderId }}</b>
+        </p>
       </div>
       <div class="col-3">
-        <p>Cor ou Raça/Etnia: <b>Amarelo</b></p>
+        <p>
+          Cor ou Raça/Etnia: <b>{{ attendanceData?.patient.ethnicityId }}</b>
+        </p>
       </div>
     </div>
 
     <div class="row">
       <div class="col-6">
-        <p>Pai: <b>Homer Simpson</b></p>
+        <p>
+          Pai: <b>{{ attendanceData?.patient.fatherName }}</b>
+        </p>
       </div>
       <div class="col-6">
-        <p>Mãe: <b>Marge Simpson</b></p>
+        <p>
+          Mãe: <b>{{ attendanceData?.patient.motherName }}</b>
+        </p>
       </div>
     </div>
 
     <div class="row" style="margin-top: 5px">
       <div class="col-4">
-        <p>RG: <b>00.000.000-0</b></p>
+        <p>
+          RG: <b>{{ attendanceData?.patient.rg }}</b>
+        </p>
       </div>
       <div class="col-4">
-        <p>CPF: <b>000.000.000-00</b></p>
+        <p>
+          CPF: <b>{{ attendanceData?.patient.cpf }}</b>
+        </p>
       </div>
       <div class="col-4">
-        <p>CNS: <b>00000000000000</b></p>
+        <p>
+          CNS: <b>{{ attendanceData?.patient.cns }}</b>
+        </p>
+      </div>
+      <div class="col-3">
+        <p>
+          CEP: <b>{{ attendanceData?.patient.zipCode }}</b>
+        </p>
       </div>
     </div>
 
     <div class="row" style="margin-top: 5px">
       <div class="col-6">
-        <p>Endereço: <b>Evergreen Terrace</b></p>
+        <p>
+          Endereço: <b>{{ attendanceData?.patient.address }}</b>
+        </p>
       </div>
       <div class="col-6">
-        <p>Número: <b>742</b></p>
+        <p>
+          Número: <b>{{ attendanceData?.patient.number }}</b>
+        </p>
       </div>
     </div>
     <div class="row">
       <div class="col-5">
-        <p>Bairro: <b></b></p>
+        <p>
+          Bairro: <b>{{ attendanceData?.patient.neighborhood }}</b>
+        </p>
       </div>
       <div class="col-5">
-        <p>Cidade: <b>Springfield</b></p>
+        <p>
+          Cidade: <b>{{ attendanceData?.patient.city }}</b>
+        </p>
       </div>
       <div class="col-2">
-        <p>Estado: <b></b></p>
+        <p>
+          Estado: <b>{{ attendanceData?.patient.state }}</b>
+        </p>
       </div>
     </div>
 
     <div class="row" style="margin-top: 5px">
       <div class="col-6">
-        <p>Dados da Recepção: <b>Ay, Caramba!</b></p>
+        <p>
+          Dados da Recepção: <b>{{ attendanceData?.receptionInformation }}</b>
+        </p>
       </div>
     </div>
 
@@ -148,7 +204,7 @@
             <div class="col-3">
               <mat-form-field class="form-field-full-width" appearance="fill">
                 <mat-label>P.A.</mat-label>
-                <input matInput [formControl]="bloodPressure" />
+                <input matInput [formControl]="bloodPressure" mask="000-00" />
               </mat-form-field>
             </div>
             <div class="col-3">
@@ -202,11 +258,11 @@
             <mat-form-field class="form-field-full-width" appearance="fill">
               <mat-label>Classificação de Risco</mat-label>
               <mat-select [formControl]="riskRating">
-                <mat-option value="0">Vermelho</mat-option>
-                <mat-option value="1">Laranja</mat-option>
-                <mat-option value="2">Amarelo</mat-option>
-                <mat-option value="3">Verde</mat-option>
-                <mat-option value="4">Azul</mat-option>
+                <mat-option value="1">Azul</mat-option>
+                <mat-option value="2">Verde</mat-option>
+                <mat-option value="3">Amarelo</mat-option>
+                <mat-option value="4">Laranja</mat-option>
+                <mat-option value="5">Vermelho</mat-option>
               </mat-select>
             </mat-form-field>
           </div>
@@ -214,10 +270,10 @@
             <mat-form-field class="form-field-full-width" appearance="fill">
               <mat-label>Dor</mat-label>
               <mat-select [formControl]="painIntensity">
-                <mat-option value="0">Sem Dor</mat-option>
                 <mat-option value="1">Dor Leve</mat-option>
-                <mat-option value="1">Dor Moderada</mat-option>
-                <mat-option value="1">Dor Intensa</mat-option>
+                <mat-option value="2">Dor Moderada</mat-option>
+                <mat-option value="3">Dor Intensa</mat-option>
+                <mat-option value="4">Sem Dor</mat-option>
               </mat-select>
             </mat-form-field>
           </div>
@@ -225,7 +281,7 @@
             <div class="col-6">
               <button
                 mat-raised-button
-                [routerLink]="'/atendimento/novo'"
+                [routerLink]="'/triagem'"
                 class="btn-clean"
                 matTooltip="Cancelar Atendimento"
               >

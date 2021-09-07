@@ -26,18 +26,22 @@
         <div class="col-4">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>Nascimento</mat-label>
-            <input matInput [matDatepicker]="picker" />
+            <input matInput [matDatepicker]="picker" [formControl]="birthday" />
             <mat-datepicker-toggle
               matSuffix
               [for]="picker"
             ></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
+            <mat-datepicker
+              #picker
+              startView="year"
+              [startAt]="startDate"
+            ></mat-datepicker>
           </mat-form-field>
         </div>
         <div class="col-4">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>Sexo</mat-label>
-            <mat-select [formControl]="gender">
+            <mat-select [formControl]="genderId">
               <mat-option value="1">Masculino</mat-option>
               <mat-option value="2">Feminino</mat-option>
             </mat-select>
@@ -46,7 +50,7 @@
         <div class="col-4">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>Cor ou Raça/Etnia</mat-label>
-            <mat-select [formControl]="ethnicity">
+            <mat-select [formControl]="ethnicityId">
               <mat-option value="1">Branca</mat-option>
               <mat-option value="2">Preta</mat-option>
               <mat-option value="3">Parda</mat-option>
