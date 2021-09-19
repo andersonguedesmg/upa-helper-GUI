@@ -19,6 +19,8 @@ class Patient {
   motherName: string;
   ethnicityId: number;
   genderId: number;
+  gender: any;
+  ethnicity: any;
 
   constructor() {
     this.id = 0;
@@ -41,6 +43,8 @@ class Patient {
     this.motherName = '';
     this.ethnicityId = 0;
     this.genderId = 0;
+    this.gender = null;
+    this.ethnicity = null;
   }
 }
 

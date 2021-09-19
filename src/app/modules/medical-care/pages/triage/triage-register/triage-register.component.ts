@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import Attendance from '../../../models/attendance.model';
 import { AttendanceService } from '../../../services/attendance.service';
 import { TriageService } from '../../../services/triage.service';
@@ -14,6 +14,7 @@ export class TriageRegisterComponent implements OnInit {
   attendanceId!: number;
   attendanceData!: Attendance;
   triageDate!: Date;
+  isActive: boolean = true;
   public form: FormGroup;
   public bloodPressure = this.fb.control('', {
     validators: [Validators.maxLength(11)],
@@ -59,11 +60,11 @@ export class TriageRegisterComponent implements OnInit {
     validators: [Validators.maxLength(255)],
     updateOn: 'blur',
   });
-  public painIntensity = this.fb.control('', {
+  public painIntensity = this.fb.control(null, {
     validators: [],
     updateOn: 'blur',
   });
-  public riskRating = this.fb.control('', {
+  public riskRating = this.fb.control(null, {
     validators: [],
     updateOn: 'blur',
   });
@@ -76,7 +77,8 @@ export class TriageRegisterComponent implements OnInit {
     public triageService: TriageService,
     private fb: FormBuilder,
     private route: ActivatedRoute,
-    public attendanceService: AttendanceService
+    public attendanceService: AttendanceService,
+    private router: Router
   ) {
     this.form = this.fb.group({
       bloodPressure: this.bloodPressure,
@@ -92,7 +94,7 @@ export class TriageRegisterComponent implements OnInit {
       personalBackground: this.personalBackground,
       painIntensity: this.painIntensity,
       riskRating: this.riskRating,
-      isPreferred: this.isPreferred,
+      isPreferred: false,
     });
   }
 
@@ -106,5 +108,26 @@ export class TriageRegisterComponent implements OnInit {
       .subscribe((response) => {
         this.attendanceData = response;
       });
+  }
+
+  saveNewTriage() {
+    if (this.form.valid) {
+      this.form = this.fb.group({
+        ...this.form.value,
+        attendanceId: this.attendanceId,
+        triageDate: this.triageDate,
+        userId: 1,
+        isActive: this.isActive,
+      });
+      var request = this.form.value;
+      this.triageService.addTriage(request).subscribe(() => {
+        this.clearForm();
+        this.router.navigate(['/triagem']);
+      });
+    }
+  }
+
+  clearForm() {
+    this.form.reset();
   }
 }

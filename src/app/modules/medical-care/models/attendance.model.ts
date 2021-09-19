@@ -8,7 +8,7 @@ class Attendance {
   isSamu: boolean;
   isActive: boolean;
   patientId: number;
-  patient: any;
+  patient: Patient;
 
   constructor() {
     this.id = 0;
@@ -18,7 +18,7 @@ class Attendance {
     this.isSamu = false;
     this.isActive = true;
     this.patientId = 0;
-    this.patient = [];
+    this.patient = new Patient();
   }
 }
 

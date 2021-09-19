@@ -40,7 +40,7 @@
     <div class="row" style="margin-top: 5px">
       <div class="col-12">
         <p>
-          Nome: <b>{{ attendanceData?.patient.name }}</b>
+          Nome: <b>{{ attendanceData?.patient?.name }}</b>
         </p>
       </div>
     </div>
@@ -48,7 +48,7 @@
       <div class="col-3">
         <p>
           Nascimento:
-          <b>{{ attendanceData?.patient.birthday | date: "dd/MM/yyyy" }}</b>
+          <b>{{ attendanceData?.patient?.birthday | date: "dd/MM/yyyy" }}</b>
         </p>
       </div>
       <div class="col-3">
@@ -58,12 +58,12 @@
       </div>
       <div class="col-3">
         <p>
-          Sexo: <b>{{ attendanceData?.patient.genderId }}</b>
+          Sexo: <b>{{ attendanceData?.patient?.genderId }}</b>
         </p>
       </div>
       <div class="col-3">
         <p>
-          Cor ou Raça/Etnia: <b>{{ attendanceData?.patient.ethnicityId }}</b>
+          Cor ou Raça/Etnia: <b>{{ attendanceData?.patient?.ethnicityId }}</b>
         </p>
       </div>
     </div>
@@ -71,12 +71,12 @@
     <div class="row">
       <div class="col-6">
         <p>
-          Pai: <b>{{ attendanceData?.patient.fatherName }}</b>
+          Pai: <b>{{ attendanceData?.patient?.fatherName }}</b>
         </p>
       </div>
       <div class="col-6">
         <p>
-          Mãe: <b>{{ attendanceData?.patient.motherName }}</b>
+          Mãe: <b>{{ attendanceData?.patient?.motherName }}</b>
         </p>
       </div>
     </div>
@@ -84,22 +84,22 @@
     <div class="row" style="margin-top: 5px">
       <div class="col-4">
         <p>
-          RG: <b>{{ attendanceData?.patient.rg }}</b>
+          RG: <b>{{ attendanceData?.patient?.rg }}</b>
         </p>
       </div>
       <div class="col-4">
         <p>
-          CPF: <b>{{ attendanceData?.patient.cpf }}</b>
+          CPF: <b>{{ attendanceData?.patient?.cpf }}</b>
         </p>
       </div>
       <div class="col-4">
         <p>
-          CNS: <b>{{ attendanceData?.patient.cns }}</b>
+          CNS: <b>{{ attendanceData?.patient?.cns }}</b>
         </p>
       </div>
       <div class="col-3">
         <p>
-          CEP: <b>{{ attendanceData?.patient.zipCode }}</b>
+          CEP: <b>{{ attendanceData?.patient?.zipCode }}</b>
         </p>
       </div>
     </div>
@@ -107,29 +107,29 @@
     <div class="row" style="margin-top: 5px">
       <div class="col-6">
         <p>
-          Endereço: <b>{{ attendanceData?.patient.address }}</b>
+          Endereço: <b>{{ attendanceData?.patient?.address }}</b>
         </p>
       </div>
       <div class="col-6">
         <p>
-          Número: <b>{{ attendanceData?.patient.number }}</b>
+          Número: <b>{{ attendanceData?.patient?.number }}</b>
         </p>
       </div>
     </div>
     <div class="row">
       <div class="col-5">
         <p>
-          Bairro: <b>{{ attendanceData?.patient.neighborhood }}</b>
+          Bairro: <b>{{ attendanceData?.patient?.neighborhood }}</b>
         </p>
       </div>
       <div class="col-5">
         <p>
-          Cidade: <b>{{ attendanceData?.patient.city }}</b>
+          Cidade: <b>{{ attendanceData?.patient?.city }}</b>
         </p>
       </div>
       <div class="col-2">
         <p>
-          Estado: <b>{{ attendanceData?.patient.state }}</b>
+          Estado: <b>{{ attendanceData?.patient?.state }}</b>
         </p>
       </div>
     </div>
@@ -292,6 +292,7 @@
               <button
                 mat-raised-button
                 class="btn-new"
+                (click)="saveNewTriage()"
                 matTooltip="Salvar Triagem"
               >
                 Salvar
