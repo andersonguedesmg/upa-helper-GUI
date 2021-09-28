@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import {
+  ConfirmDialogModel,
+  ConfirmDialogComponent,
+} from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 import { PatientService } from '../../../services/patient.service';
 
 @Component({
@@ -87,7 +92,11 @@ export class PatientRegisterComponent implements OnInit {
     updateOn: 'blur',
   });
 
-  constructor(public patientService: PatientService, private fb: FormBuilder) {
+  constructor(
+    public patientService: PatientService,
+    private fb: FormBuilder,
+    public dialog: MatDialog
+  ) {
     this.form = this.fb.group({
       name: this.name,
       socialName: this.socialName,
@@ -114,12 +123,40 @@ export class PatientRegisterComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  confirmDialog(): void {
+    const message = `Are you sure you want to do this?`;
+
+    const dialogData = new ConfirmDialogModel('Salvar usuário', message);
+
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      maxWidth: '400px',
+      data: dialogData,
+    });
+
+    dialogRef.afterClosed().subscribe((dialogResult) => {
+      if (dialogResult == true) {
+        this.saveNewPatient();
+      }
+    });
+  }
+
   saveNewPatient() {
     if (this.form.valid) {
-      var request = this.form.value;
-      this.patientService.addPatient(request).subscribe(() => {
-        location.reload();
-        this.clearForm();
+      const message = `Você tem certeza de que quer salvar esse paciente?`;
+      const dialogData = new ConfirmDialogModel('Salvar paciente', message);
+      const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+        maxWidth: '400px',
+        data: dialogData,
+      });
+
+      dialogRef.afterClosed().subscribe((dialogResult) => {
+        if (dialogResult == true) {
+          var request = this.form.value;
+          this.patientService.addPatient(request).subscribe(() => {
+            location.reload();
+            this.clearForm();
+          });
+        }
       });
     }
   }

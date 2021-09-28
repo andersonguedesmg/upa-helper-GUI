@@ -8,9 +8,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
-  declarations: [NavbarComponent, FooterComponent, SidebarComponent],
+  declarations: [
+    NavbarComponent,
+    FooterComponent,
+    SidebarComponent,
+    ConfirmDialogComponent,
+  ],
   imports: [
     CommonModule,
     RouterModule,

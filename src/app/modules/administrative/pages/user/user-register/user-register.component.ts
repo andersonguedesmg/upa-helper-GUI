@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import {
+  ConfirmDialogModel,
+  ConfirmDialogComponent,
+} from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 import { UserService } from '../../../services/user.service';
 
 @Component({
@@ -77,7 +82,11 @@ export class UserRegisterComponent implements OnInit {
     updateOn: 'blur',
   });
 
-  constructor(public userService: UserService, private fb: FormBuilder) {
+  constructor(
+    public userService: UserService,
+    private fb: FormBuilder,
+    public dialog: MatDialog
+  ) {
     this.form = this.fb.group({
       name: this.name,
       email: this.email,
@@ -103,10 +112,21 @@ export class UserRegisterComponent implements OnInit {
 
   saveNewUser() {
     if (this.form.valid) {
-      var request = this.form.value;
-      this.userService.addUser(request).subscribe(() => {
-        location.reload();
-        this.clearForm();
+      const message = `Você tem certeza de que quer salvar esse usuário?`;
+      const dialogData = new ConfirmDialogModel('Salvar usuário', message);
+      const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+        maxWidth: '400px',
+        data: dialogData,
+      });
+
+      dialogRef.afterClosed().subscribe((dialogResult) => {
+        if (dialogResult == true) {
+          var request = this.form.value;
+          this.userService.addUser(request).subscribe(() => {
+            location.reload();
+            this.clearForm();
+          });
+        }
       });
     }
   }

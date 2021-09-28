@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import {
+  ConfirmDialogModel,
+  ConfirmDialogComponent,
+} from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 import Patient from '../../../models/patient.model';
 import { AttendanceService } from '../../../services/attendance.service';
 import { PatientService } from '../../../services/patient.service';
@@ -28,7 +33,8 @@ export class AttendanceFileRegisterComponent implements OnInit {
     private fb: FormBuilder,
     private route: ActivatedRoute,
     public patientService: PatientService,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog
   ) {
     this.form = this.fb.group({
       receptionInformation: this.receptionInformation,
@@ -48,6 +54,12 @@ export class AttendanceFileRegisterComponent implements OnInit {
 
   saveNewAttendance() {
     if (this.form.valid) {
+      const message = `Você tem certeza de que quer abrir essa Nova Ficha de Atendimento?`;
+      const dialogData = new ConfirmDialogModel('Salvar usuário', message);
+      const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+        maxWidth: '400px',
+        data: dialogData,
+      });
       this.form = this.fb.group({
         ...this.form.value,
         patientAge: this.patientAge.toString(),
@@ -56,10 +68,14 @@ export class AttendanceFileRegisterComponent implements OnInit {
         isActive: this.isActive,
         patientId: this.patientId,
       });
-      var request = this.form.value;
-      this.attendanceService.addAttendance(request).subscribe(() => {
-        this.clearForm();
-        this.router.navigate(['/atendimento/novo']);
+      dialogRef.afterClosed().subscribe((dialogResult) => {
+        if (dialogResult == true) {
+          var request = this.form.value;
+          this.attendanceService.addAttendance(request).subscribe(() => {
+            this.clearForm();
+            this.router.navigate(['/atendimento/novo']);
+          });
+        }
       });
     }
   }

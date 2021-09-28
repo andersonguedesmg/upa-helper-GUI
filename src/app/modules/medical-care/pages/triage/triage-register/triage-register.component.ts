@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import {
+  ConfirmDialogModel,
+  ConfirmDialogComponent,
+} from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 import Attendance from '../../../models/attendance.model';
 import { AttendanceService } from '../../../services/attendance.service';
 import { TriageService } from '../../../services/triage.service';
@@ -78,7 +83,8 @@ export class TriageRegisterComponent implements OnInit {
     private fb: FormBuilder,
     private route: ActivatedRoute,
     public attendanceService: AttendanceService,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog
   ) {
     this.form = this.fb.group({
       bloodPressure: this.bloodPressure,
@@ -112,6 +118,12 @@ export class TriageRegisterComponent implements OnInit {
 
   saveNewTriage() {
     if (this.form.valid) {
+      const message = `Você tem certeza de que quer fazer essa triagem?`;
+      const dialogData = new ConfirmDialogModel('Salvar usuário', message);
+      const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+        maxWidth: '400px',
+        data: dialogData,
+      });
       this.form = this.fb.group({
         ...this.form.value,
         attendanceId: this.attendanceId,
@@ -119,10 +131,14 @@ export class TriageRegisterComponent implements OnInit {
         userId: 1,
         isActive: this.isActive,
       });
-      var request = this.form.value;
-      this.triageService.addTriage(request).subscribe(() => {
-        this.clearForm();
-        this.router.navigate(['/triagem']);
+      dialogRef.afterClosed().subscribe((dialogResult) => {
+        if (dialogResult == true) {
+          var request = this.form.value;
+          this.triageService.addTriage(request).subscribe(() => {
+            this.clearForm();
+            this.router.navigate(['/triagem']);
+          });
+        }
       });
     }
   }
