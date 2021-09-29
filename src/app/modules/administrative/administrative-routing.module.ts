@@ -6,7 +6,7 @@ import { UserComponent } from './pages/user/user/user.component';
 
 const routes: Routes = [
   {
-    path: 'usuarios',
+    path: 'colaboradores',
     children: [
       {
         path: '',
@@ -15,7 +15,7 @@ const routes: Routes = [
     ],
   },
   {
-    path: 'usuario/novo',
+    path: 'colaborador/novo',
     children: [
       {
         path: '',

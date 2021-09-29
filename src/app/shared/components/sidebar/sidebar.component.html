@@ -1,34 +1,131 @@
-<mat-nav-list>
-  <span *ngFor="let item of menu">
-    <span *ngIf="item.children && item.children.length > 0">
-      <mat-accordion>
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              <div fxLayout="row" fxLayoutAlign="space-between center">
-                <mat-icon>{{ item.iconName }}</mat-icon>
-                {{ item.displayName }}
-              </div>
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <span *ngFor="let child of item.children">
-            <mat-list-item routerLink="{{ child.route }}">
-              <div fxLayout="row" fxLayoutAlign="space-between center">
-                <mat-icon>{{ child.iconName }}</mat-icon>
-                {{ child.displayName }}
-              </div>
-            </mat-list-item>
-          </span>
-        </mat-expansion-panel>
-      </mat-accordion>
-    </span>
-    <span *ngIf="!item.children || item.children.length === 0">
-      <mat-list-item routerLink="{{ item.route }}">
-        <div fxLayout="row" fxLayoutAlign="space-between center">
-          <mat-icon>{{ item.iconName }}</mat-icon>
-          {{ item.displayName }}
-        </div>
-      </mat-list-item>
-    </span>
-  </span>
-</mat-nav-list>
+<mat-list class="nav">
+  <a
+    mat-list-item
+    routerLinkActive="active-link"
+    class="hover"
+    routerLink="/dashboard"
+  >
+    <mat-icon mat-list-icon routerLinkActive="active-icon">dashboard</mat-icon>
+    <p matLine>Dashboard</p>
+  </a>
+</mat-list>
+
+<mat-divider></mat-divider>
+
+<mat-list class="nav">
+  <a
+    mat-list-item
+    routerLinkActive="active-link"
+    class="hover"
+    routerLink="/atendimento/novo"
+  >
+    <mat-icon mat-list-icon routerLinkActive="active-icon">add_circle</mat-icon>
+    <p matLine>Novo Atendimento</p>
+  </a>
+</mat-list>
+
+<mat-list class="nav">
+  <a
+    mat-list-item
+    routerLinkActive="active-link"
+    class="hover"
+    routerLink="/atendimentos"
+  >
+    <mat-icon mat-list-icon routerLinkActive="active-icon">source</mat-icon>
+    <p matLine>Atendimentos</p>
+  </a>
+</mat-list>
+
+<mat-list class="nav">
+  <a
+    mat-list-item
+    routerLinkActive="active-link"
+    class="hover"
+    routerLink="/sala-de-espera"
+  >
+    <mat-icon mat-list-icon routerLinkActive="active-icon">assignment</mat-icon>
+    <p matLine>Sala de Espera</p>
+  </a>
+</mat-list>
+
+<mat-divider></mat-divider>
+
+<mat-list class="nav">
+  <a
+    mat-list-item
+    routerLinkActive="active-link"
+    class="hover"
+    routerLink="/paciente/novo"
+  >
+    <mat-icon mat-list-icon routerLinkActive="active-icon">person_add</mat-icon>
+    <p matLine>Novo Paciente</p>
+  </a>
+</mat-list>
+
+<mat-list class="nav">
+  <a
+    mat-list-item
+    routerLinkActive="active-link"
+    class="hover"
+    routerLink="/pacientes"
+  >
+    <mat-icon mat-list-icon routerLinkActive="active-icon">source</mat-icon>
+    <p matLine>Pacientes</p>
+  </a>
+</mat-list>
+
+<mat-divider></mat-divider>
+
+<mat-list class="nav">
+  <a
+    mat-list-item
+    routerLinkActive="active-link"
+    class="hover"
+    routerLink="/colaborador/novo"
+  >
+    <mat-icon mat-list-icon routerLinkActive="active-icon">person_add</mat-icon>
+    <p matLine>Novo Colaborador</p>
+  </a>
+</mat-list>
+
+<mat-list class="nav">
+  <a
+    mat-list-item
+    routerLinkActive="active-link"
+    class="hover"
+    routerLink="/colaboradores"
+  >
+    <mat-icon mat-list-icon routerLinkActive="active-icon">source</mat-icon>
+    <p matLine>Colaboradores</p>
+  </a>
+</mat-list>
+
+<mat-divider></mat-divider>
+
+<mat-list class="nav">
+  <a
+    mat-list-item
+    routerLinkActive="active-link"
+    class="hover"
+    routerLink="/triagem"
+  >
+    <mat-icon mat-list-icon routerLinkActive="active-icon">add_circle</mat-icon>
+    <p matLine>Triagem</p>
+  </a>
+</mat-list>
+
+<mat-divider></mat-divider>
+
+<mat-list class="nav">
+  <a
+    mat-list-item
+    routerLinkActive="active-link"
+    class="hover"
+    routerLink="/consulta"
+  >
+    <mat-icon mat-list-icon routerLinkActive="active-icon">add_circle</mat-icon>
+    <p matLine>Consulta</p>
+  </a>
+</mat-list>
+
+<mat-divider></mat-divider>

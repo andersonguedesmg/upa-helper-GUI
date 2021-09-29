@@ -1,0 +1,40 @@
+.mat-list-base {
+  padding-top: 0px;
+}
+
+.nav {
+  .active-link {
+    background-color: #fafafa;
+    border-left: solid 5px #78b8f7;
+  }
+
+  .hover {
+    transition-duration: 500ms;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-property: transform, border, background-color;
+  }
+
+  mat-list-item,
+  a {
+    border: none;
+    box-sizing: border-box;
+    text-decoration: none;
+    &:hover {
+      cursor: pointer;
+      background-color: #fafafa;
+      border-left: solid 5px #78b8f7;
+    }
+  }
+
+  mat-icon {
+    color: #000000;
+  }
+
+  .active-icon {
+    color: #78b8f7;
+  }
+
+  p {
+    font-size: 14px;
+  }
+}

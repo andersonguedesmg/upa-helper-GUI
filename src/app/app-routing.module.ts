@@ -24,7 +24,7 @@ import { TriageComponent } from './modules/medical-care/pages/triage/triage/tria
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'dashboard',
     component: HomeComponent,
   },
   {
@@ -32,11 +32,11 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
-    path: 'usuarios',
+    path: 'colaboradores',
     component: UserComponent,
   },
   {
-    path: 'usuario/novo',
+    path: 'colaborador/novo',
     component: UserRegisterComponent,
   },
   {

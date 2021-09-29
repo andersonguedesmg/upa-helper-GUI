@@ -26,6 +26,7 @@ export class UserRegisterComponent implements OnInit {
       Validators.required,
       Validators.maxLength(255),
       Validators.email,
+      Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),
     ],
     updateOn: 'blur',
   });
