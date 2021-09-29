@@ -11,14 +11,14 @@
   align-items: center;
   justify-content: center;
   width: 220px;
-  background: #ffffff;
+  background: var(--color-white);
 }
 
 .loader-container {
   position: absolute;
   height: 100%;
   width: 100%;
-  background: black;
+  background: var(--color-black);
   opacity: 0.8;
   z-index: 99;
 }

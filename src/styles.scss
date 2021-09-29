@@ -2,12 +2,53 @@
 @import url("https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap");
 @import "~@ng-select/ng-select/themes/material.theme.css";
 
+:root {
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-background: #11191f;
+  --color-primary: #4d4dff;
+  --color-primary-dark: #0023ca;
+  --color-primary-light: #8d7aff;
+  --color-secondary: #5f259f;
+  --color-secondary-dark: #8a5bbe;
+  --color-secondary-light: #bea2dd;
+  --color-success: #00b300;
+  --color-error: #ff0000;
+  --color-warning: #ff8000;
+  --color-info: hsl(0, 66%, 47%);
+  --color-text: #000;
+  --color-text-secondary: #999;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+::selection {
+  background: var(--color-primary-light);
+}
+
+/* ScrollBar */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: var(--white);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: var(--white);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--black);
+}
+
 html,
 body {
   height: 100%;
-}
-body {
-  margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
@@ -20,8 +61,8 @@ body {
 }
 
 .header__add-button {
-  color: #ffffff !important;
-  background-color: #78b8f7 !important;
+  color: var(--color-white) !important;
+  background-color: var(--color-primary-light) !important;
 }
 
 .btn-action-row {
@@ -37,16 +78,33 @@ body {
   text-transform: uppercase;
 }
 
-.btn-new {
-  background-color: #008000;
-  color: #ffffff;
+.btn-primary-color,
+.btn-secondary-color,
+.btn-success-color,
+.btn-error-color,
+.btn-warning-color {
+  color: var(--color-white);
   text-transform: uppercase;
 }
 
-.btn-clean {
-  background-color: #6a5acd;
-  color: #ffffff;
-  text-transform: uppercase;
+.btn-primary-color {
+  background-color: var(--color-primary);
+}
+
+.btn-secondary-color {
+  background-color: var(--color-secondary);
+}
+
+.btn-success-color {
+  background-color: var(--color-success);
+}
+
+.btn-error-color {
+  background-color: var(--color-error);
+}
+
+.btn-warning-color {
+  background-color: var(--color-warning);
 }
 
 .table-icon {
@@ -54,5 +112,5 @@ body {
 }
 
 .table-icon:hover {
-  color: #78b8f7;
+  color: var(--color-primary);
 }

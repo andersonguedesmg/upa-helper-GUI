@@ -1,6 +1,10 @@
 <mat-toolbar class="header">
   <div class="row header__logo">
-    <p><a class="row header__text" [routerLink]="'/'">UPA Helper</a></p>
+    <p>
+      <a class="row header__text-logo" [routerLink]="'/dashboard'"
+        >UPA Helper</a
+      >
+    </p>
   </div>
 
   <button class="header__button" mat-button (click)="inputSideNav.toggle()">
@@ -9,7 +13,9 @@
 
   <span class="header__spacer"></span>
 
-  <button mat-button [matMenuTriggerFor]="beforeMenu">Olá, Anderson</button>
+  <button mat-button [matMenuTriggerFor]="beforeMenu" class="header__text">
+    Olá, Anderson
+  </button>
   <mat-menu #beforeMenu="matMenu" xPosition="before">
     <button mat-menu-item [routerLink]="'/perfil'">Perfil</button>
     <button mat-menu-item>Sobre</button>

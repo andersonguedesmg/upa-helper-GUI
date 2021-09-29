@@ -5,7 +5,7 @@
 .nav {
   .active-link {
     background-color: #fafafa;
-    border-left: solid 5px #78b8f7;
+    border-left: solid 5px var(--color-primary);
   }
 
   .hover {
@@ -22,16 +22,16 @@
     &:hover {
       cursor: pointer;
       background-color: #fafafa;
-      border-left: solid 5px #78b8f7;
+      border-left: solid 5px var(--color-primary);
     }
   }
 
   mat-icon {
-    color: #000000;
+    color: var(--color-black);
   }
 
   .active-icon {
-    color: #78b8f7;
+    color: var(--color-primary);
   }
 
   p {
