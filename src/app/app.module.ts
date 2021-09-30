@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeModule } from './modules/home/home.module';
 import { AngularMaterialModule } from './shared/angular-material/angular-material.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { SharedModule } from './shared/shared.module';
@@ -16,6 +15,7 @@ import { NgxMaskModule } from 'ngx-mask';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import { AuthInterceptorProviders } from './modules/auth/services/auth.interceptor';
+import { LayoutsModule } from './layouts/layouts.module';
 
 registerLocaleData(localePt);
 
@@ -28,8 +28,8 @@ registerLocaleData(localePt);
     AngularMaterialModule,
     AdministrativeModule,
     AuthModule,
-    HomeModule,
     MedicalCareModule,
+    LayoutsModule,
     SharedModule,
     NgSelectModule,
     NgxMaskModule.forRoot({ dropSpecialCharacters: false }),

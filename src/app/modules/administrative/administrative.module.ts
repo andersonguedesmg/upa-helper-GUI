@@ -12,9 +12,15 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { AngularMaterialModule } from 'src/app/shared/angular-material/angular-material.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NgxMaskModule } from 'ngx-mask';
+import { DashboardComponent } from './pages/dashboard/dashboard/dashboard.component';
 
 @NgModule({
-  declarations: [UserComponent, UserRegisterComponent, UserProfileComponent],
+  declarations: [
+    UserComponent,
+    UserRegisterComponent,
+    UserProfileComponent,
+    DashboardComponent,
+  ],
   imports: [
     CommonModule,
     AdministrativeRoutingModule,
