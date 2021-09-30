@@ -23,77 +23,26 @@ import { TriageRegisterComponent } from './modules/medical-care/pages/triage/tri
 import { TriageComponent } from './modules/medical-care/pages/triage/triage/triage.component';
 
 const routes: Routes = [
-  {
-    path: 'dashboard',
-    component: HomeComponent,
-  },
-  {
-    path: 'login',
-    component: LoginComponent,
-  },
-  {
-    path: 'colaboradores',
-    component: UserComponent,
-  },
-  {
-    path: 'colaborador/novo',
-    component: UserRegisterComponent,
-  },
-  {
-    path: 'perfil',
-    component: UserProfileComponent,
-  },
-  {
-    path: 'pacientes',
-    component: PatientComponent,
-  },
-  {
-    path: 'paciente/novo',
-    component: PatientRegisterComponent,
-  },
-  {
-    path: 'atendimentos',
-    component: AttendanceComponent,
-  },
-  {
-    path: 'atendimento/novo',
-    component: AttendanceRegisterComponent,
-  },
-  {
-    path: 'atendimento/ficha/:id',
-    component: AttendanceFileRegisterComponent,
-  },
-  {
-    path: 'sala-de-espera',
-    component: WaitingRoomComponent,
-  },
-  {
-    path: 'triagem',
-    component: TriageComponent,
-  },
-  {
-    path: 'triagem/nova/:id',
-    component: TriageRegisterComponent,
-  },
-  {
-    path: 'consulta',
-    component: AppointmentComponent,
-  },
-  {
-    path: 'consulta/nova/:id',
-    component: AppointmentRegisterComponent,
-  },
+  { path: 'dashboard', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'colaboradores', component: UserComponent },
+  { path: 'colaborador/novo', component: UserRegisterComponent },
+  { path: 'perfil', component: UserProfileComponent },
+  { path: 'pacientes', component: PatientComponent },
+  { path: 'paciente/novo', component: PatientRegisterComponent },
+  { path: 'atendimentos', component: AttendanceComponent },
+  { path: 'atendimento/novo', component: AttendanceRegisterComponent },
+  { path: 'atendimento/ficha/:id', component: AttendanceFileRegisterComponent },
+  { path: 'sala-de-espera', component: WaitingRoomComponent },
+  { path: 'triagem', component: TriageComponent },
+  { path: 'triagem/nova/:id', component: TriageRegisterComponent },
+  { path: 'consulta', component: AppointmentComponent },
+  { path: 'consulta/nova/:id', component: AppointmentRegisterComponent },
 ];
 
 const defaultRoutes: Routes = [
-  {
-    path: '404',
-    component: NotFoundComponent,
-  },
-  {
-    path: '**',
-    redirectTo: '/404',
-  },
+  { path: '404', component: NotFoundComponent },
+  { path: '**', redirectTo: '/404' },
 ];
 
 @NgModule({
