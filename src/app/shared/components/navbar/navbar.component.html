@@ -19,6 +19,6 @@
   <mat-menu #beforeMenu="matMenu" xPosition="before">
     <button mat-menu-item [routerLink]="'/perfil'">Perfil</button>
     <button mat-menu-item>Sobre</button>
-    <button mat-menu-item [routerLink]="'/login'">Sair</button>
+    <button mat-menu-item (click)="onLogout()">Sair</button>
   </mat-menu>
 </mat-toolbar>

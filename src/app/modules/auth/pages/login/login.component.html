@@ -1,12 +1,13 @@
 <div class="login">
-  <mat-card>
+  <mat-card class="mat-elevation-z8">
     <mat-card-content>
-      <form>
-        <!-- <form [formGroup]="form" (ngSubmit)="onSubmit()"> -->
-        <p class="login__title">Login</p>
-        <mat-form-field class="login__full-width-input">
+      <form [formGroup]="form">
+        <p class="login__title">UPA Helper</p>
+        <mat-form-field
+          class="login__full-width-input"
+          style="padding-bottom: 10px"
+        >
           <input matInput placeholder="CPF" formControlName="cpf" required />
-          <!-- <mat-error *ngIf="isFieldInvalid('userName')"> -->
           <mat-error>Por favor, informe o seu CPF</mat-error>
         </mat-form-field>
         <mat-form-field class="login__full-width-input">
@@ -17,10 +18,9 @@
             formControlName="password"
             required
           />
-          <!-- <mat-error *ngIf="isFieldInvalid('userName')"> -->
           <mat-error>Por favor informe sua senha</mat-error>
         </mat-form-field>
-        <button mat-raised-button class="login__button" type="submit">
+        <button mat-raised-button class="login__button" (click)="onLogin()">
           Entrar
         </button>
       </form>

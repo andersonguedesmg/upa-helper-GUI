@@ -13,7 +13,7 @@ export class AuthService {
     const result = await this.http
       .post<any>(environment.baseApiUrl + 'auth/login', user)
       .toPromise();
-    if (result && result.access_token) {
+    if (result && result.token) {
       window.localStorage.setItem('token', result.token);
       return true;
     }

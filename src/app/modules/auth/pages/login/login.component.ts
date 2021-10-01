@@ -32,11 +32,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  login() {
+  onLogin() {
     if (this.form.valid) {
       var request = this.form.value;
       this.authService.login(request);
-      this.router.navigate(['dashboard']);
+      this.router.navigate(['/dashboard']);
     }
   }
 }
