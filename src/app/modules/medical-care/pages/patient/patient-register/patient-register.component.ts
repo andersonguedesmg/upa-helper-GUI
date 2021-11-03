@@ -14,9 +14,10 @@ import { PatientService } from '../../../services/patient.service';
 })
 export class PatientRegisterComponent implements OnInit {
   startDate = new Date(1990, 0, 1);
+  public isActive: boolean = true;
   public form: FormGroup;
   public name = this.fb.control('', {
-    validators: [Validators.maxLength(255)],
+    validators: [Validators.required, Validators.maxLength(255)],
     updateOn: 'blur',
   });
   public socialName = this.fb.control('', {
@@ -32,11 +33,11 @@ export class PatientRegisterComponent implements OnInit {
     updateOn: 'blur',
   });
   public cpf = this.fb.control('', {
-    validators: [Validators.maxLength(14)],
+    validators: [Validators.required, Validators.maxLength(14)],
     updateOn: 'blur',
   });
   public cns = this.fb.control('', {
-    validators: [Validators.maxLength(15)],
+    validators: [Validators.maxLength(18)],
     updateOn: 'blur',
   });
   public zipCode = this.fb.control('', {
@@ -84,11 +85,11 @@ export class PatientRegisterComponent implements OnInit {
     updateOn: 'blur',
   });
   public ethnicityId = this.fb.control('', {
-    validators: [],
+    validators: [Validators.required],
     updateOn: 'blur',
   });
   public genderId = this.fb.control('', {
-    validators: [],
+    validators: [Validators.required],
     updateOn: 'blur',
   });
 
@@ -117,28 +118,11 @@ export class PatientRegisterComponent implements OnInit {
       motherName: this.motherName,
       ethnicityId: this.ethnicityId,
       genderId: this.genderId,
-      isActive: true,
+      isActive: this.isActive,
     });
   }
 
   ngOnInit(): void {}
-
-  confirmDialog(): void {
-    const message = `Are you sure you want to do this?`;
-
-    const dialogData = new ConfirmDialogModel('Salvar usuário', message);
-
-    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-      maxWidth: '400px',
-      data: dialogData,
-    });
-
-    dialogRef.afterClosed().subscribe((dialogResult) => {
-      if (dialogResult == true) {
-        this.saveNewPatient();
-      }
-    });
-  }
 
   saveNewPatient() {
     if (this.form.valid) {

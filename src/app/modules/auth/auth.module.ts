@@ -7,7 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AngularMaterialModule } from 'src/app/shared/angular-material/angular-material.module';
-import { NgSelectModule } from '@ng-select/ng-select';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [LoginComponent, NotFoundComponent],
@@ -19,7 +19,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     HttpClientModule,
     SharedModule,
     AngularMaterialModule,
-    NgSelectModule,
+    NgxMaskModule.forChild(),
   ],
 })
 export class AuthModule {}

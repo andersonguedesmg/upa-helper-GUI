@@ -7,17 +7,32 @@
           class="login__full-width-input"
           style="padding-bottom: 10px"
         >
-          <input matInput placeholder="CPF" formControlName="cpf" required />
+          <input
+            matInput
+            placeholder="CPF"
+            formControlName="cpf"
+            mask="000.000.000-00"
+            required
+          />
           <mat-error>Por favor, informe o seu CPF</mat-error>
         </mat-form-field>
         <mat-form-field class="login__full-width-input">
           <input
             matInput
-            type="password"
+            [type]="hidePassword ? 'password' : 'text'"
             placeholder="Senha"
             formControlName="password"
             required
           />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hidePassword = !hidePassword"
+          >
+            <mat-icon>{{
+              hidePassword ? "visibility_off" : "visibility"
+            }}</mat-icon>
+          </button>
           <mat-error>Por favor informe sua senha</mat-error>
         </mat-form-field>
         <button mat-raised-button class="login__button" (click)="onLogin()">

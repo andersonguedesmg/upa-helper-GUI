@@ -4,6 +4,10 @@ mat-card {
   text-align: center;
 }
 
+mat-icon {
+  color: var(--color-primary);
+}
+
 .login {
   background-image: url("../../../../../assets/images/login.jpg");
   background-size: cover;

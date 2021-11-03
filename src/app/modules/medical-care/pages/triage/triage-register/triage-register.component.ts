@@ -20,6 +20,7 @@ export class TriageRegisterComponent implements OnInit {
   attendanceData!: Attendance;
   triageDate!: Date;
   isActive: boolean = true;
+  selectedPainIntensity = '4';
   public form: FormGroup;
   public bloodPressure = this.fb.control('', {
     validators: [Validators.maxLength(11)],
@@ -53,6 +54,10 @@ export class TriageRegisterComponent implements OnInit {
     validators: [Validators.maxLength(10)],
     updateOn: 'blur',
   });
+  public imc = this.fb.control('', {
+    validators: [Validators.maxLength(10)],
+    updateOn: 'blur',
+  });
   public preInformation = this.fb.control('', {
     validators: [Validators.maxLength(255)],
     updateOn: 'blur',
@@ -61,16 +66,20 @@ export class TriageRegisterComponent implements OnInit {
     validators: [Validators.maxLength(255)],
     updateOn: 'blur',
   });
+  public allergies = this.fb.control('', {
+    validators: [Validators.maxLength(255)],
+    updateOn: 'blur',
+  });
   public personalBackground = this.fb.control('', {
     validators: [Validators.maxLength(255)],
     updateOn: 'blur',
   });
   public painIntensity = this.fb.control(null, {
-    validators: [],
+    validators: [Validators.required],
     updateOn: 'blur',
   });
   public riskRating = this.fb.control(null, {
-    validators: [],
+    validators: [Validators.required],
     updateOn: 'blur',
   });
   public isPreferred = this.fb.control('', {
@@ -95,8 +104,10 @@ export class TriageRegisterComponent implements OnInit {
       respiratoryFrequency: this.respiratoryFrequency,
       weight: this.weight,
       height: this.height,
+      imc: this.imc,
       preInformation: this.preInformation,
       medicines: this.medicines,
+      allergies: this.allergies,
       personalBackground: this.personalBackground,
       painIntensity: this.painIntensity,
       riskRating: this.riskRating,

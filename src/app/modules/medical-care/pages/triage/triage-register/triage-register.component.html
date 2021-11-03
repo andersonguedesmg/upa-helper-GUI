@@ -146,137 +146,168 @@
 
     <form [formGroup]="form">
       <div class="row" style="margin-top: 15px">
-        <div class="col-8">
-          <div class="row">
-            <div class="col-6">
-              <mat-form-field class="form-field-full-width" appearance="fill">
-                <mat-label>Informações pré-consulta</mat-label>
-                <textarea matInput [formControl]="preInformation"></textarea>
-              </mat-form-field>
-            </div>
-            <div class="col-6">
-              <mat-form-field class="form-field-full-width" appearance="fill">
-                <mat-label>Medicamentos em uso</mat-label>
-                <textarea matInput [formControl]="medicines"></textarea>
-              </mat-form-field>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-4">
-              <label>Hipertensão:</label>
-              <mat-radio-group>
-                <mat-radio-button value="1">Sim</mat-radio-button>
-                <mat-radio-button value="2">Nao</mat-radio-button>
-              </mat-radio-group>
-            </div>
-            <div class="col-4">
-              <label>Diabetes:</label>
-              <mat-radio-group>
-                <mat-radio-button value="1">Sim</mat-radio-button>
-                <mat-radio-button value="2">Nao</mat-radio-button>
-              </mat-radio-group>
-            </div>
-            <div class="col-4">
-              <label>Fumante:</label>
-              <mat-radio-group>
-                <mat-radio-button value="1">Sim</mat-radio-button>
-                <mat-radio-button value="2">Nao</mat-radio-button>
-              </mat-radio-group>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-4">
-              <label>Cancer:</label>
-              <mat-radio-group>
-                <mat-radio-button value="1">Sim</mat-radio-button>
-                <mat-radio-button value="2">Nao</mat-radio-button>
-              </mat-radio-group>
-            </div>
-            <div class="col-4">
-              <label>Transplantado:</label>
-              <mat-radio-group>
-                <mat-radio-button value="1">Sim</mat-radio-button>
-                <mat-radio-button value="2">Nao</mat-radio-button>
-              </mat-radio-group>
-            </div>
-          </div>
-          <div class="row" style="margin-top: 15px">
-            <div class="col-3">
-              <mat-form-field class="form-field-full-width" appearance="fill">
-                <mat-label>P.A.</mat-label>
-                <input matInput [formControl]="bloodPressure" mask="000-00" />
-              </mat-form-field>
-            </div>
-            <div class="col-3">
-              <mat-form-field class="form-field-full-width" appearance="fill">
-                <mat-label>Temperatura</mat-label>
-                <input matInput [formControl]="temperature" />
-              </mat-form-field>
-            </div>
-            <div class="col-3">
-              <mat-form-field class="form-field-full-width" appearance="fill">
-                <mat-label>Sat O2</mat-label>
-                <input matInput [formControl]="saturation" />
-              </mat-form-field>
-            </div>
-            <div class="col-3">
-              <mat-form-field class="form-field-full-width" appearance="fill">
-                <mat-label>Glicemia Capilar</mat-label>
-                <input matInput [formControl]="bloodGlucose" />
-              </mat-form-field>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-3">
-              <mat-form-field class="form-field-full-width" appearance="fill">
-                <mat-label>Pulso</mat-label>
-                <input matInput [formControl]="pulse" />
-              </mat-form-field>
-            </div>
-            <div class="col-3">
-              <mat-form-field class="form-field-full-width" appearance="fill">
-                <mat-label>Freq. Respiratória</mat-label>
-                <input matInput [formControl]="respiratoryFrequency" />
-              </mat-form-field>
-            </div>
-            <div class="col-3">
-              <mat-form-field class="form-field-full-width" appearance="fill">
-                <mat-label>Peso</mat-label>
-                <input matInput [formControl]="weight" />
-              </mat-form-field>
-            </div>
-            <div class="col-3">
-              <mat-form-field class="form-field-full-width" appearance="fill">
-                <mat-label>Altura</mat-label>
-                <input matInput [formControl]="height" />
-              </mat-form-field>
-            </div>
-          </div>
+        <div class="col-12">
+          <mat-form-field class="form-field-full-width" appearance="fill">
+            <mat-label>Informações pré-consulta</mat-label>
+            <textarea
+              matInput
+              [formControl]="preInformation"
+              rows="5"
+            ></textarea>
+          </mat-form-field>
         </div>
-        <div class="col-4">
-          <div class="row">
-            <mat-form-field class="form-field-full-width" appearance="fill">
-              <mat-label>Classificação de Risco</mat-label>
-              <mat-select [formControl]="riskRating">
-                <mat-option value="1">Azul</mat-option>
-                <mat-option value="2">Verde</mat-option>
-                <mat-option value="3">Amarelo</mat-option>
-                <mat-option value="4">Laranja</mat-option>
-                <mat-option value="5">Vermelho</mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
-          <div class="row">
-            <mat-form-field class="form-field-full-width" appearance="fill">
-              <mat-label>Dor</mat-label>
-              <mat-select [formControl]="painIntensity">
-                <mat-option value="1">Dor Leve</mat-option>
-                <mat-option value="2">Dor Moderada</mat-option>
-                <mat-option value="3">Dor Intensa</mat-option>
-                <mat-option value="4">Sem Dor</mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
+      </div>
+
+      <div class="row">
+        <div class="col-2">
+          <mat-card>
+            <label>Hipertensão:</label>
+            <mat-radio-group>
+              <p><mat-radio-button value="1">Sim</mat-radio-button></p>
+              <p><mat-radio-button value="2">Nao</mat-radio-button></p>
+            </mat-radio-group></mat-card
+          >
+        </div>
+        <div class="col-2">
+          <mat-card>
+            <label>Diabetes:</label>
+            <mat-radio-group>
+              <p><mat-radio-button value="1">Sim</mat-radio-button></p>
+              <p><mat-radio-button value="2">Nao</mat-radio-button></p>
+            </mat-radio-group></mat-card
+          >
+        </div>
+        <div class="col-2">
+          <mat-card>
+            <label>Fumante:</label>
+            <mat-radio-group>
+              <p><mat-radio-button value="1">Sim</mat-radio-button></p>
+              <p><mat-radio-button value="2">Nao</mat-radio-button></p>
+            </mat-radio-group></mat-card
+          >
+        </div>
+        <div class="col-2">
+          <mat-card>
+            <label>Cancer:</label>
+            <mat-radio-group>
+              <p><mat-radio-button value="1">Sim</mat-radio-button></p>
+              <p><mat-radio-button value="2">Nao</mat-radio-button></p>
+            </mat-radio-group></mat-card
+          >
+        </div>
+        <div class="col-2">
+          <mat-card>
+            <label>Transplantado:</label>
+            <mat-radio-group>
+              <p><mat-radio-button value="1">Sim</mat-radio-button></p>
+              <p><mat-radio-button value="2">Nao</mat-radio-button></p>
+            </mat-radio-group></mat-card
+          >
+        </div>
+      </div>
+
+      <div class="row" style="margin-top: 15px">
+        <div class="col-6">
+          <mat-form-field class="form-field-full-width" appearance="fill">
+            <mat-label>Medicamentos em uso</mat-label>
+            <textarea matInput [formControl]="medicines" rows="5"></textarea>
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-form-field class="form-field-full-width" appearance="fill">
+            <mat-label>Alergias</mat-label>
+            <textarea matInput [formControl]="allergies" rows="5"></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-2">
+          <mat-form-field class="form-field-full-width" appearance="fill">
+            <mat-label>P.A.</mat-label>
+            <input matInput [formControl]="bloodPressure" />
+          </mat-form-field>
+        </div>
+        <div class="col-2">
+          <mat-form-field class="form-field-full-width" appearance="fill">
+            <mat-label>Pulso</mat-label>
+            <input matInput [formControl]="pulse" />
+          </mat-form-field>
+        </div>
+        <div class="col-2">
+          <mat-form-field class="form-field-full-width" appearance="fill">
+            <mat-label>Glicemia Capilar</mat-label>
+            <input matInput [formControl]="bloodGlucose" />
+          </mat-form-field>
+        </div>
+        <div class="col-2">
+          <mat-form-field class="form-field-full-width" appearance="fill">
+            <mat-label>Temperatura</mat-label>
+            <input matInput [formControl]="temperature" />
+          </mat-form-field>
+        </div>
+        <div class="col-2">
+          <mat-form-field class="form-field-full-width" appearance="fill">
+            <mat-label>Freq. Respiratória</mat-label>
+            <input matInput [formControl]="respiratoryFrequency" />
+          </mat-form-field>
+        </div>
+        <div class="col-2">
+          <mat-form-field class="form-field-full-width" appearance="fill">
+            <mat-label>Sat O2</mat-label>
+            <input matInput [formControl]="saturation" />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-2">
+          <mat-form-field class="form-field-full-width" appearance="fill">
+            <mat-label>Peso</mat-label>
+            <input matInput [formControl]="weight" />
+          </mat-form-field>
+        </div>
+        <div class="col-2">
+          <mat-form-field class="form-field-full-width" appearance="fill">
+            <mat-label>Altura</mat-label>
+            <input matInput [formControl]="height" />
+          </mat-form-field>
+        </div>
+        <div class="col-2">
+          <mat-form-field class="form-field-full-width" appearance="fill">
+            <mat-label>IMC</mat-label>
+            <input matInput [formControl]="imc" />
+          </mat-form-field>
+        </div>
+        <div class="col-3">
+          <mat-form-field class="form-field-full-width" appearance="fill">
+            <mat-label>Dor</mat-label>
+            <mat-select
+              [formControl]="painIntensity"
+              [(ngModel)]="selectedPainIntensity"
+            >
+              <mat-option value="1">Dor Leve</mat-option>
+              <mat-option value="2">Dor Moderada</mat-option>
+              <mat-option value="3">Dor Intensa</mat-option>
+              <mat-option value="4">Sem Dor</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-3">
+          <mat-form-field class="form-field-full-width" appearance="fill">
+            <mat-label>Classificação de Risco</mat-label>
+            <mat-select [formControl]="riskRating">
+              <mat-option value="1">Azul</mat-option>
+              <mat-option value="2">Verde</mat-option>
+              <mat-option value="3">Amarelo</mat-option>
+              <mat-option value="4">Laranja</mat-option>
+              <mat-option value="5">Vermelho</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6"></div>
+        <div class="col-6">
           <div class="row">
             <div class="col-6">
               <button

@@ -9,6 +9,7 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
+  hidePassword = true;
   public form: FormGroup;
   public cpf = this.fb.control('', {
     validators: [Validators.maxLength(255)],
