@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   @Input() inputSideNav!: MatSidenav;
+  token = window.localStorage.getItem('userNameLogged');
 
   constructor(private router: Router) {}
 

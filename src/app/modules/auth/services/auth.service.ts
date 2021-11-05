@@ -15,6 +15,9 @@ export class AuthService {
       .toPromise();
     if (result && result.token) {
       window.localStorage.setItem('token', result.token);
+      let decoded: any = jwt_decode(result.token);
+      window.localStorage.setItem('userNameLogged', decoded.name);
+      window.localStorage.setItem('userIdLogged', decoded.id);
       return true;
     }
 
@@ -28,11 +31,6 @@ export class AuthService {
 
   getTokenExpirationDate(token: string): Date {
     const decoded: any = jwt_decode(token);
-
-    // if (decoded.exp === undefined) {
-    //   return null;
-    // }
-
     const date = new Date(0);
     date.setUTCSeconds(decoded.exp);
     return date;

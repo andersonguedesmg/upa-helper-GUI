@@ -14,7 +14,7 @@
   <span class="header__spacer"></span>
 
   <button mat-button [matMenuTriggerFor]="beforeMenu" class="header__text">
-    Olá, Anderson
+    Olá, {{ token }}
   </button>
   <mat-menu #beforeMenu="matMenu" xPosition="before">
     <button mat-menu-item [routerLink]="'/perfil'">Perfil</button>
