@@ -21,6 +21,7 @@ export class TriageRegisterComponent implements OnInit {
   triageDate!: Date;
   isActive: boolean = true;
   selectedPainIntensity = '4';
+  userIdLogged: string = '';
   public form: FormGroup;
   public bloodPressure = this.fb.control('', {
     validators: [Validators.maxLength(11)],
@@ -151,11 +152,12 @@ export class TriageRegisterComponent implements OnInit {
         maxWidth: '400px',
         data: dialogData,
       });
+      this.userIdLogged = window.localStorage.getItem('userIdLogged') as string;
       this.form = this.fb.group({
         ...this.form.value,
         attendanceId: this.attendanceId,
         triageDate: this.triageDate,
-        userId: 1,
+        userId: Number(this.userIdLogged),
         isActive: this.isActive,
       });
       dialogRef.afterClosed().subscribe((dialogResult) => {

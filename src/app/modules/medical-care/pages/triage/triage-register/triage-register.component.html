@@ -53,7 +53,7 @@
       </div>
       <div class="col-3">
         <p>
-          Idade: <b>{{ attendanceData?.patientAge }}</b>
+          Idade: <b>{{ attendanceData?.patientAge + ' Anos' }}</b>
         </p>
       </div>
       <div class="col-3">
@@ -63,7 +63,7 @@
       </div>
       <div class="col-3">
         <p>
-          Cor ou Raça/Etnia: <b>{{ attendanceData?.patient?.ethnicityId }}</b>
+          Cor/Raça/Etnia: <b>{{ attendanceData?.patient?.ethnicityId }}</b>
         </p>
       </div>
     </div>
@@ -129,7 +129,7 @@
       </div>
       <div class="col-2">
         <p>
-          Estado: <b>{{ attendanceData?.patient?.state }}</b>
+          Estado: <b>{{ attendanceData?.patient?.state | uppercase }}</b>
         </p>
       </div>
     </div>
@@ -233,37 +233,72 @@
         <div class="col-2">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>P.A.</mat-label>
-            <input matInput [formControl]="bloodPressure" />
+            <input
+              matInput
+              [formControl]="bloodPressure"
+              suffix=" mmHg"
+              mask="000/00"
+            />
           </mat-form-field>
         </div>
         <div class="col-2">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>Pulso</mat-label>
-            <input matInput [formControl]="pulse" />
+            <input
+              matInput
+              [formControl]="pulse"
+              suffix=" FC"
+              [validation]="false"
+              mask="000"
+            />
           </mat-form-field>
         </div>
         <div class="col-2">
           <mat-form-field class="form-field-full-width" appearance="fill">
-            <mat-label>Glicemia Capilar</mat-label>
-            <input matInput [formControl]="bloodGlucose" />
+            <mat-label>Glicemia</mat-label>
+            <input
+              matInput
+              [formControl]="bloodGlucose"
+              suffix=" mg/dL"
+              [validation]="false"
+              mask="0000"
+            />
           </mat-form-field>
         </div>
         <div class="col-2">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>Temperatura</mat-label>
-            <input matInput [formControl]="temperature" />
+            <input
+              matInput
+              [formControl]="temperature"
+              suffix=" °C"
+              [validation]="false"
+              mask="00,00"
+            />
           </mat-form-field>
         </div>
         <div class="col-2">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>Freq. Respiratória</mat-label>
-            <input matInput [formControl]="respiratoryFrequency" />
+            <input
+              matInput
+              [formControl]="respiratoryFrequency"
+              suffix=" bpm"
+              [validation]="false"
+              mask="00"
+            />
           </mat-form-field>
         </div>
         <div class="col-2">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>Sat O2</mat-label>
-            <input matInput [formControl]="saturation" />
+            <input
+              matInput
+              [formControl]="saturation"
+              suffix=" %"
+              [validation]="false"
+              mask="000"
+            />
           </mat-form-field>
         </div>
       </div>
@@ -271,19 +306,31 @@
         <div class="col-2">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>Peso</mat-label>
-            <input matInput [formControl]="weight" />
+            <input
+              matInput
+              [formControl]="weight"
+              suffix=" Kg"
+              [validation]="false"
+              mask="000,00"
+            />
           </mat-form-field>
         </div>
         <div class="col-2">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>Altura</mat-label>
-            <input matInput [formControl]="height" />
+            <input
+              matInput
+              [formControl]="height"
+              suffix=" m"
+              [validation]="false"
+              mask="0,00"
+            />
           </mat-form-field>
         </div>
         <div class="col-2">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>IMC</mat-label>
-            <input matInput [formControl]="imc" />
+            <input matInput [formControl]="imc" readonly="true" />
           </mat-form-field>
         </div>
         <div class="col-3">
