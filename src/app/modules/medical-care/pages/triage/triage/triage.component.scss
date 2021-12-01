@@ -33,18 +33,23 @@ table,
 }
 
 .mat-column-patientName {
-  flex: 0 0 55% !important;
-  width: 55% !important;
+  flex: 0 0 43% !important;
+  width: 43% !important;
 }
 
 .mat-column-patientAge {
-  flex: 0 0 12% !important;
-  width: 12% !important;
+  flex: 0 0 10% !important;
+  width: 10% !important;
 }
 
 .mat-column-date {
-  flex: 0 0 15% !important;
-  width: 15% !important;
+  flex: 0 0 14% !important;
+  width: 14% !important;
+}
+
+.mat-column-attendanceStatus {
+  flex: 0 0 14% !important;
+  width: 14% !important;
 }
 
 .mat-column-actions {

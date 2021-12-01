@@ -18,6 +18,7 @@ export class TriageComponent implements AfterViewInit {
     'patientName',
     'patientAge',
     'date',
+    'attendanceStatus',
     'actions',
   ];
   attendanceList: Attendance[] = [];

@@ -129,8 +129,9 @@ export class TriageRegisterComponent implements OnInit {
 
   saveNewTriage() {
     if (this.form.valid) {
+      const title = `Fazer Triagem`;
       const message = `Você tem certeza de que quer fazer essa triagem?`;
-      const dialogData = new ConfirmDialogModel('Salvar usuário', message);
+      const dialogData = new ConfirmDialogModel(title, message);
       const dialogRef = this.dialog.open(ConfirmDialogComponent, {
         maxWidth: '400px',
         data: dialogData,

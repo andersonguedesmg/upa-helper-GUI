@@ -15,6 +15,7 @@ export class AttendanceComponent implements AfterViewInit {
     'patientName',
     'patientAge',
     'date',
+    'attendanceStatus',
     'actions',
   ];
   attendanceList: Attendance[] = [];

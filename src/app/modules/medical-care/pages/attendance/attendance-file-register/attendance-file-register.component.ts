@@ -20,6 +20,7 @@ export class AttendanceFileRegisterComponent implements OnInit {
   patientData!: Patient;
   arrival!: Date;
   patientAge: number = 0;
+  statusId: number = 1;
   isSamu: boolean = false;
   isActive: boolean = true;
   public form: FormGroup;
@@ -54,8 +55,9 @@ export class AttendanceFileRegisterComponent implements OnInit {
 
   saveNewAttendance() {
     if (this.form.valid) {
+      const title = `Novo Atendimento`;
       const message = `Você tem certeza de que quer abrir essa Nova Ficha de Atendimento?`;
-      const dialogData = new ConfirmDialogModel('Salvar usuário', message);
+      const dialogData = new ConfirmDialogModel(title, message);
       const dialogRef = this.dialog.open(ConfirmDialogComponent, {
         maxWidth: '400px',
         data: dialogData,
@@ -67,6 +69,7 @@ export class AttendanceFileRegisterComponent implements OnInit {
         isSamu: this.isSamu,
         isActive: this.isActive,
         patientId: this.patientId,
+        statusId: this.statusId,
       });
       dialogRef.afterClosed().subscribe((dialogResult) => {
         if (dialogResult == true) {

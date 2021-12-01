@@ -9,6 +9,8 @@ class Attendance {
   isActive: boolean;
   patientId: number;
   patient: Patient;
+  statusId: number;
+  attendanceStatus: any;
 
   constructor() {
     this.id = 0;
@@ -19,6 +21,8 @@ class Attendance {
     this.isActive = true;
     this.patientId = 0;
     this.patient = new Patient();
+    this.statusId = 0;
+    this.attendanceStatus = null;
   }
 }
 
