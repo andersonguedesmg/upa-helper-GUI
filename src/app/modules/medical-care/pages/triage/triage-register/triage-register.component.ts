@@ -28,7 +28,7 @@ export class TriageRegisterComponent implements OnInit {
     updateOn: 'blur',
   });
   public temperature = this.fb.control('', {
-    validators: [Validators.maxLength(7)],
+    validators: [Validators.maxLength(8)],
     updateOn: 'blur',
   });
   public saturation = this.fb.control('', {
@@ -40,23 +40,23 @@ export class TriageRegisterComponent implements OnInit {
     updateOn: 'blur',
   });
   public pulse = this.fb.control('', {
-    validators: [Validators.maxLength(10)],
+    validators: [Validators.maxLength(6)],
     updateOn: 'blur',
   });
   public respiratoryFrequency = this.fb.control('', {
-    validators: [Validators.maxLength(10)],
+    validators: [Validators.maxLength(6)],
     updateOn: 'blur',
   });
   public weight = this.fb.control('', {
-    validators: [Validators.maxLength(10)],
+    validators: [Validators.maxLength(9)],
     updateOn: 'blur',
   });
   public height = this.fb.control('', {
-    validators: [Validators.maxLength(10)],
+    validators: [Validators.maxLength(6)],
     updateOn: 'blur',
   });
   public imc = this.fb.control('', {
-    validators: [Validators.maxLength(10)],
+    validators: [Validators.maxLength(11)],
     updateOn: 'blur',
   });
   public preInformation = this.fb.control('', {
