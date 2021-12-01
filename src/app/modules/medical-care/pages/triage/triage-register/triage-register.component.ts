@@ -70,10 +70,6 @@ export class TriageRegisterComponent implements OnInit {
     validators: [Validators.maxLength(255)],
     updateOn: 'blur',
   });
-  public personalBackground = this.fb.control('', {
-    validators: [Validators.maxLength(255)],
-    updateOn: 'blur',
-  });
   public painIntensity = this.fb.control(null, {
     validators: [Validators.required],
     updateOn: 'blur',
@@ -85,6 +81,21 @@ export class TriageRegisterComponent implements OnInit {
   public isPreferred = this.fb.control('', {
     validators: [],
     updateOn: 'blur',
+  });
+  public hasHypertension = this.fb.control(null, {
+    validators: [],
+  });
+  public hasDiabetes = this.fb.control(null, {
+    validators: [],
+  });
+  public isSmoker = this.fb.control(null, {
+    validators: [],
+  });
+  public hasCancer = this.fb.control(null, {
+    validators: [],
+  });
+  public isTransplanted = this.fb.control(null, {
+    validators: [],
   });
 
   constructor(
@@ -108,10 +119,14 @@ export class TriageRegisterComponent implements OnInit {
       preInformation: this.preInformation,
       medicines: this.medicines,
       allergies: this.allergies,
-      personalBackground: this.personalBackground,
       painIntensity: this.painIntensity,
       riskRating: this.riskRating,
       isPreferred: false,
+      hasHypertension: this.hasHypertension,
+      hasDiabetes: this.hasDiabetes,
+      isSmoker: this.isSmoker,
+      hasCancer: this.hasCancer,
+      isTransplanted: this.isTransplanted,
     });
   }
 

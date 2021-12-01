@@ -162,7 +162,7 @@
         <div class="col-2">
           <mat-card>
             <label>Hipertensão:</label>
-            <mat-radio-group>
+            <mat-radio-group [formControl]="hasHypertension">
               <p><mat-radio-button value="1">Sim</mat-radio-button></p>
               <p><mat-radio-button value="2">Nao</mat-radio-button></p>
             </mat-radio-group></mat-card
@@ -171,7 +171,7 @@
         <div class="col-2">
           <mat-card>
             <label>Diabetes:</label>
-            <mat-radio-group>
+            <mat-radio-group [formControl]="hasDiabetes">
               <p><mat-radio-button value="1">Sim</mat-radio-button></p>
               <p><mat-radio-button value="2">Nao</mat-radio-button></p>
             </mat-radio-group></mat-card
@@ -180,7 +180,7 @@
         <div class="col-2">
           <mat-card>
             <label>Fumante:</label>
-            <mat-radio-group>
+            <mat-radio-group [formControl]="isSmoker">
               <p><mat-radio-button value="1">Sim</mat-radio-button></p>
               <p><mat-radio-button value="2">Nao</mat-radio-button></p>
             </mat-radio-group></mat-card
@@ -189,7 +189,7 @@
         <div class="col-2">
           <mat-card>
             <label>Cancer:</label>
-            <mat-radio-group>
+            <mat-radio-group [formControl]="hasCancer">
               <p><mat-radio-button value="1">Sim</mat-radio-button></p>
               <p><mat-radio-button value="2">Nao</mat-radio-button></p>
             </mat-radio-group></mat-card
@@ -198,11 +198,19 @@
         <div class="col-2">
           <mat-card>
             <label>Transplantado:</label>
-            <mat-radio-group>
+            <mat-radio-group [formControl]="isTransplanted">
               <p><mat-radio-button value="1">Sim</mat-radio-button></p>
               <p><mat-radio-button value="2">Nao</mat-radio-button></p>
             </mat-radio-group></mat-card
           >
+        </div>
+        <div class="col-2">
+          <mat-card>
+            <label>UPA 24 horas</label>
+            <p>Elisa Sbrissa</p>
+            <p>Franchozza</p>
+            <mat-radio-group> </mat-radio-group
+          ></mat-card>
         </div>
       </div>
 
