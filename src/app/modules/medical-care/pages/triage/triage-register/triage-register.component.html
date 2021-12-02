@@ -163,8 +163,8 @@
           <mat-card>
             <label>Hipertensão:</label>
             <mat-radio-group [formControl]="hasHypertension">
-              <p><mat-radio-button value="1">Sim</mat-radio-button></p>
-              <p><mat-radio-button value="2">Nao</mat-radio-button></p>
+              <p><mat-radio-button [value]="true">Sim</mat-radio-button></p>
+              <p><mat-radio-button [value]="false">Nao</mat-radio-button></p>
             </mat-radio-group></mat-card
           >
         </div>
@@ -172,8 +172,8 @@
           <mat-card>
             <label>Diabetes:</label>
             <mat-radio-group [formControl]="hasDiabetes">
-              <p><mat-radio-button value="1">Sim</mat-radio-button></p>
-              <p><mat-radio-button value="2">Nao</mat-radio-button></p>
+              <p><mat-radio-button [value]="true">Sim</mat-radio-button></p>
+              <p><mat-radio-button [value]="false">Nao</mat-radio-button></p>
             </mat-radio-group></mat-card
           >
         </div>
@@ -181,8 +181,8 @@
           <mat-card>
             <label>Fumante:</label>
             <mat-radio-group [formControl]="isSmoker">
-              <p><mat-radio-button value="1">Sim</mat-radio-button></p>
-              <p><mat-radio-button value="2">Nao</mat-radio-button></p>
+              <p><mat-radio-button [value]="true">Sim</mat-radio-button></p>
+              <p><mat-radio-button [value]="false">Nao</mat-radio-button></p>
             </mat-radio-group></mat-card
           >
         </div>
@@ -190,8 +190,8 @@
           <mat-card>
             <label>Cancer:</label>
             <mat-radio-group [formControl]="hasCancer">
-              <p><mat-radio-button value="1">Sim</mat-radio-button></p>
-              <p><mat-radio-button value="2">Nao</mat-radio-button></p>
+              <p><mat-radio-button [value]="true">Sim</mat-radio-button></p>
+              <p><mat-radio-button [value]="false">Nao</mat-radio-button></p>
             </mat-radio-group></mat-card
           >
         </div>
@@ -199,8 +199,8 @@
           <mat-card>
             <label>Transplantado:</label>
             <mat-radio-group [formControl]="isTransplanted">
-              <p><mat-radio-button value="1">Sim</mat-radio-button></p>
-              <p><mat-radio-button value="2">Nao</mat-radio-button></p>
+              <p><mat-radio-button [value]="true">Sim</mat-radio-button></p>
+              <p><mat-radio-button [value]="false">Nao</mat-radio-button></p>
             </mat-radio-group></mat-card
           >
         </div>
@@ -337,24 +337,24 @@
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>Dor</mat-label>
             <mat-select
-              [formControl]="painIntensity"
+              [formControl]="painIntensityId"
               [(ngModel)]="selectedPainIntensity"
             >
-              <mat-option value="1">Dor Leve</mat-option>
-              <mat-option value="2">Dor Moderada</mat-option>
-              <mat-option value="3">Dor Intensa</mat-option>
-              <mat-option value="4">Sem Dor</mat-option>
+              <mat-option [value]="1">Dor Leve</mat-option>
+              <mat-option [value]="2">Dor Moderada</mat-option>
+              <mat-option [value]="3">Dor Intensa</mat-option>
+              <mat-option [value]="4">Sem Dor</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
         <div class="col-3">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>Classificação de Risco</mat-label>
-            <mat-select [formControl]="riskRating">
-              <mat-option value="1">Azul</mat-option>
-              <mat-option value="2">Verde</mat-option>
-              <mat-option value="3">Amarelo</mat-option>
-              <mat-option value="4">Vermelho</mat-option>
+            <mat-select [formControl]="riskRatingId">
+              <mat-option [value]="1">Azul</mat-option>
+              <mat-option [value]="2">Verde</mat-option>
+              <mat-option [value]="3">Amarelo</mat-option>
+              <mat-option [value]="4">Vermelho</mat-option>
             </mat-select>
           </mat-form-field>
         </div>

@@ -20,7 +20,7 @@ export class TriageRegisterComponent implements OnInit {
   attendanceData!: Attendance;
   triageDate!: Date;
   isActive: boolean = true;
-  selectedPainIntensity = '4';
+  selectedPainIntensity: number = 4;
   userIdLogged: string = '';
   public form: FormGroup;
   public bloodPressure = this.fb.control('', {
@@ -71,11 +71,11 @@ export class TriageRegisterComponent implements OnInit {
     validators: [Validators.maxLength(255)],
     updateOn: 'blur',
   });
-  public painIntensity = this.fb.control(null, {
+  public painIntensityId = this.fb.control(null, {
     validators: [Validators.required],
     updateOn: 'blur',
   });
-  public riskRating = this.fb.control(null, {
+  public riskRatingId = this.fb.control(null, {
     validators: [Validators.required],
     updateOn: 'blur',
   });
@@ -120,8 +120,8 @@ export class TriageRegisterComponent implements OnInit {
       preInformation: this.preInformation,
       medicines: this.medicines,
       allergies: this.allergies,
-      painIntensity: this.painIntensity,
-      riskRating: this.riskRating,
+      painIntensityId: this.painIntensityId,
+      riskRatingId: this.riskRatingId,
       isPreferred: false,
       hasHypertension: this.hasHypertension,
       hasDiabetes: this.hasDiabetes,
@@ -155,7 +155,7 @@ export class TriageRegisterComponent implements OnInit {
       this.userIdLogged = window.localStorage.getItem('userIdLogged') as string;
       this.form = this.fb.group({
         ...this.form.value,
-        attendanceId: this.attendanceId,
+        attendanceId: Number(this.attendanceId),
         triageDate: this.triageDate,
         userId: Number(this.userIdLogged),
         isActive: this.isActive,
