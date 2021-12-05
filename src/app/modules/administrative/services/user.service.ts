@@ -16,19 +16,13 @@ export class UserService {
     return throwError(error.error.message);
   }
 
-  public getUsers(): Observable<User[]> {
-    return this.http
-      .get<User[]>(environment.baseApiUrl + 'users')
-      .pipe(catchError(this.handleError), take(1));
-  }
-
   public getUsersForTable(): Observable<User[]> {
     return this.http
       .get<User[]>(environment.baseApiUrl + 'users/table')
       .pipe(catchError(this.handleError), take(1));
   }
 
-  public addUser(user: User): Observable<User[]> {
+  public createUser(user: User): Observable<User[]> {
     return this.http
       .post(environment.baseApiUrl + 'auth/signup', user)
       .pipe(catchError(this.handleError), take(1));

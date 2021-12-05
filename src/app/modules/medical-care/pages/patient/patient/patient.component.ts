@@ -21,11 +21,11 @@ export class PatientComponent implements OnInit {
   constructor(public patientService: PatientService) {}
 
   ngOnInit(): void {
-    this.getPatients();
+    this.getPatientsForTable();
   }
 
-  getPatients() {
-    this.patientService.getPatients().subscribe((response) => {
+  getPatientsForTable() {
+    this.patientService.getPatientsForTable().subscribe((response) => {
       this.dataSource.data = response as Patient[];
     });
   }

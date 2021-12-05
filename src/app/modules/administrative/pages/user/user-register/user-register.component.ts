@@ -71,11 +71,15 @@ export class UserRegisterComponent implements OnInit {
     updateOn: 'blur',
   });
   public telephone = this.fb.control('', {
-    validators: [Validators.maxLength(13)],
+    validators: [Validators.maxLength(14)],
     updateOn: 'blur',
   });
   public cell = this.fb.control('', {
-    validators: [Validators.required, Validators.maxLength(14)],
+    validators: [Validators.required, Validators.maxLength(15)],
+    updateOn: 'blur',
+  });
+  public council = this.fb.control('', {
+    validators: [Validators.maxLength(20)],
     updateOn: 'blur',
   });
   public userTypeId = this.fb.control('', {
@@ -103,6 +107,7 @@ export class UserRegisterComponent implements OnInit {
       complement: this.complement,
       telephone: this.telephone,
       cell: this.cell,
+      council: this.council,
       userTypeId: this.userTypeId,
       isActive: this.isActive,
       password: this.password,
@@ -111,10 +116,11 @@ export class UserRegisterComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  saveNewUser() {
+  createUser() {
     if (this.form.valid) {
+      const title = `Salvar usuário`;
       const message = `Você tem certeza de que quer salvar esse usuário?`;
-      const dialogData = new ConfirmDialogModel('Salvar usuário', message);
+      const dialogData = new ConfirmDialogModel(title, message);
       const dialogRef = this.dialog.open(ConfirmDialogComponent, {
         maxWidth: '400px',
         data: dialogData,
@@ -123,7 +129,7 @@ export class UserRegisterComponent implements OnInit {
       dialogRef.afterClosed().subscribe((dialogResult) => {
         if (dialogResult == true) {
           var request = this.form.value;
-          this.userService.addUser(request).subscribe(() => {
+          this.userService.createUser(request).subscribe(() => {
             location.reload();
             this.clearForm();
           });

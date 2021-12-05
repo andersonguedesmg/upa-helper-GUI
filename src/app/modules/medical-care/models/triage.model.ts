@@ -15,7 +15,6 @@ class Triage {
   painIntensity: number;
   riskRating: number;
   isPreferred: boolean;
-  isActive: boolean;
   attendanceId: number;
   userId: number;
 
@@ -36,7 +35,6 @@ class Triage {
     this.painIntensity = 0;
     this.riskRating = 0;
     this.isPreferred = false;
-    this.isActive = true;
     this.attendanceId = 0;
     this.userId = 0;
   }

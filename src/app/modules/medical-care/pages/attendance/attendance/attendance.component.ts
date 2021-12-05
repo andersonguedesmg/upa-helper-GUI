@@ -27,13 +27,15 @@ export class AttendanceComponent implements AfterViewInit {
   constructor(public attendanceService: AttendanceService) {}
 
   ngOnInit(): void {
-    this.getAttendancesForTable();
+    this.getAttendancesCompletedForTable();
   }
 
-  getAttendancesForTable() {
-    this.attendanceService.getAttendancesForTable().subscribe((response) => {
-      this.dataSource.data = response as Attendance[];
-    });
+  getAttendancesCompletedForTable() {
+    this.attendanceService
+      .getAttendancesCompletedForTable()
+      .subscribe((response) => {
+        this.dataSource.data = response as Attendance[];
+      });
   }
 
   ngAfterViewInit() {

@@ -34,11 +34,11 @@ export class TriageComponent implements AfterViewInit {
   ) {}
 
   ngOnInit(): void {
-    this.getAttendancesForTable();
+    this.getAttendancesOpenedForTable();
   }
 
-  getAttendancesForTable() {
-    this.attendanceService.getAttendancesForTable().subscribe((response) => {
+  getAttendancesOpenedForTable() {
+    this.attendanceService.getAttendancesOpenedForTable().subscribe((response) => {
       this.dataSource.data = response as Attendance[];
     });
   }

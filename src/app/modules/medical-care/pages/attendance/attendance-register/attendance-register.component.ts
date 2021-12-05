@@ -26,7 +26,7 @@ export class AttendanceRegisterComponent implements OnInit {
   }
 
   getPatientsForTable() {
-    this.patientService.getPatients().subscribe((response) => {
+    this.patientService.getPatientsForTable().subscribe((response) => {
       this.dataSource.data = response as Patient[];
     });
   }

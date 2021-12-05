@@ -16,19 +16,19 @@ export class AttendanceService {
     return throwError(error.error.message);
   }
 
-  public getAttendances(): Observable<Attendance[]> {
+  public getAttendancesCompletedForTable(): Observable<Attendance[]> {
     return this.http
-      .get<Attendance[]>(environment.baseApiUrl + 'attendances')
+      .get<Attendance[]>(environment.baseApiUrl + 'attendances/table/completed')
       .pipe(catchError(this.handleError), take(1));
   }
 
-  public getAttendancesForTable(): Observable<Attendance[]> {
+  public getAttendancesOpenedForTable(): Observable<Attendance[]> {
     return this.http
-      .get<Attendance[]>(environment.baseApiUrl + 'attendances/table')
+      .get<Attendance[]>(environment.baseApiUrl + 'attendances/table/opened')
       .pipe(catchError(this.handleError), take(1));
   }
 
-  public addAttendance(attendance: Attendance): Observable<Attendance> {
+  public createAttendance(attendance: Attendance): Observable<Attendance> {
     return this.http
       .post(environment.baseApiUrl + 'attendances', attendance)
       .pipe(catchError(this.handleError), take(1));

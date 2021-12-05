@@ -16,13 +16,7 @@ export class TriageService {
     return throwError(error.error.message);
   }
 
-  public getTriages(): Observable<Triage[]> {
-    return this.http
-      .get<Triage[]>(environment.baseApiUrl + 'triages')
-      .pipe(catchError(this.handleError), take(1));
-  }
-
-  public addTriage(triage: Triage): Observable<Triage> {
+  public createTriage(triage: Triage): Observable<Triage> {
     return this.http
       .post(environment.baseApiUrl + 'triages', triage)
       .pipe(catchError(this.handleError), take(1));

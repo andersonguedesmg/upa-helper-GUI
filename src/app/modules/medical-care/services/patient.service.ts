@@ -16,13 +16,13 @@ export class PatientService {
     return throwError(error.error.message);
   }
 
-  public getPatients(): Observable<Patient[]> {
+  public getPatientsForTable(): Observable<Patient[]> {
     return this.http
-      .get<Patient[]>(environment.baseApiUrl + 'patients')
+      .get<Patient[]>(environment.baseApiUrl + 'patients/table')
       .pipe(catchError(this.handleError), take(1));
   }
 
-  public addPatient(patient: Patient): Observable<Patient> {
+  public createPatient(patient: Patient): Observable<Patient> {
     return this.http
       .post(environment.baseApiUrl + 'patients', patient)
       .pipe(catchError(this.handleError), take(1));

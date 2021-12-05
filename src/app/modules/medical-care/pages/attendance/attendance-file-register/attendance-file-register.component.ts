@@ -22,7 +22,6 @@ export class AttendanceFileRegisterComponent implements OnInit {
   patientAge: number = 0;
   statusId: number = 1;
   isSamu: boolean = false;
-  isActive: boolean = true;
   public form: FormGroup;
   public receptionInformation = this.fb.control('', {
     validators: [Validators.maxLength(512)],
@@ -53,7 +52,7 @@ export class AttendanceFileRegisterComponent implements OnInit {
     });
   }
 
-  saveNewAttendance() {
+  createAttendance() {
     if (this.form.valid) {
       const title = `Novo Atendimento`;
       const message = `Você tem certeza de que quer abrir essa Nova Ficha de Atendimento?`;
@@ -67,14 +66,13 @@ export class AttendanceFileRegisterComponent implements OnInit {
         patientAge: this.patientAge.toString(),
         arrivalDate: this.arrival,
         isSamu: this.isSamu,
-        isActive: this.isActive,
         patientId: this.patientId,
         statusId: this.statusId,
       });
       dialogRef.afterClosed().subscribe((dialogResult) => {
         if (dialogResult == true) {
           var request = this.form.value;
-          this.attendanceService.addAttendance(request).subscribe(() => {
+          this.attendanceService.createAttendance(request).subscribe(() => {
             this.clearForm();
             this.router.navigate(['/atendimento/novo']);
           });

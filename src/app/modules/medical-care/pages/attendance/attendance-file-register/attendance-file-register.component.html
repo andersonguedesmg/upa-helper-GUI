@@ -44,7 +44,7 @@
       </div>
       <div class="col-3">
         <p>
-          Cor ou Raça/Etnia: <b>{{ patientData?.ethnicity?.label }}</b>
+          Cor/Raça/Etnia: <b>{{ patientData?.ethnicity?.label }}</b>
         </p>
       </div>
     </div>
@@ -131,7 +131,7 @@
               <button
                 mat-raised-button
                 class="btn-success-color"
-                (click)="saveNewAttendance()"
+                (click)="createAttendance()"
                 matTooltip="Cadastrar Atendimento"
               >
                 Salvar

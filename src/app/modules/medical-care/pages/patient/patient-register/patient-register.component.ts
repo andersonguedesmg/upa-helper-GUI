@@ -124,10 +124,11 @@ export class PatientRegisterComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  saveNewPatient() {
+  createPatient() {
     if (this.form.valid) {
+      const title = `Salvar paciente`;
       const message = `Você tem certeza de que quer salvar esse paciente?`;
-      const dialogData = new ConfirmDialogModel('Salvar paciente', message);
+      const dialogData = new ConfirmDialogModel(title, message);
       const dialogRef = this.dialog.open(ConfirmDialogComponent, {
         maxWidth: '400px',
         data: dialogData,
@@ -136,7 +137,7 @@ export class PatientRegisterComponent implements OnInit {
       dialogRef.afterClosed().subscribe((dialogResult) => {
         if (dialogResult == true) {
           var request = this.form.value;
-          this.patientService.addPatient(request).subscribe(() => {
+          this.patientService.createPatient(request).subscribe(() => {
             location.reload();
             this.clearForm();
           });

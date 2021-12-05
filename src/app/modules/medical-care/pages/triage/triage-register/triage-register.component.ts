@@ -19,7 +19,6 @@ export class TriageRegisterComponent implements OnInit {
   attendanceId!: number;
   attendanceData!: Attendance;
   triageDate!: Date;
-  isActive: boolean = true;
   selectedPainIntensity: number = 4;
   userIdLogged: string = '';
   public form: FormGroup;
@@ -143,7 +142,7 @@ export class TriageRegisterComponent implements OnInit {
       });
   }
 
-  saveNewTriage() {
+  createTriage() {
     if (this.form.valid) {
       const title = `Fazer Triagem`;
       const message = `Você tem certeza de que quer fazer essa triagem?`;
@@ -158,12 +157,11 @@ export class TriageRegisterComponent implements OnInit {
         attendanceId: Number(this.attendanceId),
         triageDate: this.triageDate,
         userId: Number(this.userIdLogged),
-        isActive: this.isActive,
       });
       dialogRef.afterClosed().subscribe((dialogResult) => {
         if (dialogResult == true) {
           var request = this.form.value;
-          this.triageService.addTriage(request).subscribe(() => {
+          this.triageService.createTriage(request).subscribe(() => {
             this.clearForm();
             this.router.navigate(['/triagem']);
           });

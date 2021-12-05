@@ -6,7 +6,6 @@ class Attendance {
   patientAge: string;
   arrivalDate: string;
   isSamu: boolean;
-  isActive: boolean;
   patientId: number;
   patient: Patient;
   statusId: number;
@@ -18,7 +17,6 @@ class Attendance {
     this.patientAge = '';
     this.arrivalDate = '';
     this.isSamu = false;
-    this.isActive = true;
     this.patientId = 0;
     this.patient = new Patient();
     this.statusId = 0;
