@@ -25,7 +25,7 @@ export class PatientRegisterComponent implements OnInit {
     updateOn: 'blur',
   });
   public birthday = this.fb.control('', {
-    validators: [],
+    validators: [Validators.required],
     updateOn: 'blur',
   });
   public rg = this.fb.control('', {
@@ -69,11 +69,11 @@ export class PatientRegisterComponent implements OnInit {
     updateOn: 'blur',
   });
   public telephone = this.fb.control('', {
-    validators: [Validators.maxLength(13)],
+    validators: [Validators.maxLength(14)],
     updateOn: 'blur',
   });
   public cell = this.fb.control('', {
-    validators: [Validators.maxLength(14)],
+    validators: [Validators.maxLength(15)],
     updateOn: 'blur',
   });
   public fatherName = this.fb.control('', {

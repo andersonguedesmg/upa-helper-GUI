@@ -1,12 +1,10 @@
 <div class="container">
-  <div class="row">
-    <div class="col-12">
-      <h3 class="header__title">Cadastro de Colaborador</h3>
-    </div>
-  </div>
-</div>
-<div class="container">
   <mat-card class="mat-elevation-z8">
+    <div class="row">
+      <div class="col-12">
+        <h3 class="header__title">Cadastro de Colaborador</h3>
+      </div>
+    </div>
     <form [formGroup]="form">
       <div class="row form-first-row">
         <div class="col-6">
@@ -37,7 +35,11 @@
         <div class="col-3">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>Conselho de Classe</mat-label>
-            <input matInput [formControl]="council" mask="00000000000000000000" />
+            <input
+              matInput
+              [formControl]="council"
+              mask="00000000000000000000"
+            />
           </mat-form-field>
         </div>
       </div>
@@ -141,26 +143,24 @@
           </mat-form-field>
         </div>
       </div>
-      <div class="row btn-action-row">
-        <div class="col-1">
-          <button
-            mat-raised-button
-            class="btn-warning-color"
-            matTooltip="Limpar Formulario"
-          >
-            Limpar
-          </button>
-        </div>
-        <div class="col-2">
-          <button
-            (click)="createUser()"
-            mat-raised-button
-            class="btn-success-color"
-            matTooltip="Cadastrar Usuário"
-          >
-            Cadastrar
-          </button>
-        </div>
+      <div style="margin-bottom: 25px; padding-top: 5px">
+        <button
+          (click)="createUser()"
+          mat-raised-button
+          style="margin-right: 10px"
+          class="btn-primary-color"
+          matTooltip="Cadastrar Paciente"
+        >
+          Cadastrar
+        </button>
+        <button
+          (click)="clearForm()"
+          mat-stroked-button
+          class="btn-primary-color--outline"
+          matTooltip="Limpar"
+        >
+          Limpar
+        </button>
       </div>
     </form>
   </mat-card>

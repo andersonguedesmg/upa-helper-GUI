@@ -1,15 +1,9 @@
 <div class="container">
-  <div class="row">
-    <div class="col-12">
-      <h3 class="header__title">Nova Ficha de Atendimento</h3>
-    </div>
-  </div>
-</div>
-
-<div class="container">
   <mat-card class="mat-elevation-z8">
-    <div class="row form-first-row">
-      <div class="col-12"><h2>Ficha de Atendimento Ambulatórial</h2></div>
+    <div class="row">
+      <div class="col-12">
+        <h3 class="header__title">Ficha de Atendimento Ambulatórial</h3>
+      </div>
     </div>
     <div class="row">
       <div class="col-12">
@@ -119,48 +113,41 @@
 
     <form [formGroup]="form">
       <div class="row" style="margin-top: 15px">
-        <div class="col-8">
+        <div class="col-12">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>Dados da Recepção</mat-label>
             <textarea matInput [formControl]="receptionInformation"></textarea>
           </mat-form-field>
         </div>
-        <div class="col-4">
-          <div class="row">
-            <div class="col-6">
-              <button
-                mat-raised-button
-                class="btn-success-color"
-                (click)="createAttendance()"
-                matTooltip="Cadastrar Atendimento"
-              >
-                Salvar
-              </button>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-6">
-              <button
-                mat-raised-button
-                [routerLink]="'/atendimento/novo'"
-                class="btn-warning-color"
-                matTooltip="Cancelar Atendimento"
-              >
-                Cancelar
-              </button>
-            </div>
-            <div class="col-6">
-              <button
-                mat-raised-button
-                class="btn-success-color"
-                [routerLink]="'/paciente/novo'"
-                matTooltip="Atualizar Paciente"
-              >
-                Atualizar
-              </button>
-            </div>
-          </div>
-        </div>
+      </div>
+      <div style="margin-bottom: 25px; padding-top: 5px">
+        <button
+          (click)="createAttendance()"
+          mat-raised-button
+          style="margin-right: 10px"
+          class="btn-primary-color"
+          matTooltip="Cadastrar Atendimento"
+        >
+          Salvar
+        </button>
+
+        <button
+          [routerLink]="'/atendimento/novo'"
+          mat-stroked-button
+          class="btn-primary-color--outline"
+          matTooltip="Cancelar"
+        >
+          Cancelar
+        </button>
+        <button
+          mat-stroked-button
+          style="position: absolute; right: 15px"
+          class="btn-primary-color--outline"
+          [routerLink]="'/paciente/novo'"
+          matTooltip="Atualizar Paciente"
+        >
+          Atualizar
+        </button>
       </div>
     </form>
   </mat-card>

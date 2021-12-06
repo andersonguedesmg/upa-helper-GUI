@@ -66,7 +66,7 @@ export class AttendanceFileRegisterComponent implements OnInit {
         patientAge: this.patientAge.toString(),
         arrivalDate: this.arrival,
         isSamu: this.isSamu,
-        patientId: this.patientId,
+        patientId: Number(this.patientId),
         statusId: this.statusId,
       });
       dialogRef.afterClosed().subscribe((dialogResult) => {

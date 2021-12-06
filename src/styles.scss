@@ -5,7 +5,7 @@
 :root {
   --color-white: #ffffff;
   --color-black: #000000;
-  --color-background: #11191f;
+  --color-background: #f1f1f4;
   --color-primary: #4d4dff;
   --color-primary-dark: #0023ca;
   --color-primary-light: #8d7aff;
@@ -65,24 +65,21 @@ body {
   background-color: var(--color-primary-light) !important;
 }
 
-.btn-action-row {
-  padding: 7.5px 0 15px 0;
-  display: flex;
-  justify-content: flex-end;
-}
-
 .header__title {
   margin-top: 18px !important;
-  font-weight: 500;
+  font-weight: 500 !important;
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
 
+.mat-elevation-z8 {
+  margin: 50px 0 50px 0;
+}
+
 .btn-primary-color,
 .btn-secondary-color,
-.btn-success-color,
-.btn-error-color,
-.btn-warning-color {
+.btn-primary-color--outline,
+.btn-secondary-color--outline {
   color: var(--color-white);
   text-transform: uppercase;
 }
@@ -91,20 +88,18 @@ body {
   background-color: var(--color-primary);
 }
 
+.btn-primary-color--outline {
+  border: 1px solid var(--color-primary) !important;
+  color: var(--color-primary);
+}
+
 .btn-secondary-color {
   background-color: var(--color-secondary);
 }
 
-.btn-success-color {
-  background-color: var(--color-success);
-}
-
-.btn-error-color {
-  background-color: var(--color-error);
-}
-
-.btn-warning-color {
-  background-color: var(--color-warning);
+.btn-secondary-color--outline {
+  border: 1px solid var(--color-secondary) !important;
+  color: var(--color-secondary);
 }
 
 .table-icon {
