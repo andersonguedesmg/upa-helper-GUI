@@ -56,10 +56,6 @@ body {
   width: 100%;
 }
 
-.form-first-row {
-  padding-top: 15px;
-}
-
 .page-title {
   margin-top: 18px !important;
   font-weight: 500 !important;
@@ -110,4 +106,35 @@ body {
 
 .table-icon:hover {
   color: var(--color-primary);
+}
+
+table,
+.mat-form-field {
+  width: 100%;
+}
+
+.mat-column-name,
+.mat-column-cpf,
+.mat-column-cns,
+.mat-column-birthday,
+.mat-column-actions,
+.mat-column-id,
+.mat-column-patientName,
+.mat-column-patientAge,
+.mat-column-date,
+.mat-column-age,
+.mat-column-arrival,
+.mat-column-status,
+.mat-column-arrivalDate,
+.mat-column-userType,
+.mat-column-cell {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
