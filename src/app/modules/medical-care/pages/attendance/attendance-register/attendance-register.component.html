@@ -1,47 +1,82 @@
 <div class="container">
-  <div class="row">
-    <div class="col-12">
-      <h3 class="header__title">Novo Atendimento</h3>
+  <mat-card class="mat-elevation-z2" style="margin-top: 50px">
+    <div class="container">
+      <div class="row">
+        <div class="col-9">
+          <h3 class="page-title" style="margin-bottom: 30px">
+            Novo Atendimento
+          </h3>
+        </div>
+        <div class="col-3">
+          <button
+            mat-raised-button
+            [routerLink]="'/paciente/novo'"
+            class="btn-primary-light-color--outline"
+            style="margin-top: 10px; position: absolute; right: 15px"
+            matTooltip="Novo Paciente"
+          >
+            Cadastrar Paciente
+          </button>
+        </div>
+      </div>
+      <span>Filtros</span>
+      <div class="row">
+        <div class="col-6">
+          <mat-form-field appearance="standard">
+            <mat-label>Nome</mat-label>
+            <input
+              matInput
+              (keyup)="applyFilter($event)"
+              placeholder="Ex: Abel Ferreira"
+              #input
+            />
+          </mat-form-field>
+        </div>
+        <div class="col-2">
+          <mat-form-field appearance="standard">
+            <mat-label>CPF</mat-label>
+            <input
+              mask="000.000.000-00"
+              matInput
+              (keyup)="applyFilter($event)"
+              placeholder="Ex: 000.000.000-00"
+              #input
+            />
+          </mat-form-field>
+        </div>
+        <div class="col-2">
+          <mat-form-field appearance="standard">
+            <mat-label>CNS</mat-label>
+            <input
+              mask="000 0000 0000 0000"
+              matInput
+              (keyup)="applyFilter($event)"
+              placeholder="Ex: 000 0000 0000 0000"
+              #input
+            />
+          </mat-form-field>
+        </div>
+        <div class="col-2">
+          <mat-form-field appearance="standard">
+            <mat-label>Data de Nascimento</mat-label>
+            <input
+              mask="00/00/0000"
+              matInput
+              (keyup)="applyFilter($event)"
+              placeholder="Ex: 00/00/0000"
+              #input
+            />
+          </mat-form-field>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-4">
-      <mat-form-field appearance="standard">
-        <mat-label>Filtro</mat-label>
-        <input
-          matInput
-          (keyup)="applyFilter($event)"
-          placeholder="por nome"
-          #input
-        />
-      </mat-form-field>
-    </div>
-    <div class="col-4">
-      <mat-form-field appearance="standard">
-        <mat-label>Filtro</mat-label>
-        <input
-          mask="000.000.000-00"
-          matInput
-          (keyup)="applyFilter($event)"
-          placeholder="por CPF"
-          #input
-        />
-      </mat-form-field>
-    </div>
-    <div class="col-3">
-      <mat-form-field appearance="standard">
-        <mat-label>Data</mat-label>
-        <input matInput [matDatepicker]="picker" />
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
-    </div>
-  </div>
+  </mat-card>
 </div>
+
 <div class="container">
   <div class="row">
     <div class="col">
-      <div class="mat-elevation-z8">
+      <div class="mat-elevation-z8 card--margin">
         <table mat-table [dataSource]="dataSource" matSort>
           <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Paciente</th>

@@ -1,34 +1,55 @@
 <div class="container">
-  <div class="row">
-    <div class="col-12">
-      <h3 class="header__title">Colaboradores</h3>
+  <mat-card class="mat-elevation-z2" style="margin-top: 50px">
+    <div class="container">
+      <div class="row">
+        <div class="col-11">
+          <h3 class="page-title" style="margin-bottom: 30px">Colaboradores</h3>
+        </div>
+        <div class="col-1">
+          <button
+            mat-raised-button
+            [routerLink]="'/paciente/novo'"
+            class="btn-primary-light-color"
+            style="margin-top: 10px"
+            matTooltip="Novo Colaborador"
+          >
+            Novo
+          </button>
+        </div>
+      </div>
+      <span>Filtros</span>
+      <div class="row">
+        <div class="col-6">
+          <mat-form-field appearance="standard">
+            <mat-label>Nome</mat-label>
+            <input
+              matInput
+              (keyup)="applyFilter($event)"
+              placeholder="Ex: Abel Ferreira"
+              #input
+            />
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-form-field appearance="standard">
+            <mat-label>Função</mat-label>
+            <input
+              matInput
+              (keyup)="applyFilter($event)"
+              placeholder="Ex: Médica"
+              #input
+            />
+          </mat-form-field>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-11">
-      <mat-form-field appearance="standard">
-        <mat-label>Filtro</mat-label>
-        <input
-          matInput
-          (keyup)="applyFilter($event)"
-          placeholder="por nome, função ou celular"
-          #input
-        />
-      </mat-form-field>
-    </div>
-    <div class="col-1">
-      <button mat-fab class="header__add-button">
-        <mat-icon [routerLink]="'/colaborador/novo'" matTooltip="Novo Colaborador"
-          >add</mat-icon
-        >
-      </button>
-    </div>
-  </div>
+  </mat-card>
 </div>
+
 <div class="container">
-  <div class="row">
-    <div class="col">
-      <div class="mat-elevation-z8">
+  <div class="mat-elevation-z8" style="margin-bottom: 50px">
+    <div class="row">
+      <div class="col">
         <table mat-table [dataSource]="dataSource" matSort>
           <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Nome</th>

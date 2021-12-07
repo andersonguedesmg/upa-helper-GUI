@@ -11,7 +11,7 @@ import { PatientService } from '../../../services/patient.service';
   styleUrls: ['./patient.component.scss'],
 })
 export class PatientComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'cpf', 'cns', 'birthday', 'actions'];
+  displayedColumns: string[] = ['name', 'cpf', 'birthday', 'actions'];
   patientList: Patient[] = [];
   dataSource = new MatTableDataSource<Patient>(this.patientList);
 

@@ -60,26 +60,19 @@ body {
   padding-top: 15px;
 }
 
-.header__add-button {
-  color: var(--color-white) !important;
-  background-color: var(--color-primary-light) !important;
-}
-
-.header__title {
+.page-title {
   margin-top: 18px !important;
   font-weight: 500 !important;
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
 
-.mat-elevation-z8 {
-  margin: 50px 0 50px 0;
-}
-
 .btn-primary-color,
 .btn-secondary-color,
 .btn-primary-color--outline,
-.btn-secondary-color--outline {
+.btn-secondary-color--outline,
+.btn-primary-light-color,
+.btn-primary-light-color--outline {
   color: var(--color-white);
   text-transform: uppercase;
 }
@@ -100,6 +93,15 @@ body {
 .btn-secondary-color--outline {
   border: 1px solid var(--color-secondary) !important;
   color: var(--color-secondary);
+}
+
+.btn-primary-light-color {
+  background-color: var(--color-primary-light);
+}
+
+.btn-primary-light-color--outline {
+  border: 1px solid var(--color-primary-light) !important;
+  color: var(--color-primary-light);
 }
 
 .table-icon {
