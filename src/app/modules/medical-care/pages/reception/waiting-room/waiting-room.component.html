@@ -1,35 +1,33 @@
 <div class="container">
-  <div class="row">
-    <div class="col-12">
-      <h3 class="header__title">Sala de Espera</h3>
+  <mat-card class="mat-elevation-z2" style="margin-top: 50px">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h3 class="page-title" style="margin-bottom: 30px">Sala de Espera</h3>
+        </div>
+      </div>
+      <span>Filtros</span>
+      <div class="row">
+        <div class="col-12">
+          <mat-form-field appearance="standard">
+            <mat-label>Paciente</mat-label>
+            <input
+              matInput
+              (keyup)="applyFilter($event)"
+              placeholder="Ex: Abel Ferreira"
+              #input
+            />
+          </mat-form-field>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-9">
-      <mat-form-field appearance="standard">
-        <mat-label>Filtro</mat-label>
-        <input
-          matInput
-          (keyup)="applyFilter($event)"
-          placeholder="Ex. Mia"
-          #input
-        />
-      </mat-form-field>
-    </div>
-    <div class="col-3">
-      <mat-form-field appearance="standard">
-        <mat-label>Data</mat-label>
-        <input matInput [matDatepicker]="picker" />
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
-    </div>
-  </div>
+  </mat-card>
 </div>
+
 <div class="container">
-  <div class="row">
-    <div class="col">
-      <div class="mat-elevation-z8">
+  <div class="mat-elevation-z8" style="margin-bottom: 50px">
+    <div class="row">
+      <div class="col">
         <table mat-table [dataSource]="dataSource" matSort>
           <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Paciente</th>
