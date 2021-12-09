@@ -28,6 +28,20 @@ export class AttendanceService {
       .pipe(catchError(this.handleError), take(1));
   }
 
+  public getAttendancesForTriageForTable(): Observable<Attendance[]> {
+    return this.http
+      .get<Attendance[]>(environment.baseApiUrl + 'attendances/table/triage')
+      .pipe(catchError(this.handleError), take(1));
+  }
+
+  public getAttendancesForAppointmentForTable(): Observable<Attendance[]> {
+    return this.http
+      .get<Attendance[]>(
+        environment.baseApiUrl + 'attendances/table/appointment'
+      )
+      .pipe(catchError(this.handleError), take(1));
+  }
+
   public createAttendance(attendance: Attendance): Observable<Attendance> {
     return this.http
       .post(environment.baseApiUrl + 'attendances', attendance)

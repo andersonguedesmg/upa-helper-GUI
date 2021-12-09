@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -12,7 +12,7 @@ import { TriageService } from '../../../services/triage.service';
   templateUrl: './triage.component.html',
   styleUrls: ['./triage.component.scss'],
 })
-export class TriageComponent implements AfterViewInit {
+export class TriageComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = [
     'id',
     'patientName',
@@ -34,13 +34,15 @@ export class TriageComponent implements AfterViewInit {
   ) {}
 
   ngOnInit(): void {
-    this.getAttendancesOpenedForTable();
+    this.getAttendancesForTriageForTable();
   }
 
-  getAttendancesOpenedForTable() {
-    this.attendanceService.getAttendancesOpenedForTable().subscribe((response) => {
-      this.dataSource.data = response as Attendance[];
-    });
+  getAttendancesForTriageForTable() {
+    this.attendanceService
+      .getAttendancesForTriageForTable()
+      .subscribe((response) => {
+        this.dataSource.data = response as Attendance[];
+      });
   }
 
   ngAfterViewInit() {

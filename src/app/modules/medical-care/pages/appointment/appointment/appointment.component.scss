@@ -1,24 +1,29 @@
-.mat-column-name {
-  flex: 0 0 40% !important;
-  width: 40% !important;
+.mat-column-id {
+  flex: 0 0 11% !important;
+  width: 11% !important;
 }
 
-.mat-column-age {
-  flex: 0 0 8% !important;
-  width: 8% !important;
+.mat-column-patientName {
+  flex: 0 0 43% !important;
+  width: 43% !important;
 }
 
-.mat-column-arrival {
-  flex: 0 0 12% !important;
-  width: 12% !important;
+.mat-column-patientAge {
+  flex: 0 0 10% !important;
+  width: 10% !important;
 }
 
-.mat-column-status {
-  flex: 0 0 8% !important;
-  width: 8% !important;
+.mat-column-date {
+  flex: 0 0 14% !important;
+  width: 14% !important;
+}
+
+.mat-column-attendanceStatus {
+  flex: 0 0 14% !important;
+  width: 14% !important;
 }
 
 .mat-column-actions {
-  flex: 0 0 10% !important;
-  width: 10% !important;
+  flex: 0 0 8% !important;
+  width: 8% !important;
 }
