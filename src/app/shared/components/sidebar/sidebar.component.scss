@@ -38,3 +38,25 @@
     font-size: 14px;
   }
 }
+
+.sidebar-footer {
+  position: absolute;
+  bottom: 20px;
+}
+
+.sidebar-footer--name {
+  padding-left: 28px;
+  font-size: 13px;
+}
+
+.sidebar-footer--year {
+  padding-left: 70px;
+  font-size: 12px;
+}
+
+@media only screen and (min-width: 801px) and (max-width: 1440px) and (orientation: landscape) {
+  .sidebar-Footer {
+    position: relative;
+    padding-top: 100px;
+  }
+}

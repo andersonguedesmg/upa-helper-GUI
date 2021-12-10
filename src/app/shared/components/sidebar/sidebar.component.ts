@@ -6,7 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent implements OnInit {
+  currentYear: any;
+
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getCurrentYear();
+  }
+
+  getCurrentYear() {
+    let currentTime = new Date();
+    this.currentYear = currentTime.getFullYear();
+  }
 }
