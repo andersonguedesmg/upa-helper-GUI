@@ -54,7 +54,11 @@
           <ng-container matColumnDef="actions">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Ações</th>
             <td mat-cell *matCellDef="let row">
-              <mat-icon>account_circle</mat-icon>
+              <button mat-icon-button>
+                <mat-icon matTooltip="Editar" class="table-icon"
+                  >account_circle</mat-icon
+                >
+              </button>
             </td>
           </ng-container>
 
