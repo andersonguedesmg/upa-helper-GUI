@@ -1,17 +1,11 @@
 <div class="container">
-  <div class="row">
-    <div class="col-12">
-      <h3 class="header__title">Triagem</h3>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <mat-card class="mat-elevation-z8">
-    <div class="row form-first-row">
-      <div class="col-10"><h2>Ficha de Atendimento Ambulatórial</h2></div>
+  <mat-card class="mat-elevation-z8" style="margin: 50px 0 50px 0">
+    <div class="row">
+      <div class="col-10">
+        <h3 class="page-title">Triagem para Atendimento</h3>
+      </div>
       <div class="col-2">
-        <p>
+        <p class="attendance-number">
           Atendimento: <b>{{ attendanceData?.id }}</b>
         </p>
       </div>
@@ -359,32 +353,25 @@
           </mat-form-field>
         </div>
       </div>
-      <div class="row">
-        <div class="col-6"></div>
-        <div class="col-6">
-          <div class="row">
-            <div class="col-6">
-              <button
-                mat-raised-button
-                [routerLink]="'/triagem'"
-                class="btn-warning-color"
-                matTooltip="Cancelar Atendimento"
-              >
-                Cancelar
-              </button>
-            </div>
-            <div class="col-6">
-              <button
-                mat-raised-button
-                class="btn-success-color"
-                (click)="createTriage()"
-                matTooltip="Salvar Triagem"
-              >
-                Salvar
-              </button>
-            </div>
-          </div>
-        </div>
+
+      <div style="margin-bottom: 25px; padding-top: 5px">
+        <button
+          (click)="createTriage()"
+          mat-raised-button
+          style="margin-right: 10px"
+          class="btn-primary-color"
+          matTooltip="Salvar Triagem"
+        >
+          Salvar
+        </button>
+        <button
+          [routerLink]="'/triagem'"
+          mat-stroked-button
+          class="btn-primary-color--outline"
+          matTooltip="Cancelar"
+        >
+          Cancelar
+        </button>
       </div>
     </form>
   </mat-card>
