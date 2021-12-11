@@ -1,1 +1,177 @@
-<p>appointment-register works!</p>
+<div class="container">
+  <mat-card class="mat-elevation-z8" style="margin: 50px 0 50px 0">
+    <div class="row">
+      <div class="col-10">
+        <h3 class="page-title">Consulta</h3>
+      </div>
+      <div class="col-2">
+        <p class="attendance-number">
+          Atendimento: <b>{{ attendanceData?.id }}</b>
+        </p>
+      </div>
+    </div>
+
+    <mat-tab-group mat-align-tabs="center">
+      <mat-tab label="Dados Pessoais">
+        <div class="row" style="margin-top: 25px">
+          <div class="col-12">
+            <p>
+              Nome: <b>{{ attendanceData?.patient?.name }}</b>
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-3">
+            <p>
+              Nascimento:
+              <b>{{
+                attendanceData?.patient?.birthday | date: "dd/MM/yyyy"
+              }}</b>
+            </p>
+          </div>
+          <div class="col-3">
+            <p>
+              Idade: <b>{{ attendanceData?.patientAge + " Anos" }}</b>
+            </p>
+          </div>
+          <div class="col-3">
+            <p>
+              Sexo: <b>{{ attendanceData?.patient?.genderId }}</b>
+            </p>
+          </div>
+          <div class="col-3">
+            <p>
+              Cor/Raça/Etnia: <b>{{ attendanceData?.patient?.ethnicityId }}</b>
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <p>
+              Pai: <b>{{ attendanceData?.patient?.fatherName }}</b>
+            </p>
+          </div>
+          <div class="col-6">
+            <p>
+              Mãe: <b>{{ attendanceData?.patient?.motherName }}</b>
+            </p>
+          </div>
+        </div>
+
+        <div class="row" style="margin-top: 5px">
+          <div class="col-4">
+            <p>
+              RG: <b>{{ attendanceData?.patient?.rg }}</b>
+            </p>
+          </div>
+          <div class="col-4">
+            <p>
+              CPF: <b>{{ attendanceData?.patient?.cpf }}</b>
+            </p>
+          </div>
+          <div class="col-4">
+            <p>
+              CNS: <b>{{ attendanceData?.patient?.cns }}</b>
+            </p>
+          </div>
+          <div class="col-3">
+            <p>
+              CEP: <b>{{ attendanceData?.patient?.zipCode }}</b>
+            </p>
+          </div>
+        </div>
+
+        <div class="row" style="margin-top: 5px">
+          <div class="col-6">
+            <p>
+              Endereço: <b>{{ attendanceData?.patient?.address }}</b>
+            </p>
+          </div>
+          <div class="col-6">
+            <p>
+              Número: <b>{{ attendanceData?.patient?.number }}</b>
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-5">
+            <p>
+              Bairro: <b>{{ attendanceData?.patient?.neighborhood }}</b>
+            </p>
+          </div>
+          <div class="col-5">
+            <p>
+              Cidade: <b>{{ attendanceData?.patient?.city }}</b>
+            </p>
+          </div>
+          <div class="col-2">
+            <p>
+              Estado: <b>{{ attendanceData?.patient?.state | uppercase }}</b>
+            </p>
+          </div>
+        </div>
+
+        <div class="row" style="margin-top: 5px">
+          <div class="col-6">
+            <p>
+              Dados da Recepção:
+              <b>{{ attendanceData?.receptionInformation }}</b>
+            </p>
+          </div>
+        </div>
+
+        <div class="row" style="margin-top: 5px; margin-bottom: 25xp">
+          <div class="col-12">
+            <p>
+              Data/Horário de Chegada:
+              <b>{{
+                attendanceData?.arrivalDate
+                  | date: "EEEE, dd 'de' MMMM 'de' y 'às' h:mm:ss"
+              }}</b>
+            </p>
+          </div>
+        </div>
+      </mat-tab>
+
+      <mat-tab label="Triagem">
+        <div class="row" style="margin-top: 5px; margin-bottom: 25xp">
+          <div class="col-12">
+            <p>
+              Data/Horário da Triagem:
+              <b>{{
+                triageDate | date: "EEEE, dd 'de' MMMM 'de' y 'às' h:mm:ss"
+              }}</b>
+            </p>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Consulta">Content 3</mat-tab>
+    </mat-tab-group>
+
+    <!-- <mat-divider></mat-divider> -->
+
+    <form>
+      <div style="margin-bottom: 25px; padding-top: 5px">
+        <button
+          mat-raised-button
+          style="margin-right: 10px"
+          class="btn-primary-color"
+          matTooltip="Salvar Consulta"
+        >
+          Salvar
+        </button>
+        <button
+          [routerLink]="'/consulta'"
+          mat-stroked-button
+          class="btn-primary-color--outline"
+          matTooltip="Cancelar"
+        >
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>
