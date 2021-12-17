@@ -31,10 +31,13 @@ mat-icon {
   margin-bottom: 2rem;
 }
 
-.login__button {
-  color: var(--color-white);
-  background-color: var(--color-primary);
-  text-transform: uppercase;
+.btn-primary-color {
   margin-top: 1rem;
   margin-bottom: 2rem;
+}
+
+@media only screen and (min-width: 801px) and (max-width: 1366px) and (orientation: landscape) {
+  mat-card {
+    margin: 3.5rem auto;
+  }
 }

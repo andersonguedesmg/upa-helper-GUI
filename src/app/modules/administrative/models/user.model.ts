@@ -15,8 +15,10 @@ class User {
   complement: string;
   telephone: string;
   cell: string;
-  userType: number;
+  council: string;
+  userTypeId: number;
   isActive: boolean;
+  createdAt: string;
 
   constructor() {
     this.id = 0;
@@ -35,7 +37,9 @@ class User {
     this.complement = '';
     this.telephone = '';
     this.cell = '';
-    this.userType = 0;
+    this.council = '';
+    this.createdAt = '';
+    this.userTypeId = 0;
     this.isActive = true;
   }
 }

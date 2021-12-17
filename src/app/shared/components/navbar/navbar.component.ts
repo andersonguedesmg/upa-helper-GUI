@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
+import { CommonHelper } from '../../helpers/common.helper';
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   @Input() inputSideNav!: MatSidenav;
-  token = window.localStorage.getItem('userNameLogged');
+  userNameLogged = CommonHelper.getUserNameLogged();
 
   constructor(private router: Router) {}
 
