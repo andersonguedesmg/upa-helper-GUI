@@ -28,6 +28,12 @@ export class AuthInterceptor implements HttpInterceptor {
       });
     }
 
+    else if (request.url.indexOf('viacep.com.br')) {
+      request = req.clone({
+        headers: req.headers.delete('Authorization'),
+      });
+    }
+
     return next.handle(request).pipe(catchError(this.handleError));
   }
 

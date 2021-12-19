@@ -5,6 +5,8 @@ import {
   ConfirmDialogModel,
   ConfirmDialogComponent,
 } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
+import Cep from 'src/app/shared/models/cep.model';
+import { CepService } from 'src/app/shared/services/cep.service';
 import { UserService } from '../../../services/user.service';
 
 @Component({
@@ -15,6 +17,7 @@ import { UserService } from '../../../services/user.service';
 export class UserRegisterComponent implements OnInit {
   startDate = new Date(1990, 0, 1);
   private password: string = 'UPA1@email';
+  dataZipCode: any;
   public isActive: boolean = true;
   public form: FormGroup;
   public name = this.fb.control('', {
@@ -46,6 +49,9 @@ export class UserRegisterComponent implements OnInit {
     validators: [Validators.required, Validators.maxLength(9)],
     updateOn: 'blur',
   });
+
+  // public sourceInstallation = this.fb.control({ value: null, disabled: true });
+
   public address = this.fb.control('', {
     validators: [Validators.required, Validators.maxLength(255)],
     updateOn: 'blur',
@@ -90,7 +96,8 @@ export class UserRegisterComponent implements OnInit {
   constructor(
     public userService: UserService,
     private fb: FormBuilder,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private cepService: CepService
   ) {
     this.form = this.fb.group({
       name: this.name,
@@ -140,5 +147,24 @@ export class UserRegisterComponent implements OnInit {
 
   clearForm() {
     this.form.reset();
+  }
+
+  consultZipCode(zipCodeValue: string) {
+    let zipCode = zipCodeValue.replace('-', '');
+
+    this.cepService.consultZipCode(zipCode).subscribe((response) => {
+      this.dataZipCode = response;
+      this.loadAddressData(this.dataZipCode);
+    });
+  }
+
+  loadAddressData(cep: Cep) {
+    this.form.patchValue({
+      address: cep.logradouro,
+      complement: cep.complemento,
+      neighborhood: cep.bairro,
+      city: cep.localidade,
+      state: cep.uf,
+    });
   }
 }

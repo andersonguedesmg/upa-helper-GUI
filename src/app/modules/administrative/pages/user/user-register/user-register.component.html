@@ -74,7 +74,12 @@
         <div class="col-3">
           <mat-form-field class="form-field-full-width" appearance="fill">
             <mat-label>CEP</mat-label>
-            <input matInput [formControl]="zipCode" mask="00000-000" />
+            <input
+              matInput
+              [formControl]="zipCode"
+              mask="00000-000"
+              (blur)="consultZipCode(zipCode.value)"
+            />
           </mat-form-field>
         </div>
       </div>
