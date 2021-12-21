@@ -33,11 +33,13 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onLogin() {
+  async onLogin() {
     if (this.form.valid) {
       var request = this.form.value;
-      this.authService.login(request);
-      this.router.navigate(['/dashboard']);
+      let login = await this.authService.login(request);
+      if (login) {
+        this.router.navigate(['/dashboard']);
+      }
     }
   }
 }
