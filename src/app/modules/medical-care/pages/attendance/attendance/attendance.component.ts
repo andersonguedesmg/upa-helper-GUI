@@ -14,7 +14,7 @@ export class AttendanceComponent implements AfterViewInit {
   displayedColumns: string[] = [
     'patientName',
     'patientAge',
-    'date',
+    'birthday',
     'attendanceStatus',
     'actions',
   ];

@@ -39,11 +39,9 @@
             <td mat-cell *matCellDef="let row">{{ row.patientAge }}</td>
           </ng-container>
 
-          <ng-container matColumnDef="date">
+          <ng-container matColumnDef="birthday">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Data</th>
-            <td mat-cell *matCellDef="let row">
-              {{ row.date | date: "dd/MM/yyyy" }}
-            </td>
+            <td mat-cell *matCellDef="let row">{{ row.birthday }}</td>
           </ng-container>
 
           <ng-container matColumnDef="attendanceStatus">
