@@ -12,8 +12,11 @@
     </div>
 
     <mat-tab-group mat-align-tabs="center">
-      <mat-tab label="Dados Pessoais">
+      <mat-tab label="PACIENTE">
         <div class="row" style="margin-top: 25px">
+          <span>Dados Pessoais</span>
+        </div>
+        <div class="row">
           <div class="col-12">
             <p>
               Nome: <b>{{ attendanceData?.patient?.name }}</b>
@@ -60,6 +63,9 @@
           </div>
         </div>
 
+        <div class="row" style="margin-top: 25px">
+          <span>Documentação</span>
+        </div>
         <div class="row" style="margin-top: 5px">
           <div class="col-4">
             <p>
@@ -76,22 +82,26 @@
               CNS: <b>{{ attendanceData?.patient?.cns }}</b>
             </p>
           </div>
-          <div class="col-3">
-            <p>
-              CEP: <b>{{ attendanceData?.patient?.zipCode }}</b>
-            </p>
-          </div>
+        </div>
+
+        <div class="row" style="margin-top: 25px">
+          <span>Endereço</span>
         </div>
 
         <div class="row" style="margin-top: 5px">
-          <div class="col-6">
+          <div class="col-8">
             <p>
-              Endereço: <b>{{ attendanceData?.patient?.address }}</b>
+              Logradouro: <b>{{ attendanceData?.patient?.address }}</b>
             </p>
           </div>
-          <div class="col-6">
+          <div class="col-2">
             <p>
               Número: <b>{{ attendanceData?.patient?.number }}</b>
+            </p>
+          </div>
+          <div class="col-2">
+            <p>
+              CEP: <b>{{ attendanceData?.patient?.zipCode }}</b>
             </p>
           </div>
         </div>
@@ -114,10 +124,13 @@
           </div>
         </div>
 
-        <div class="row" style="margin-top: 5px">
-          <div class="col-6">
+        <div class="row" style="margin-top: 25px">
+          <span>Dados da Recepção</span>
+        </div>
+        <div class="row">
+          <div class="col-12">
             <p>
-              Dados da Recepção:
+              Informação:
               <b>{{ attendanceData?.receptionInformation }}</b>
             </p>
           </div>
@@ -126,7 +139,7 @@
         <div class="row" style="margin-top: 5px; margin-bottom: 25xp">
           <div class="col-12">
             <p>
-              Data/Horário de Chegada:
+              Chegada:
               <b>{{
                 attendanceData?.arrivalDate
                   | date: "EEEE, dd 'de' MMMM 'de' y 'às' h:mm:ss"
@@ -136,11 +149,98 @@
         </div>
       </mat-tab>
 
-      <mat-tab label="Triagem">
+      <mat-tab label="TRIAGEM">
+        <div class="row" style="margin-top: 25px">
+          <span>Pré-consulta</span>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <p>
+              Informações: <b>{{ attendanceData?.triage?.preInformation }}</b>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <p>
+              Medicamentos em uso:
+              <b>{{ attendanceData?.triage?.medicines }}</b>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <p>
+              Alergias: <b>{{ attendanceData?.triage?.allergies }}</b>
+            </p>
+          </div>
+        </div>
+
+        <div class="row" style="margin-top: 25px">
+          <span>Sinais Vitais</span>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <p>
+              P.A.: <b>{{ attendanceData?.triage?.bloodPressure }} mmHg</b>
+            </p>
+          </div>
+          <div class="col-4">
+            <p>
+              Pulso: <b>{{ attendanceData?.triage?.pulse }} FC</b>
+            </p>
+          </div>
+          <div class="col-4">
+            <p>
+              Glicemia: <b>{{ attendanceData?.triage?.bloodGlucose }} mg/dL</b>
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-4">
+            <p>
+              Temperatura: <b>{{ attendanceData?.triage?.temperature }} °C</b>
+            </p>
+          </div>
+          <div class="col-4">
+            <p>
+              Freq. Respiratória:
+              <b>{{ attendanceData?.triage?.respiratoryFrequency }} bpm</b>
+            </p>
+          </div>
+          <div class="col-4">
+            <p>
+              Sat O2: <b>{{ attendanceData?.triage?.saturation }} %</b>
+            </p>
+          </div>
+        </div>
+
+        <div class="row" style="margin-top: 25px">
+          <span>Sinais Vitais</span>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <p>
+              Peso: <b>{{ attendanceData?.triage?.weight }} Kg</b>
+            </p>
+          </div>
+          <div class="col-4">
+            <p>
+              Altura: <b>{{ attendanceData?.triage?.height }} m</b>
+            </p>
+          </div>
+          <div class="col-4">
+            <p>
+              IMC: <b>{{ attendanceData?.triage?.imc }} kg/m²</b>
+            </p>
+          </div>
+        </div>
+
         <div class="row" style="margin-top: 5px; margin-bottom: 25xp">
           <div class="col-12">
             <p>
-              Data/Horário da Triagem:
+              Data/Horário:
               <b>{{
                 triageDate | date: "EEEE, dd 'de' MMMM 'de' y 'às' h:mm:ss"
               }}</b>
@@ -148,10 +248,9 @@
           </div>
         </div>
       </mat-tab>
+
       <mat-tab label="Consulta">Content 3</mat-tab>
     </mat-tab-group>
-
-    <!-- <mat-divider></mat-divider> -->
 
     <form>
       <div style="margin-bottom: 25px; padding-top: 5px">

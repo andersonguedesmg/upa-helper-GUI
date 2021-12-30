@@ -11,6 +11,8 @@ class Triage {
   height: string;
   preInformation: string;
   medicines: string;
+  allergies: string;
+  imc: string;
   personalBackground: string;
   painIntensity: number;
   riskRating: number;
@@ -31,6 +33,8 @@ class Triage {
     this.height = '';
     this.preInformation = '';
     this.medicines = '';
+    this.allergies = '';
+    this.imc = '';
     this.personalBackground = '';
     this.painIntensity = 0;
     this.riskRating = 0;

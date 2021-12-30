@@ -1,4 +1,5 @@
 import Patient from './patient.model';
+import Triage from './triage.model';
 
 class Attendance {
   id: number;
@@ -8,6 +9,7 @@ class Attendance {
   isSamu: boolean;
   patientId: number;
   patient: Patient;
+  triage: Triage;
   statusId: number;
   attendanceStatus: any;
 
@@ -19,6 +21,7 @@ class Attendance {
     this.isSamu = false;
     this.patientId = 0;
     this.patient = new Patient();
+    this.triage = new Triage();
     this.statusId = 0;
     this.attendanceStatus = null;
   }
