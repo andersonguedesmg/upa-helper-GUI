@@ -217,7 +217,7 @@
         </div>
 
         <div class="row" style="margin-top: 25px">
-          <span>Sinais Vitais</span>
+          <span>Características</span>
         </div>
         <div class="row">
           <div class="col-4">
@@ -249,7 +249,60 @@
         </div>
       </mat-tab>
 
-      <mat-tab label="Consulta">Content 3</mat-tab>
+      <mat-tab label="CONSULTA">
+        <form>
+          <div class="row" style="margin-top: 25px">
+            <span>Atendimento</span>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <mat-form-field class="form-field-full-width" appearance="fill">
+                <mat-label>Diagnóstico</mat-label>
+                <textarea matInput rows="5"></textarea>
+              </mat-form-field>
+            </div>
+            <div class="col-6">
+              <mat-form-field class="form-field-full-width" appearance="fill">
+                <mat-label>Prescrição</mat-label>
+                <textarea matInput rows="5"></textarea>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <mat-form-field class="form-field-full-width" appearance="fill">
+                <mat-label>CID</mat-label>
+                <input matInput />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row" style="margin-top: 25px">
+            <span>Dados de Saída</span>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <mat-card>
+                <mat-radio-group>
+                  <p><mat-radio-button [value]="1">Alta</mat-radio-button></p>
+                  <p>
+                    <mat-radio-button [value]="2"
+                      >Alta a Pedido / a Revelia</mat-radio-button
+                    >
+                  </p>
+                  <p><mat-radio-button [value]="3">Óbito</mat-radio-button></p>
+                </mat-radio-group></mat-card
+              >
+            </div>
+            <div class="col-6">
+              <mat-card>
+                <label>UPA 24 horas</label>
+                <p>Elisa Sbrissa</p>
+                <p>Franchozza</p>
+              </mat-card>
+            </div>
+          </div>
+        </form>
+      </mat-tab>
     </mat-tab-group>
 
     <form>
@@ -265,10 +318,29 @@
         <button
           [routerLink]="'/consulta'"
           mat-stroked-button
+          style="margin-right: 10px"
           class="btn-primary-color--outline"
           matTooltip="Cancelar"
         >
           Cancelar
+        </button>
+        <button
+          mat-stroked-button
+          disabled
+          style="position: absolute; right: 100px"
+          class="btn-primary-color--outline"
+          matTooltip="Imprimir Receituário"
+        >
+          Receituário
+        </button>
+        <button
+          mat-stroked-button
+          disabled
+          style="position: absolute; right: 15px"
+          class="btn-primary-color--outline"
+          matTooltip="Imprimir Ficha"
+        >
+          Ficha
         </button>
       </div>
     </form>

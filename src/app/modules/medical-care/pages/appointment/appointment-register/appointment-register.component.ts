@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import Attendance from '../../../models/attendance.model';
@@ -17,6 +17,23 @@ export class AppointmentRegisterComponent implements OnInit {
   triageDate!: Date;
   selectedPainIntensity: number = 4;
   userIdLogged: string = '';
+  public form: FormGroup;
+  public diagnosis = this.fb.control('', {
+    validators: [Validators.maxLength(255)],
+    updateOn: 'blur',
+  });
+  public prescription = this.fb.control('', {
+    validators: [Validators.maxLength(255)],
+    updateOn: 'blur',
+  });
+  public cid = this.fb.control('', {
+    validators: [Validators.maxLength(100)],
+    updateOn: 'blur',
+  });
+  public exitData = this.fb.control('', {
+    validators: [Validators.maxLength(10)],
+    updateOn: 'blur',
+  });
 
   constructor(
     public triageService: TriageService,
@@ -25,7 +42,14 @@ export class AppointmentRegisterComponent implements OnInit {
     public attendanceService: AttendanceService,
     private router: Router,
     public dialog: MatDialog
-  ) {}
+  ) {
+    this.form = this.fb.group({
+      diagnosis: this.diagnosis,
+      prescription: this.prescription,
+      cid: this.cid,
+      exitData: this.exitData,
+    });
+  }
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
@@ -36,6 +60,7 @@ export class AppointmentRegisterComponent implements OnInit {
       .getAttendanceById(this.attendanceId)
       .subscribe((response) => {
         this.attendanceData = response;
+        console.log(response);
       });
   }
 }
