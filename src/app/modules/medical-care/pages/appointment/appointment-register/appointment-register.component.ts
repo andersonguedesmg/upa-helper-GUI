@@ -63,7 +63,6 @@ export class AppointmentRegisterComponent implements OnInit {
       .getAttendanceById(this.attendanceId)
       .subscribe((response) => {
         this.attendanceData = response;
-        console.log(response);
       });
   }
 
@@ -88,7 +87,7 @@ export class AppointmentRegisterComponent implements OnInit {
           var request = this.form.value;
           this.appointmentsService.createAppointment(request).subscribe(() => {
             this.clearForm();
-            this.router.navigate(['/triagem']);
+            this.router.navigate(['/consulta']);
           });
         }
       });

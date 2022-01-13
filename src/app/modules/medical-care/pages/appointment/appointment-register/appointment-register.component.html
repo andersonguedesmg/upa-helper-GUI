@@ -292,13 +292,13 @@
             <div class="col-6">
               <mat-card>
                 <mat-radio-group [formControl]="exitData">
-                  <p><mat-radio-button [value]="1">Alta</mat-radio-button></p>
+                  <p><mat-radio-button value="Alta">Alta</mat-radio-button></p>
                   <p>
-                    <mat-radio-button [value]="2"
+                    <mat-radio-button value="A Revelia"
                       >Alta a Pedido / a Revelia</mat-radio-button
                     >
                   </p>
-                  <p><mat-radio-button [value]="3">Óbito</mat-radio-button></p>
+                  <p><mat-radio-button value="Óbito">Óbito</mat-radio-button></p>
                 </mat-radio-group></mat-card
               >
             </div>
@@ -317,6 +317,7 @@
     <form>
       <div style="margin-bottom: 25px; padding-top: 5px">
         <button
+          (click)="createAppointment()"
           mat-raised-button
           style="margin-right: 10px"
           class="btn-primary-color"
