@@ -242,7 +242,8 @@
             <p>
               Data/Horário:
               <b>{{
-                triageDate | date: "EEEE, dd 'de' MMMM 'de' y 'às' h:mm:ss"
+                attendanceData.triage.triageDate
+                  | date: "EEEE, dd 'de' MMMM 'de' y 'às' h:mm:ss"
               }}</b>
             </p>
           </div>
@@ -258,13 +259,21 @@
             <div class="col-6">
               <mat-form-field class="form-field-full-width" appearance="fill">
                 <mat-label>Diagnóstico</mat-label>
-                <textarea matInput rows="5"></textarea>
+                <textarea
+                  matInput
+                  [formControl]="diagnosis"
+                  rows="5"
+                ></textarea>
               </mat-form-field>
             </div>
             <div class="col-6">
               <mat-form-field class="form-field-full-width" appearance="fill">
                 <mat-label>Prescrição</mat-label>
-                <textarea matInput rows="5"></textarea>
+                <textarea
+                  matInput
+                  [formControl]="prescription"
+                  rows="5"
+                ></textarea>
               </mat-form-field>
             </div>
           </div>
@@ -272,7 +281,7 @@
             <div class="col-6">
               <mat-form-field class="form-field-full-width" appearance="fill">
                 <mat-label>CID</mat-label>
-                <input matInput />
+                <input matInput [formControl]="cid" />
               </mat-form-field>
             </div>
           </div>
@@ -282,7 +291,7 @@
           <div class="row">
             <div class="col-6">
               <mat-card>
-                <mat-radio-group>
+                <mat-radio-group [formControl]="exitData">
                   <p><mat-radio-button [value]="1">Alta</mat-radio-button></p>
                   <p>
                     <mat-radio-button [value]="2"
@@ -327,20 +336,11 @@
         <button
           mat-stroked-button
           disabled
-          style="position: absolute; right: 100px"
+          style="position: absolute; right: 15px"
           class="btn-primary-color--outline"
           matTooltip="Imprimir Receituário"
         >
           Receituário
-        </button>
-        <button
-          mat-stroked-button
-          disabled
-          style="position: absolute; right: 15px"
-          class="btn-primary-color--outline"
-          matTooltip="Imprimir Ficha"
-        >
-          Ficha
         </button>
       </div>
     </form>
