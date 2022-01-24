@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent, ConfirmDialogModel } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 import { CommonHelper } from 'src/app/shared/helpers/common.helper';
 import User from '../../../models/user.model';
 import { UserService } from '../../../services/user.service';
@@ -10,19 +12,66 @@ import { UserService } from '../../../services/user.service';
   styleUrls: ['./user-profile.component.scss'],
 })
 export class UserProfileComponent implements OnInit {
-  userIdLogged: string = '';
+  userIdLogged: number | null = 0;
   userLogged: User = new User();
+  public form: FormGroup;
+  public newPassword = this.fb.control('', {
+    validators: [Validators.maxLength(255)],
+    updateOn: 'blur',
+  });
+  public confirmNewPassword = this.fb.control('', {
+    validators: [Validators.maxLength(255)],
+    updateOn: 'blur',
+  });
 
-  constructor(public userService: UserService, public dialog: MatDialog) {}
-
-  ngOnInit(): void {
-    this.getUsersForTable();
+  constructor(
+    public userService: UserService,
+    public dialog: MatDialog,
+    private fb: FormBuilder
+  ) {
+    this.form = this.fb.group({
+      newPassword: this.newPassword,
+      confirmNewPassword: this.confirmNewPassword,
+    });
   }
 
-  getUsersForTable() {
-    let userIdLogged = CommonHelper.getUserIdLogged();
-    this.userService.getUserById(Number(userIdLogged)).subscribe((response) => {
+  ngOnInit(): void {
+    this.getUserById();
+  }
+
+  getUserById() {
+    this.userIdLogged = CommonHelper.getUserIdLogged();
+    this.userService.getUserById(Number(this.userIdLogged)).subscribe((response) => {
       this.userLogged = response;
     });
+  }
+
+  changePassword() {
+    this.userIdLogged = CommonHelper.getUserIdLogged();
+    if (this.form.valid) {
+      const title = `Trocar Senha`;
+      const message = `Você tem certeza de que quer trocar sua senha?`;
+      const dialogData = new ConfirmDialogModel(title, message);
+      const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+        maxWidth: '400px',
+        data: dialogData,
+      });
+      this.form = this.fb.group({
+        ...this.form.value,
+        userId: Number(this.userIdLogged),
+      });
+      dialogRef.afterClosed().subscribe((dialogResult) => {
+        if (dialogResult == true) {
+          var request = this.form.value;
+          this.userService.changePassword(this.userIdLogged, request).subscribe(() => {
+            this.clearForm();
+          });
+        }
+      });
+    }
+  }
+
+  clearForm() {
+    this.form.reset();
   }
 }

@@ -2,116 +2,171 @@
   <mat-card class="mat-elevation-z2" style="margin-top: 50px">
     <div class="container">
       <div class="row">
-        <div class="col-12">
+        <div class="col-6">
           <h3 class="page-title">{{ userLogged?.name }}</h3>
         </div>
-      </div>
-
-      <div class="row" style="margin-top: 5px">
-        <div class="col-9">
-          <p>
-            Email: <b>{{ userLogged.email }}</b>
-          </p>
+        <div class="col-6">
+          <h3 class="page-title">{{ userLogged?.userTypeId }}</h3>
         </div>
-        <div class="col-3">
-          <p>
-            Nascimento: <b>{{ userLogged?.birthday | date: "dd/MM/yyyy" }}</b>
-          </p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-3">
-          <p>
-            Celular: <b>{{ userLogged.cell }}</b>
-          </p>
-        </div>
-        <div class="col-3">
-          <p>
-            Telefone: <b>{{ userLogged.telephone }}</b>
-          </p>
-        </div>
-        <div class="col-3">
-          <p>
-            Tipo: <b>{{ userLogged.userTypeId }}</b>
-          </p>
-        </div>
-        <div class="col-3">
-          <p>
-            Desde: <b>{{ userLogged?.createdAt | date: "dd/MM/yyyy" }}</b>
-          </p>
-        </div>
-      </div>
-
-      <mat-divider></mat-divider>
-
-      <div class="row">
-        <div class="col-12">
-          <h3 class="page-title">Endereço</h3>
-        </div>
-      </div>
-
-      <div class="row" style="margin-top: 5px">
-        <div class="col-12">
-          <p>
-            <b>{{ userLogged?.address }}</b>
-          </p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-2">
-          <p>
-            Número: <b>{{ userLogged?.number }}</b>
-          </p>
-        </div>
-        <div class="col-4">
-          <p>
-            Bairro: <b>{{ userLogged?.neighborhood }}</b>
-          </p>
-        </div>
-        <div class="col-4">
-          <p>
-            Cidade: <b>{{ userLogged?.city }}</b>
-          </p>
-        </div>
-        <div class="col-2">
-          <p>
-            Estado: <b>{{ userLogged?.state }}</b>
-          </p>
-        </div>
-      </div>
-      <div class="row" style="margin-top: 5px">
-        <div class="col-3">
-          <p>
-            CEP: <b>{{ userLogged?.zipCode }}</b>
-          </p>
-        </div>
-        <div class="col-3">
-          <p>
-            RG: <b>{{ userLogged?.rg }}</b>
-          </p>
-        </div>
-        <div class="col-3">
-          <p>
-            CPF: <b>{{ userLogged?.cpf }}</b>
-          </p>
-        </div>
-        <div class="col-3">
-          <p>
-            Conselho: <b>{{ userLogged?.council }}</b>
-          </p>
-        </div>
-      </div>
-
-      <div style="margin-bottom: 25px; padding-top: 5px">
-        <button
-          mat-raised-button
-          style="margin-right: 10px"
-          class="btn-primary-color"
-          matTooltip="Trocar senha"
-        >
-          Trocar senha
-        </button>
       </div>
     </div>
   </mat-card>
+</div>
+
+<div class="container">
+  <mat-tab-group mat-align-tabs="center">
+    <mat-tab label="SOBRE">
+      <mat-card class="mat-elevation-z2" style="margin-top: 50px">
+        <div class="container">
+          <div class="row" style="margin-top: 5px">
+            <div class="col-6">
+              <p>
+                Email: <b>{{ userLogged.email }}</b>
+              </p>
+            </div>
+            <div class="col-6">
+              <p>
+                Nascimento:
+                <b>{{ userLogged?.birthday | date: "dd/MM/yyyy" }}</b>
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <p>
+                Celular: <b>{{ userLogged.cell }}</b>
+              </p>
+            </div>
+            <div class="col-6">
+              <p>
+                Telefone: <b>{{ userLogged.telephone }}</b>
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <p>
+                Tipo: <b>{{ userLogged.userTypeId }}</b>
+              </p>
+            </div>
+            <div class="col-6">
+              <p>
+                Desde: <b>{{ userLogged?.createdAt | date: "dd/MM/yyyy" }}</b>
+              </p>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+    </mat-tab>
+
+    <mat-tab label="ENDEREÇO">
+      <mat-card class="mat-elevation-z2" style="margin-top: 50px">
+        <div class="container">
+          <div class="row" style="margin-top: 5px">
+            <div class="col-12">
+              <p>
+                <b>{{ userLogged?.address }}</b>
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-2">
+              <p>
+                Número: <b>{{ userLogged?.number }}</b>
+              </p>
+            </div>
+            <div class="col-4">
+              <p>
+                Bairro: <b>{{ userLogged?.neighborhood }}</b>
+              </p>
+            </div>
+            <div class="col-4">
+              <p>
+                Cidade: <b>{{ userLogged?.city }}</b>
+              </p>
+            </div>
+            <div class="col-2">
+              <p>
+                Estado: <b>{{ userLogged?.state }}</b>
+              </p>
+            </div>
+          </div>
+          <div class="row" style="margin-top: 5px">
+            <div class="col-3">
+              <p>
+                CEP: <b>{{ userLogged?.zipCode }}</b>
+              </p>
+            </div>
+            <div class="col-3">
+              <p>
+                RG: <b>{{ userLogged?.rg }}</b>
+              </p>
+            </div>
+            <div class="col-3">
+              <p>
+                CPF: <b>{{ userLogged?.cpf }}</b>
+              </p>
+            </div>
+            <div class="col-3">
+              <p>
+                Conselho: <b>{{ userLogged?.council }}</b>
+              </p>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+    </mat-tab>
+
+    <mat-tab label="SENHA">
+      <mat-card class="mat-elevation-z2" style="margin-top: 50px">
+        <div class="container">
+          <div class="row">
+            <div class="col-6">
+              <form>
+                <div class="row">
+                  <div class="col-8">
+                    <mat-form-field
+                      class="form-field-full-width"
+                      appearance="fill"
+                    >
+                      <mat-label>Nova Senha</mat-label>
+                      <input matInput [formControl]="newPassword" />
+                    </mat-form-field>
+                  </div>
+                  <div class="col-8">
+                    <mat-form-field
+                      class="form-field-full-width"
+                      appearance="fill"
+                    >
+                      <mat-label>Confirmar Senha</mat-label>
+                      <input matInput [formControl]="confirmNewPassword" />
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div style="margin-bottom: 25px; padding-top: 5px">
+                  <button
+                    (click)="changePassword()"
+                    mat-raised-button
+                    style="margin-right: 10px"
+                    class="btn-primary-color"
+                    matTooltip="Trocar senha"
+                  >
+                    Trocar senha
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div class="col-6">
+              <p>
+                Mussum Ipsum, cacilds vidis litro abertis. Per aumento de
+                cachacis, eu reclamis.Cevadis im ampola pa arma uma
+                pindureta.Viva Forevis aptent taciti sociosqu ad litora
+                torquent.Paisis, filhis, espiritis santis.
+              </p>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+    </mat-tab>
+  </mat-tab-group>
 </div>

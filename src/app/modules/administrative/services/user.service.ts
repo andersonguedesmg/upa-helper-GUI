@@ -39,4 +39,10 @@ export class UserService {
       .put(environment.baseApiUrl + 'users/' + id, user)
       .pipe(catchError(this.handleError), take(1));
   }
+
+  public changePassword(id: number | null, user: User): Observable<User> {
+    return this.http
+      .put(environment.baseApiUrl + 'users/' + id, user)
+      .pipe(catchError(this.handleError), take(1));
+  }
 }
