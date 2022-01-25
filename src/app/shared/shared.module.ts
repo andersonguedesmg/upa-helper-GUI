@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { ConfirmDialogSessionExpiredComponent } from './components/confirm-dialog-session-expired/confirm-dialog-session-expired.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
     FooterComponent,
     SidebarComponent,
     ConfirmDialogComponent,
+    ConfirmDialogSessionExpiredComponent,
   ],
   imports: [
     CommonModule,

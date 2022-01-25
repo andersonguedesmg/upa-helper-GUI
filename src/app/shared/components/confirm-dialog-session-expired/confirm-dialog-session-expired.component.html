@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>Sua sessão vai expirar!</h2>
+
+<div mat-dialog-content>
+  <p>Para continuar trabalhando, por favor refaça seu login.</p>
+</div>
+
+<form [formGroup]="form">
+  <mat-form-field class="login__full-width-input">
+    <input
+      matInput
+      [type]="hidePassword ? 'password' : 'text'"
+      placeholder="Senha"
+      formControlName="password"
+      required
+    />
+    <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword">
+      <mat-icon>{{ hidePassword ? "visibility_off" : "visibility" }}</mat-icon>
+    </button>
+    <mat-error>Por favor informe sua senha</mat-error>
+  </mat-form-field>
+
+  <div mat-dialog-actions>
+    <button mat-button class="btn-primary-color" (click)="onLogin()">
+      Login
+    </button>
+    <button mat-button class="btn-primary-color--outline" (click)="onDismiss()">
+      Sair
+    </button>
+  </div>
+</form>

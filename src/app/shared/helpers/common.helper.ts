@@ -10,4 +10,9 @@ export abstract class CommonHelper {
     let userNameLogged = window.localStorage.getItem('userNameLogged');
     return userNameLogged;
   }
+
+  static getUserCpdLogged(): string | null {
+    let userCpfLogged = window.localStorage.getItem('userCpfLogged');
+    return userCpfLogged;
+  }
 }

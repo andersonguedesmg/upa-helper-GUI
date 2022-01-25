@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
       var request = this.form.value;
       let login = await this.authService.login(request);
       if (login) {
+        window.localStorage.setItem('userCpfLogged', String(this.form.value.cpf));
         this.router.navigate(['/dashboard']);
       }
     }
