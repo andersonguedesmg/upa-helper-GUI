@@ -1,0 +1,17 @@
+.dashboard__image {
+  padding-top: 10vh;
+  padding-right: 5vw;
+}
+
+.dashboard__row {
+  display: flex;
+  justify-content: end;
+  height: 75%;
+}
+
+.dashboard__title {
+  padding-top: 5vh;
+  padding-left: 3vw;
+  font-size: 30px;
+  color: var(--color-primary);
+}
