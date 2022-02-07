@@ -18,6 +18,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { NgxMaskModule } from 'ngx-mask';
 import { AppointmentComponent } from './pages/appointment/appointment/appointment.component';
 import { AppointmentRegisterComponent } from './pages/appointment/appointment-register/appointment-register.component';
+import { PatientEditModalComponent } from './components/patient-edit-modal/patient-edit-modal.component';
+import { AttendanceUnknownModalComponent } from './components/attendance-unknown-modal/attendance-unknown-modal.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { AppointmentRegisterComponent } from './pages/appointment/appointment-re
     TriageRegisterComponent,
     AppointmentComponent,
     AppointmentRegisterComponent,
+    PatientEditModalComponent,
+    AttendanceUnknownModalComponent,
   ],
   imports: [
     CommonModule,

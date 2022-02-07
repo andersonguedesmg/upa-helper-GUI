@@ -13,6 +13,7 @@ import { AngularMaterialModule } from 'src/app/shared/angular-material/angular-m
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NgxMaskModule } from 'ngx-mask';
 import { DashboardComponent } from './pages/dashboard/dashboard/dashboard.component';
+import { UserEditModalComponent } from './components/user-edit-modal/user-edit-modal.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard/dashboard.compon
     UserRegisterComponent,
     UserProfileComponent,
     DashboardComponent,
+    UserEditModalComponent,
   ],
   imports: [
     CommonModule,

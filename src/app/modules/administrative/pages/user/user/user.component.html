@@ -75,10 +75,18 @@
                 >
               </button>
               <button mat-icon-button>
-                <mat-icon matTooltip="Editar" class="table-icon">edit</mat-icon>
+                <mat-icon
+                  matTooltip="Editar"
+                  (click)="openUserEditModal()"
+                  class="table-icon"
+                  >edit</mat-icon
+                >
               </button>
               <button mat-icon-button>
-                <mat-icon matTooltip="Delete" class="table-icon"
+                <mat-icon
+                  matTooltip="Delete"
+                  class="table-icon"
+                  (click)="deleteUser()"
                   >delete_outline</mat-icon
                 >
               </button>

@@ -31,10 +31,15 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  teste(){ 
+  timeBeforeTokenExpires(): Date {
     let token: any = window.localStorage.getItem('token');
-    let date = this.authService.getTokenExpirationDate(token);
-    console.log(date);
+    let tokenExpirationDate = this.authService.getTokenExpirationDate(token);
+    var numberOfMlSeconds = tokenExpirationDate.getTime();
+    var addMlSeconds = 30000;
+    var timeBeforeTokenExpires = new Date(numberOfMlSeconds - addMlSeconds);
+    console.log(tokenExpirationDate);
+    console.log(timeBeforeTokenExpires);
+    return timeBeforeTokenExpires;
   }
 
   sessionExpired() {

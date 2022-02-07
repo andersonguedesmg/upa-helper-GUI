@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { AttendanceUnknownModalComponent } from '../../../components/attendance-unknown-modal/attendance-unknown-modal.component';
 import Patient from '../../../models/patient.model';
 import { PatientService } from '../../../services/patient.service';
 
@@ -19,7 +21,11 @@ export class AttendanceRegisterComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(public patientService: PatientService, private router: Router) {}
+  constructor(
+    public patientService: PatientService,
+    private router: Router,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.getPatientsForTable();
@@ -28,6 +34,14 @@ export class AttendanceRegisterComponent implements OnInit {
   getPatientsForTable() {
     this.patientService.getPatientsForTable().subscribe((response) => {
       this.dataSource.data = response as Patient[];
+    });
+  }
+
+  openAttendanceUnknownModal() {
+    const dialogRef = this.dialog.open(AttendanceUnknownModalComponent);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`Dialog result: ${result}`);
     });
   }
 

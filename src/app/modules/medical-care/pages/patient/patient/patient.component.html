@@ -95,7 +95,12 @@
                 >
               </button>
               <button mat-icon-button>
-                <mat-icon matTooltip="Editar" class="table-icon">edit</mat-icon>
+                <mat-icon
+                  matTooltip="Editar"
+                  (click)="openPatientEditModal()"
+                  class="table-icon"
+                  >edit</mat-icon
+                >
               </button>
             </td>
           </ng-container>

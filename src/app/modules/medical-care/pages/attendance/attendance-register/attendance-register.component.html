@@ -2,12 +2,12 @@
   <mat-card class="mat-elevation-z2" style="margin-top: 50px">
     <div class="container">
       <div class="row">
-        <div class="col-9">
+        <div class="col-6">
           <h3 class="page-title" style="margin-bottom: 30px">
             Novo Atendimento
           </h3>
         </div>
-        <div class="col-3">
+        <div class="col-6">
           <button
             mat-raised-button
             [routerLink]="'/paciente/novo'"
@@ -16,6 +16,16 @@
             matTooltip="Novo Paciente"
           >
             Cadastrar Paciente
+          </button>
+
+          <button
+            mat-raised-button
+            (click)="openAttendanceUnknownModal()"
+            class="btn-primary-light-color--outline"
+            style="margin-top: 10px; position: absolute; right: 215px"
+            matTooltip="Atendimento Desconhecido"
+          >
+            Desconhecido
           </button>
         </div>
       </div>
