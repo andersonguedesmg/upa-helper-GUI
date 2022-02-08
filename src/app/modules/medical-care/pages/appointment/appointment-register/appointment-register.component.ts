@@ -6,6 +6,10 @@ import {
   ConfirmDialogModel,
   ConfirmDialogComponent,
 } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
+import {
+  CONFIRM_DIALOG_TITLE_NEW_APPOINTMENT,
+  CONFIRM_DIALOG_MESSAGE_NEW_APPOINTMENT,
+} from 'src/app/shared/constants/messages';
 import { CommonHelper } from 'src/app/shared/helpers/common.helper';
 import Attendance from '../../../models/attendance.model';
 import { AppointmentService } from '../../../services/appointment.service';
@@ -20,20 +24,20 @@ export class AppointmentRegisterComponent implements OnInit {
   attendanceId!: number;
   attendanceData!: Attendance;
   appointmentDate!: Date;
-  public form: FormGroup;
-  public diagnosis = this.fb.control('', {
+  form: FormGroup;
+  diagnosis = this.fb.control('', {
     validators: [Validators.maxLength(255)],
     updateOn: 'blur',
   });
-  public prescription = this.fb.control('', {
+  prescription = this.fb.control('', {
     validators: [Validators.maxLength(255)],
     updateOn: 'blur',
   });
-  public cid = this.fb.control('', {
+  cid = this.fb.control('', {
     validators: [Validators.maxLength(100)],
     updateOn: 'blur',
   });
-  public exitData = this.fb.control('', {
+  exitData = this.fb.control('', {
     validators: [Validators.maxLength(10)],
     updateOn: 'blur',
   });
@@ -68,8 +72,8 @@ export class AppointmentRegisterComponent implements OnInit {
 
   createAppointment() {
     if (this.form.valid) {
-      const title = `Salvar essa Consulta`;
-      const message = `Você tem certeza de que quer salvar essa consulta?`;
+      const title = CONFIRM_DIALOG_TITLE_NEW_APPOINTMENT;
+      const message = CONFIRM_DIALOG_MESSAGE_NEW_APPOINTMENT;
       const dialogData = new ConfirmDialogModel(title, message);
       const dialogRef = this.dialog.open(ConfirmDialogComponent, {
         maxWidth: '400px',

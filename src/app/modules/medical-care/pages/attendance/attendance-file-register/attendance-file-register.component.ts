@@ -6,6 +6,11 @@ import {
   ConfirmDialogModel,
   ConfirmDialogComponent,
 } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
+import {
+  CONFIRM_DIALOG_TITLE_NEW_ATTENDANCE,
+  CONFIRM_DIALOG_MESSAGE_NEW_ATTENDANCE,
+} from 'src/app/shared/constants/messages';
+import { PatientEditModalComponent } from '../../../components/patient-edit-modal/patient-edit-modal.component';
 import Patient from '../../../models/patient.model';
 import { AttendanceService } from '../../../services/attendance.service';
 import { PatientService } from '../../../services/patient.service';
@@ -22,8 +27,8 @@ export class AttendanceFileRegisterComponent implements OnInit {
   patientAge: number = 0;
   statusId: number = 1;
   isSamu: boolean = false;
-  public form: FormGroup;
-  public receptionInformation = this.fb.control('', {
+  form: FormGroup;
+  receptionInformation = this.fb.control('', {
     validators: [Validators.maxLength(512)],
     updateOn: 'blur',
   });
@@ -54,8 +59,8 @@ export class AttendanceFileRegisterComponent implements OnInit {
 
   createAttendance() {
     if (this.form.valid) {
-      const title = `Novo Atendimento`;
-      const message = `Você tem certeza de que quer abrir essa Nova Ficha de Atendimento?`;
+      const title = CONFIRM_DIALOG_TITLE_NEW_ATTENDANCE;
+      const message = CONFIRM_DIALOG_MESSAGE_NEW_ATTENDANCE;
       const dialogData = new ConfirmDialogModel(title, message);
       const dialogRef = this.dialog.open(ConfirmDialogComponent, {
         maxWidth: '400px',
@@ -83,6 +88,14 @@ export class AttendanceFileRegisterComponent implements OnInit {
 
   clearForm() {
     this.form.reset();
+  }
+
+  openPatientEditModal() {
+    const dialogRef = this.dialog.open(PatientEditModalComponent);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
   calculateAge(birthday: any): any {

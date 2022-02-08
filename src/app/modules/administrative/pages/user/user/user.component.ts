@@ -7,6 +7,10 @@ import {
   ConfirmDialogModel,
   ConfirmDialogComponent,
 } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
+import {
+  CONFIRM_DIALOG_TITLE_DELETE_USER,
+  CONFIRM_DIALOG_MESSAGE_DELETE_USER,
+} from 'src/app/shared/constants/messages';
 import { UserEditModalComponent } from '../../../components/user-edit-modal/user-edit-modal.component';
 import User from '../../../models/user.model';
 import { UserService } from '../../../services/user.service';
@@ -46,8 +50,8 @@ export class UserComponent implements OnInit {
 
   deleteUser() {
     // if ('') {
-    const title = `Deletar usuário`;
-    const message = `Você tem certeza de que quer deletar esse usuário?`;
+    const title = CONFIRM_DIALOG_TITLE_DELETE_USER;
+    const message = CONFIRM_DIALOG_MESSAGE_DELETE_USER;
     const dialogData = new ConfirmDialogModel(title, message);
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       maxWidth: '400px',

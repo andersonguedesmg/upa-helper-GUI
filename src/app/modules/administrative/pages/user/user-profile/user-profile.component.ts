@@ -1,7 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { ConfirmDialogComponent, ConfirmDialogModel } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
+import {
+  ConfirmDialogComponent,
+  ConfirmDialogModel,
+} from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
+import {
+  CONFIRM_DIALOG_TITLE_CHANGE_PASSWORD,
+  CONFIRM_DIALOG_MESSAGE_CHANGE_PASSWORD,
+} from 'src/app/shared/constants/messages';
 import { CommonHelper } from 'src/app/shared/helpers/common.helper';
 import User from '../../../models/user.model';
 import { UserService } from '../../../services/user.service';
@@ -14,12 +21,12 @@ import { UserService } from '../../../services/user.service';
 export class UserProfileComponent implements OnInit {
   userIdLogged: number | null = 0;
   userLogged: User = new User();
-  public form: FormGroup;
-  public newPassword = this.fb.control('', {
+  form: FormGroup;
+  newPassword = this.fb.control('', {
     validators: [Validators.maxLength(255)],
     updateOn: 'blur',
   });
-  public confirmNewPassword = this.fb.control('', {
+  confirmNewPassword = this.fb.control('', {
     validators: [Validators.maxLength(255)],
     updateOn: 'blur',
   });
@@ -41,16 +48,18 @@ export class UserProfileComponent implements OnInit {
 
   getUserById() {
     this.userIdLogged = CommonHelper.getUserIdLogged();
-    this.userService.getUserById(Number(this.userIdLogged)).subscribe((response) => {
-      this.userLogged = response;
-    });
+    this.userService
+      .getUserById(Number(this.userIdLogged))
+      .subscribe((response) => {
+        this.userLogged = response;
+      });
   }
 
   changePassword() {
     this.userIdLogged = CommonHelper.getUserIdLogged();
     if (this.form.valid) {
-      const title = `Trocar Senha`;
-      const message = `Você tem certeza de que quer trocar sua senha?`;
+      const title = CONFIRM_DIALOG_TITLE_CHANGE_PASSWORD;
+      const message = CONFIRM_DIALOG_MESSAGE_CHANGE_PASSWORD;
       const dialogData = new ConfirmDialogModel(title, message);
       const dialogRef = this.dialog.open(ConfirmDialogComponent, {
         maxWidth: '400px',
@@ -63,9 +72,11 @@ export class UserProfileComponent implements OnInit {
       dialogRef.afterClosed().subscribe((dialogResult) => {
         if (dialogResult == true) {
           var request = this.form.value;
-          this.userService.changePassword(this.userIdLogged, request).subscribe(() => {
-            this.clearForm();
-          });
+          this.userService
+            .changePassword(this.userIdLogged, request)
+            .subscribe(() => {
+              this.clearForm();
+            });
         }
       });
     }

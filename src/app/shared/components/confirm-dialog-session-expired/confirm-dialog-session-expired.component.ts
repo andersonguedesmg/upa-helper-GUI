@@ -12,8 +12,8 @@ import { Router } from '@angular/router';
 })
 export class ConfirmDialogSessionExpiredComponent implements OnInit {
   hidePassword = true;
-  public form: FormGroup;
-  public password = this.fb.control('', {
+  form: FormGroup;
+  password = this.fb.control('', {
     validators: [Validators.maxLength(255)],
     updateOn: 'blur',
   });

@@ -1,0 +1,14 @@
+export const CONFIRM_DIALOG_TITLE_SAVE_PATIENT = `Salvar paciente`;
+export const CONFIRM_DIALOG_MESSAGE_SAVE_PATIENT = `Deseja salvar esse paciente?`;
+export const CONFIRM_DIALOG_TITLE_SAVE_USER = `Salvar colaborador`;
+export const CONFIRM_DIALOG_MESSAGE_SAVE_USER = `Deseja salvar esse colaborador?`;
+export const CONFIRM_DIALOG_TITLE_NEW_ATTENDANCE = `Novo Atendimento`;
+export const CONFIRM_DIALOG_MESSAGE_NEW_ATTENDANCE = `Deseja abrir essa Nova Ficha de Atendimento?`;
+export const CONFIRM_DIALOG_TITLE_NEW_TRIAGE = `Fazer Triagem`;
+export const CONFIRM_DIALOG_MESSAGE_NEW_TRIAGE = `Deseja fazer essa triagem?`;
+export const CONFIRM_DIALOG_TITLE_NEW_APPOINTMENT = `Salvar essa Consulta`;
+export const CONFIRM_DIALOG_MESSAGE_NEW_APPOINTMENT = `Deseja salvar essa consulta?`;
+export const CONFIRM_DIALOG_TITLE_CHANGE_PASSWORD = `Trocar Senha`;
+export const CONFIRM_DIALOG_MESSAGE_CHANGE_PASSWORD = `Deseja trocar sua senha?`;
+export const CONFIRM_DIALOG_TITLE_DELETE_USER = `Desativar colaborador`;
+export const CONFIRM_DIALOG_MESSAGE_DELETE_USER = `Deseja desativar esse colaborador?`;

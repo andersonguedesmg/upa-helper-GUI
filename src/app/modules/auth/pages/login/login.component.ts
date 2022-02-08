@@ -10,12 +10,12 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LoginComponent implements OnInit {
   hidePassword = true;
-  public form: FormGroup;
-  public cpf = this.fb.control('', {
+  form: FormGroup;
+  cpf = this.fb.control('', {
     validators: [Validators.maxLength(255)],
     updateOn: 'blur',
   });
-  public password = this.fb.control('', {
+  password = this.fb.control('', {
     validators: [Validators.maxLength(255)],
     updateOn: 'blur',
   });
@@ -38,7 +38,10 @@ export class LoginComponent implements OnInit {
       var request = this.form.value;
       let login = await this.authService.login(request);
       if (login) {
-        window.localStorage.setItem('userCpfLogged', String(this.form.value.cpf));
+        window.localStorage.setItem(
+          'userCpfLogged',
+          String(this.form.value.cpf)
+        );
         this.router.navigate(['/dashboard']);
       }
     }

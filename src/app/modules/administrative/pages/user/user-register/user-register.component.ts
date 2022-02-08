@@ -5,6 +5,10 @@ import {
   ConfirmDialogModel,
   ConfirmDialogComponent,
 } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
+import {
+  CONFIRM_DIALOG_MESSAGE_SAVE_USER,
+  CONFIRM_DIALOG_TITLE_SAVE_USER,
+} from 'src/app/shared/constants/messages';
 import Cep from 'src/app/shared/models/cep.model';
 import { CepService } from 'src/app/shared/services/cep.service';
 import { UserService } from '../../../services/user.service';
@@ -15,16 +19,16 @@ import { UserService } from '../../../services/user.service';
   styleUrls: ['./user-register.component.scss'],
 })
 export class UserRegisterComponent implements OnInit {
-  startDate = new Date(1990, 0, 1);
   private password: string = 'UPA1@email';
+  startDate = new Date(1990, 0, 1);
   dataZipCode: any;
-  public isActive: boolean = true;
-  public form: FormGroup;
-  public name = this.fb.control('', {
+  isActive: boolean = true;
+  form: FormGroup;
+  name = this.fb.control('', {
     validators: [Validators.required, Validators.maxLength(255)],
     updateOn: 'blur',
   });
-  public email = this.fb.control('', {
+  email = this.fb.control('', {
     validators: [
       Validators.required,
       Validators.maxLength(255),
@@ -33,62 +37,59 @@ export class UserRegisterComponent implements OnInit {
     ],
     updateOn: 'blur',
   });
-  public birthday = this.fb.control('', {
+  birthday = this.fb.control('', {
     validators: [Validators.required],
     updateOn: 'blur',
   });
-  public rg = this.fb.control('', {
+  rg = this.fb.control('', {
     validators: [Validators.required, Validators.maxLength(15)],
     updateOn: 'blur',
   });
-  public cpf = this.fb.control('', {
+  cpf = this.fb.control('', {
     validators: [Validators.required, Validators.maxLength(14)],
     updateOn: 'blur',
   });
-  public zipCode = this.fb.control('', {
+  zipCode = this.fb.control('', {
     validators: [Validators.required, Validators.maxLength(9)],
     updateOn: 'blur',
   });
-
-  // public sourceInstallation = this.fb.control({ value: null, disabled: true });
-
-  public address = this.fb.control('', {
+  address = this.fb.control('', {
     validators: [Validators.required, Validators.maxLength(255)],
     updateOn: 'blur',
   });
-  public number = this.fb.control('', {
+  number = this.fb.control('', {
     validators: [Validators.required, Validators.maxLength(20)],
     updateOn: 'blur',
   });
-  public neighborhood = this.fb.control('', {
+  neighborhood = this.fb.control('', {
     validators: [Validators.required, Validators.maxLength(255)],
     updateOn: 'blur',
   });
-  public city = this.fb.control('', {
+  city = this.fb.control('', {
     validators: [Validators.required, Validators.maxLength(100)],
     updateOn: 'blur',
   });
-  public state = this.fb.control('', {
+  state = this.fb.control('', {
     validators: [Validators.required, Validators.maxLength(25)],
     updateOn: 'blur',
   });
-  public complement = this.fb.control('', {
+  complement = this.fb.control('', {
     validators: [Validators.maxLength(255)],
     updateOn: 'blur',
   });
-  public telephone = this.fb.control('', {
+  telephone = this.fb.control('', {
     validators: [Validators.maxLength(14)],
     updateOn: 'blur',
   });
-  public cell = this.fb.control('', {
+  cell = this.fb.control('', {
     validators: [Validators.required, Validators.maxLength(15)],
     updateOn: 'blur',
   });
-  public council = this.fb.control('', {
+  council = this.fb.control('', {
     validators: [Validators.maxLength(20)],
     updateOn: 'blur',
   });
-  public userTypeId = this.fb.control('', {
+  userTypeId = this.fb.control('', {
     validators: [Validators.required],
     updateOn: 'blur',
   });
@@ -125,8 +126,8 @@ export class UserRegisterComponent implements OnInit {
 
   createUser() {
     if (this.form.valid) {
-      const title = `Salvar usuário`;
-      const message = `Você tem certeza de que quer salvar esse usuário?`;
+      const title = CONFIRM_DIALOG_TITLE_SAVE_USER;
+      const message = CONFIRM_DIALOG_MESSAGE_SAVE_USER;
       const dialogData = new ConfirmDialogModel(title, message);
       const dialogRef = this.dialog.open(ConfirmDialogComponent, {
         maxWidth: '400px',

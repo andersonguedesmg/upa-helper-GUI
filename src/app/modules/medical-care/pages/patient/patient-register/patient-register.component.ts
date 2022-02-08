@@ -5,6 +5,10 @@ import {
   ConfirmDialogModel,
   ConfirmDialogComponent,
 } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
+import {
+  CONFIRM_DIALOG_MESSAGE_SAVE_PATIENT,
+  CONFIRM_DIALOG_TITLE_SAVE_PATIENT,
+} from 'src/app/shared/constants/messages';
 import { PatientService } from '../../../services/patient.service';
 
 @Component({
@@ -14,81 +18,81 @@ import { PatientService } from '../../../services/patient.service';
 })
 export class PatientRegisterComponent implements OnInit {
   startDate = new Date(1990, 0, 1);
-  public isActive: boolean = true;
-  public form: FormGroup;
-  public name = this.fb.control('', {
+  isActive: boolean = true;
+  form: FormGroup;
+  name = this.fb.control('', {
     validators: [Validators.required, Validators.maxLength(255)],
     updateOn: 'blur',
   });
-  public socialName = this.fb.control('', {
+  socialName = this.fb.control('', {
     validators: [Validators.maxLength(255)],
     updateOn: 'blur',
   });
-  public birthday = this.fb.control('', {
+  birthday = this.fb.control('', {
     validators: [Validators.required],
     updateOn: 'blur',
   });
-  public rg = this.fb.control('', {
+  rg = this.fb.control('', {
     validators: [Validators.maxLength(15)],
     updateOn: 'blur',
   });
-  public cpf = this.fb.control('', {
+  cpf = this.fb.control('', {
     validators: [Validators.required, Validators.maxLength(14)],
     updateOn: 'blur',
   });
-  public cns = this.fb.control('', {
+  cns = this.fb.control('', {
     validators: [Validators.maxLength(18)],
     updateOn: 'blur',
   });
-  public zipCode = this.fb.control('', {
+  zipCode = this.fb.control('', {
     validators: [Validators.maxLength(9)],
     updateOn: 'blur',
   });
-  public address = this.fb.control('', {
+  address = this.fb.control('', {
     validators: [Validators.maxLength(255)],
     updateOn: 'blur',
   });
-  public number = this.fb.control('', {
+  number = this.fb.control('', {
     validators: [Validators.maxLength(20)],
     updateOn: 'blur',
   });
-  public neighborhood = this.fb.control('', {
+  neighborhood = this.fb.control('', {
     validators: [Validators.maxLength(255)],
     updateOn: 'blur',
   });
-  public city = this.fb.control('', {
+  city = this.fb.control('', {
     validators: [Validators.maxLength(100)],
     updateOn: 'blur',
   });
-  public state = this.fb.control('', {
+  state = this.fb.control('', {
     validators: [Validators.maxLength(25)],
     updateOn: 'blur',
   });
-  public complement = this.fb.control('', {
+  complement = this.fb.control('', {
     validators: [Validators.maxLength(255)],
     updateOn: 'blur',
   });
-  public telephone = this.fb.control('', {
+  telephone = this.fb.control('', {
     validators: [Validators.maxLength(14)],
     updateOn: 'blur',
   });
-  public cell = this.fb.control('', {
+  cell = this.fb.control('', {
     validators: [Validators.maxLength(15)],
     updateOn: 'blur',
   });
-  public fatherName = this.fb.control('', {
+  fatherName = this.fb.control('', {
     validators: [Validators.maxLength(255)],
     updateOn: 'blur',
   });
-  public motherName = this.fb.control('', {
+  motherName = this.fb.control('', {
     validators: [Validators.maxLength(255)],
     updateOn: 'blur',
   });
-  public ethnicityId = this.fb.control('', {
+  ethnicityId = this.fb.control('', {
     validators: [Validators.required],
     updateOn: 'blur',
   });
-  public genderId = this.fb.control('', {
+  genderId = this.fb.control('', {
     validators: [Validators.required],
     updateOn: 'blur',
   });
@@ -126,8 +130,8 @@ export class PatientRegisterComponent implements OnInit {
 
   createPatient() {
     if (this.form.valid) {
-      const title = `Salvar paciente`;
-      const message = `Você tem certeza de que quer salvar esse paciente?`;
+      const title = CONFIRM_DIALOG_TITLE_SAVE_PATIENT;
+      const message = CONFIRM_DIALOG_MESSAGE_SAVE_PATIENT;
       const dialogData = new ConfirmDialogModel(title, message);
       const dialogRef = this.dialog.open(ConfirmDialogComponent, {
         maxWidth: '400px',

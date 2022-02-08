@@ -143,7 +143,7 @@
           mat-stroked-button
           style="position: absolute; right: 15px"
           class="btn-primary-color--outline"
-          [routerLink]="'/paciente/novo'"
+          (click)="openPatientEditModal()"
           matTooltip="Atualizar Paciente"
         >
           Atualizar Paciente

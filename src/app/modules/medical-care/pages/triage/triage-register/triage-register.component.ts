@@ -6,6 +6,11 @@ import {
   ConfirmDialogModel,
   ConfirmDialogComponent,
 } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
+import {
+  CONFIRM_DIALOG_TITLE_NEW_TRIAGE,
+  CONFIRM_DIALOG_MESSAGE_NEW_TRIAGE,
+} from 'src/app/shared/constants/messages';
+import { CommonHelper } from 'src/app/shared/helpers/common.helper';
 import Attendance from '../../../models/attendance.model';
 import { AttendanceService } from '../../../services/attendance.service';
 import { TriageService } from '../../../services/triage.service';
@@ -20,81 +25,81 @@ export class TriageRegisterComponent implements OnInit {
   attendanceData!: Attendance;
   triageDate!: Date;
   selectedPainIntensity: number = 4;
-  userIdLogged: string = '';
-  public form: FormGroup;
-  public bloodPressure = this.fb.control('', {
+  userIdLogged: number | null = 0;
+  form: FormGroup;
+  bloodPressure = this.fb.control('', {
     validators: [Validators.maxLength(11)],
     updateOn: 'blur',
   });
-  public temperature = this.fb.control('', {
+  temperature = this.fb.control('', {
     validators: [Validators.maxLength(8)],
     updateOn: 'blur',
   });
-  public saturation = this.fb.control('', {
+  saturation = this.fb.control('', {
     validators: [Validators.maxLength(10)],
     updateOn: 'blur',
   });
-  public bloodGlucose = this.fb.control('', {
+  bloodGlucose = this.fb.control('', {
     validators: [Validators.maxLength(10)],
     updateOn: 'blur',
   });
-  public pulse = this.fb.control('', {
+  pulse = this.fb.control('', {
     validators: [Validators.maxLength(6)],
     updateOn: 'blur',
   });
-  public respiratoryFrequency = this.fb.control('', {
+  respiratoryFrequency = this.fb.control('', {
     validators: [Validators.maxLength(6)],
     updateOn: 'blur',
   });
-  public weight = this.fb.control('', {
+  weight = this.fb.control('', {
     validators: [Validators.maxLength(9)],
     updateOn: 'blur',
   });
-  public height = this.fb.control('', {
+  height = this.fb.control('', {
     validators: [Validators.maxLength(6)],
     updateOn: 'blur',
   });
-  public imc = this.fb.control('', {
+  imc = this.fb.control('', {
     validators: [Validators.maxLength(11)],
     updateOn: 'blur',
   });
-  public preInformation = this.fb.control('', {
+  preInformation = this.fb.control('', {
     validators: [Validators.maxLength(255)],
     updateOn: 'blur',
   });
-  public medicines = this.fb.control('', {
+  medicines = this.fb.control('', {
     validators: [Validators.maxLength(255)],
     updateOn: 'blur',
   });
-  public allergies = this.fb.control('', {
+  allergies = this.fb.control('', {
     validators: [Validators.maxLength(255)],
     updateOn: 'blur',
   });
-  public painIntensityId = this.fb.control(null, {
+  painIntensityId = this.fb.control(null, {
     validators: [Validators.required],
     updateOn: 'blur',
   });
-  public riskRatingId = this.fb.control(null, {
+  riskRatingId = this.fb.control(null, {
     validators: [Validators.required],
     updateOn: 'blur',
   });
-  public isPreferred = this.fb.control('', {
+  isPreferred = this.fb.control('', {
     validators: [],
     updateOn: 'blur',
   });
-  public hasHypertension = this.fb.control(null, {
+  hasHypertension = this.fb.control(null, {
     validators: [],
   });
-  public hasDiabetes = this.fb.control(null, {
+  hasDiabetes = this.fb.control(null, {
     validators: [],
   });
-  public isSmoker = this.fb.control(null, {
+  isSmoker = this.fb.control(null, {
     validators: [],
   });
-  public hasCancer = this.fb.control(null, {
+  hasCancer = this.fb.control(null, {
     validators: [],
   });
-  public isTransplanted = this.fb.control(null, {
+  isTransplanted = this.fb.control(null, {
     validators: [],
   });
 
@@ -144,19 +149,19 @@ export class TriageRegisterComponent implements OnInit {
 
   createTriage() {
     if (this.form.valid) {
-      const title = `Fazer Triagem`;
-      const message = `Você tem certeza de que quer fazer essa triagem?`;
+      const title = CONFIRM_DIALOG_TITLE_NEW_TRIAGE;
+      const message = CONFIRM_DIALOG_MESSAGE_NEW_TRIAGE;
       const dialogData = new ConfirmDialogModel(title, message);
       const dialogRef = this.dialog.open(ConfirmDialogComponent, {
         maxWidth: '400px',
         data: dialogData,
       });
-      this.userIdLogged = window.localStorage.getItem('userIdLogged') as string;
+      this.userIdLogged = CommonHelper.getUserIdLogged();
       this.form = this.fb.group({
         ...this.form.value,
         attendanceId: Number(this.attendanceId),
         triageDate: this.triageDate,
-        userId: Number(this.userIdLogged),
+        userId: this.userIdLogged,
       });
       dialogRef.afterClosed().subscribe((dialogResult) => {
         if (dialogResult == true) {
