@@ -1,27 +1,44 @@
-# UpaHelperGUI
+# UPA Helper
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.1.
+### Descrição
 
-## Development server
+Plataforma de gestão em saúde com foco em pequenos hospitais com pronto atendimento para auxiliar nas operações da recepção, consulta medica, ambulatório, farmácia, laboratório, radiologia e estoque.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Tecnologias
 
-## Code scaffolding
+- [Angular](https://angular.io/)
+- [Angular Material](https://material.angular.io/)
+- [Angular CLI](https://github.com/angular/angular-cli)
+- [TypeScript](https://www.typescriptlang.org/)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Rodando localmente
 
-## Build
+Clone o repositório
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+git clone https://github.com/andersonguedesmg/upa-helper-GUI.git
+```
 
-## Running unit tests
+Acesse a pasta do projeto no terminal
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+cd upa-helper-GUI
+```
 
-## Running end-to-end tests
+Instale as dependências
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+npm install
+```
 
-## Further help
+Inicie a aplicação
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+ng serve
+```
+
+Acesse no navegador
+
+```bash
+http://localhost:4200
+```
