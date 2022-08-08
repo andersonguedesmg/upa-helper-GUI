@@ -2,12 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
+import {
   ConfirmDialogModel,
   ConfirmDialogComponent,
 } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 import {
   CONFIRM_DIALOG_MESSAGE_SAVE_USER,
   CONFIRM_DIALOG_TITLE_SAVE_USER,
+  MESSAGE_ERROR_SAVE_USER,
+  MESSAGE_SUCCESS_SAVE_USER,
 } from 'src/app/shared/constants/messages';
 import Cep from 'src/app/shared/models/cep.model';
 import { CepService } from 'src/app/shared/services/cep.service';
@@ -93,11 +100,14 @@ export class UserRegisterComponent implements OnInit {
     validators: [Validators.required],
     updateOn: 'blur',
   });
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
 
   constructor(
     public userService: UserService,
     private fb: FormBuilder,
     public dialog: MatDialog,
+    private snackBar: MatSnackBar,
     private cepService: CepService
   ) {
     this.form = this.fb.group({
@@ -137,10 +147,31 @@ export class UserRegisterComponent implements OnInit {
       dialogRef.afterClosed().subscribe((dialogResult) => {
         if (dialogResult == true) {
           var request = this.form.value;
-          this.userService.createUser(request).subscribe(() => {
-            location.reload();
-            this.clearForm();
-          });
+          const messageSuccessNewUser = MESSAGE_SUCCESS_SAVE_USER;
+          const messageErrorNewUser = MESSAGE_ERROR_SAVE_USER;
+          this.userService.createUser(request).subscribe(
+            (data) => {
+              // console.log('DATA', data);
+              this.snackBar.open(messageSuccessNewUser, 'X', {
+                duration: 4000,
+                horizontalPosition: this.horizontalPosition,
+                verticalPosition: this.verticalPosition,
+                panelClass: ['success-snackbar'],
+              });
+              location.reload();
+              this.clearForm();
+            },
+            (erro) => {
+              if (erro) {
+                this.snackBar.open(messageErrorNewUser, 'X', {
+                  duration: 4000,
+                  horizontalPosition: this.horizontalPosition,
+                  verticalPosition: this.verticalPosition,
+                  panelClass: ['error-snackbar'],
+                });
+              }
+            }
+          );
         }
       });
     }

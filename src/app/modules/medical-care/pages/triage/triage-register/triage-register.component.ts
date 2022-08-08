@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import {
   ConfirmDialogModel,
@@ -9,6 +14,8 @@ import {
 import {
   CONFIRM_DIALOG_TITLE_NEW_TRIAGE,
   CONFIRM_DIALOG_MESSAGE_NEW_TRIAGE,
+  MESSAGE_ERROR_SAVE_NEW_TRIAGE,
+  MESSAGE_SUCCESS_SAVE_NEW_TRIAGE,
 } from 'src/app/shared/constants/messages';
 import { CommonHelper } from 'src/app/shared/helpers/common.helper';
 import Attendance from '../../../models/attendance.model';
@@ -102,6 +109,8 @@ export class TriageRegisterComponent implements OnInit {
   isTransplanted = this.fb.control(null, {
     validators: [],
   });
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
 
   constructor(
     public triageService: TriageService,
@@ -109,6 +118,7 @@ export class TriageRegisterComponent implements OnInit {
     private route: ActivatedRoute,
     public attendanceService: AttendanceService,
     private router: Router,
+    private snackBar: MatSnackBar,
     public dialog: MatDialog
   ) {
     this.form = this.fb.group({
@@ -166,10 +176,30 @@ export class TriageRegisterComponent implements OnInit {
       dialogRef.afterClosed().subscribe((dialogResult) => {
         if (dialogResult == true) {
           var request = this.form.value;
-          this.triageService.createTriage(request).subscribe(() => {
-            this.clearForm();
-            this.router.navigate(['/triagem']);
-          });
+          const messageSuccessNewTriage = MESSAGE_SUCCESS_SAVE_NEW_TRIAGE;
+          const messageErrorNewTriage = MESSAGE_ERROR_SAVE_NEW_TRIAGE;
+          this.triageService.createTriage(request).subscribe(
+            (data) => {
+              this.snackBar.open(messageSuccessNewTriage, 'X', {
+                duration: 4000,
+                horizontalPosition: this.horizontalPosition,
+                verticalPosition: this.verticalPosition,
+                panelClass: ['success-snackbar'],
+              });
+              this.clearForm();
+              this.router.navigate(['/triagem']);
+            },
+            (erro) => {
+              if (erro) {
+                this.snackBar.open(messageErrorNewTriage, 'X', {
+                  duration: 4000,
+                  horizontalPosition: this.horizontalPosition,
+                  verticalPosition: this.verticalPosition,
+                  panelClass: ['error-snackbar'],
+                });
+              }
+            }
+          );
         }
       });
     }

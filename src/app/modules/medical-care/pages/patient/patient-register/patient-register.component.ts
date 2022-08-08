@@ -2,12 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
+import {
   ConfirmDialogModel,
   ConfirmDialogComponent,
 } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 import {
   CONFIRM_DIALOG_MESSAGE_SAVE_PATIENT,
   CONFIRM_DIALOG_TITLE_SAVE_PATIENT,
+  MESSAGE_ERROR_SAVE_PATIENT,
+  MESSAGE_SUCCESS_SAVE_PATIENT,
 } from 'src/app/shared/constants/messages';
 import { PatientService } from '../../../services/patient.service';
 
@@ -96,10 +103,13 @@ export class PatientRegisterComponent implements OnInit {
     validators: [Validators.required],
     updateOn: 'blur',
   });
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
 
   constructor(
     public patientService: PatientService,
     private fb: FormBuilder,
+    private snackBar: MatSnackBar,
     public dialog: MatDialog
   ) {
     this.form = this.fb.group({
@@ -141,10 +151,31 @@ export class PatientRegisterComponent implements OnInit {
       dialogRef.afterClosed().subscribe((dialogResult) => {
         if (dialogResult == true) {
           var request = this.form.value;
-          this.patientService.createPatient(request).subscribe(() => {
-            location.reload();
-            this.clearForm();
-          });
+          const messageSuccessNewPatient = MESSAGE_SUCCESS_SAVE_PATIENT;
+          const messageErrorNewPatient = MESSAGE_ERROR_SAVE_PATIENT;
+          this.patientService.createPatient(request).subscribe(
+            (data) => {
+              // console.log('DATA', data);
+              this.snackBar.open(messageSuccessNewPatient, 'X', {
+                duration: 4000,
+                horizontalPosition: this.horizontalPosition,
+                verticalPosition: this.verticalPosition,
+                panelClass: ['success-snackbar'],
+              });
+              location.reload();
+              this.clearForm();
+            },
+            (erro) => {
+              if (erro) {
+                this.snackBar.open(messageErrorNewPatient, 'X', {
+                  duration: 4000,
+                  horizontalPosition: this.horizontalPosition,
+                  verticalPosition: this.verticalPosition,
+                  panelClass: ['error-snackbar'],
+                });
+              }
+            }
+          );
         }
       });
     }
