@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import {
   ConfirmDialogModel,
@@ -9,6 +14,8 @@ import {
 import {
   CONFIRM_DIALOG_TITLE_NEW_ATTENDANCE,
   CONFIRM_DIALOG_MESSAGE_NEW_ATTENDANCE,
+  MESSAGE_ERROR_SAVE_NEW_ATTENDANCE,
+  MESSAGE_SUCCESS_SAVE_NEW_ATTENDANCE,
 } from 'src/app/shared/constants/messages';
 import { PatientEditModalComponent } from '../../../components/patient-edit-modal/patient-edit-modal.component';
 import Patient from '../../../models/patient.model';
@@ -32,6 +39,8 @@ export class AttendanceFileRegisterComponent implements OnInit {
     validators: [Validators.maxLength(512)],
     updateOn: 'blur',
   });
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
 
   constructor(
     public attendanceService: AttendanceService,
@@ -39,6 +48,7 @@ export class AttendanceFileRegisterComponent implements OnInit {
     private route: ActivatedRoute,
     public patientService: PatientService,
     private router: Router,
+    private snackBar: MatSnackBar,
     public dialog: MatDialog
   ) {
     this.form = this.fb.group({
@@ -66,6 +76,7 @@ export class AttendanceFileRegisterComponent implements OnInit {
         maxWidth: '400px',
         data: dialogData,
       });
+
       this.form = this.fb.group({
         ...this.form.value,
         patientAge: this.patientAge.toString(),
@@ -74,13 +85,36 @@ export class AttendanceFileRegisterComponent implements OnInit {
         patientId: Number(this.patientId),
         statusId: this.statusId,
       });
+
       dialogRef.afterClosed().subscribe((dialogResult) => {
         if (dialogResult == true) {
           var request = this.form.value;
-          this.attendanceService.createAttendance(request).subscribe(() => {
-            this.clearForm();
-            this.router.navigate(['/atendimento/novo']);
-          });
+          const messageSuccessNewAttendance =
+            MESSAGE_SUCCESS_SAVE_NEW_ATTENDANCE;
+          const messageErrorNewAttendance = MESSAGE_ERROR_SAVE_NEW_ATTENDANCE;
+          this.attendanceService.createAttendance(request).subscribe(
+            (data) => {
+              // console.log('DATA', data);
+              this.snackBar.open(messageSuccessNewAttendance, 'X', {
+                duration: 4000,
+                horizontalPosition: this.horizontalPosition,
+                verticalPosition: this.verticalPosition,
+                panelClass: ['success-snackbar'],
+              });
+              this.clearForm();
+              this.router.navigate(['/atendimento/novo']);
+            },
+            (erro) => {
+              if (erro) {
+                this.snackBar.open(messageErrorNewAttendance, 'X', {
+                  duration: 4000,
+                  horizontalPosition: this.horizontalPosition,
+                  verticalPosition: this.verticalPosition,
+                  panelClass: ['error-snackbar'],
+                });
+              }
+            }
+          );
         }
       });
     }

@@ -138,3 +138,18 @@ table,
   -webkit-hyphens: auto;
   hyphens: auto;
 }
+
+.success-snackbar {
+  background: var(--color-success);
+  color: var(--color-white);
+}
+
+.error-snackbar {
+  background: var(--color-error);
+  color: var(--color-white);
+}
+
+.warning-snackbar {
+  background: var(--color-warning);
+  color: var(--color-white);
+}

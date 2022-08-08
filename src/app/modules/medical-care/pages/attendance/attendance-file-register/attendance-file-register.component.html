@@ -2,7 +2,7 @@
   <mat-card class="mat-elevation-z8" style="margin: 50px 0 50px 0">
     <div class="row">
       <div class="col-12">
-        <h3 class="page-title">Ficha de Atendimento Ambulatórial</h3>
+        <h3 class="page-title">Ficha de Atendimento Ambulatorial</h3>
       </div>
     </div>
     <div class="row">
@@ -16,14 +16,14 @@
     <div class="row" style="margin-top: 5px">
       <div class="col-12">
         <p>
-          Nome: <b>{{ patientData?.name }}</b>
+          Nome: <b>{{ patientData.name }}</b>
         </p>
       </div>
     </div>
     <div class="row">
       <div class="col-3">
         <p>
-          Nascimento: <b>{{ patientData?.birthday | date: "dd/MM/yyyy" }}</b>
+          Nascimento: <b>{{ patientData.birthday | date: "dd/MM/yyyy" }}</b>
         </p>
       </div>
       <div class="col-3">
@@ -33,12 +33,12 @@
       </div>
       <div class="col-3">
         <p>
-          Sexo: <b>{{ patientData?.gender?.label }}</b>
+          Sexo: <b>{{ patientData.gender.label }}</b>
         </p>
       </div>
       <div class="col-3">
         <p>
-          Cor/Raça/Etnia: <b>{{ patientData?.ethnicity?.label }}</b>
+          Cor/Raça/Etnia: <b>{{ patientData.ethnicity.label }}</b>
         </p>
       </div>
     </div>
@@ -46,12 +46,12 @@
     <div class="row">
       <div class="col-6">
         <p>
-          Pai: <b>{{ patientData?.fatherName }}</b>
+          Pai: <b>{{ patientData.fatherName }}</b>
         </p>
       </div>
       <div class="col-6">
         <p>
-          Mãe: <b>{{ patientData?.motherName }}</b>
+          Mãe: <b>{{ patientData.motherName }}</b>
         </p>
       </div>
     </div>
@@ -59,22 +59,22 @@
     <div class="row" style="margin-top: 5px">
       <div class="col-3">
         <p>
-          RG: <b>{{ patientData?.rg }}</b>
+          RG: <b>{{ patientData.rg }}</b>
         </p>
       </div>
       <div class="col-3">
         <p>
-          CPF: <b>{{ patientData?.cpf }}</b>
+          CPF: <b>{{ patientData.cpf }}</b>
         </p>
       </div>
       <div class="col-3">
         <p>
-          CNS: <b>{{ patientData?.cns }}</b>
+          CNS: <b>{{ patientData.cns }}</b>
         </p>
       </div>
       <div class="col-3">
         <p>
-          CEP: <b>{{ patientData?.zipCode }}</b>
+          CEP: <b>{{ patientData.zipCode }}</b>
         </p>
       </div>
     </div>
@@ -82,29 +82,29 @@
     <div class="row" style="margin-top: 5px">
       <div class="col-6">
         <p>
-          Endereço: <b>{{ patientData?.address }}</b>
+          Endereço: <b>{{ patientData.address }}</b>
         </p>
       </div>
       <div class="col-6">
         <p>
-          Número: <b>{{ patientData?.number }}</b>
+          Número: <b>{{ patientData.number }}</b>
         </p>
       </div>
     </div>
     <div class="row">
       <div class="col-5">
         <p>
-          Bairro: <b>{{ patientData?.neighborhood }}</b>
+          Bairro: <b>{{ patientData.neighborhood }}</b>
         </p>
       </div>
       <div class="col-5">
         <p>
-          Cidade: <b>{{ patientData?.city }}</b>
+          Cidade: <b>{{ patientData.city }}</b>
         </p>
       </div>
       <div class="col-2">
         <p>
-          Estado: <b>{{ patientData?.state }}</b>
+          Estado: <b>{{ patientData.state }}</b>
         </p>
       </div>
     </div>
