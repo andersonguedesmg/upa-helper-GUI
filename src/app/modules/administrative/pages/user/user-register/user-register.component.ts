@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import {
   MatSnackBar,
@@ -30,7 +30,7 @@ export class UserRegisterComponent implements OnInit {
   startDate = new Date(1990, 0, 1);
   dataZipCode: any;
   isActive: boolean = true;
-  form: FormGroup;
+  form: UntypedFormGroup;
   name = this.fb.control('', {
     validators: [Validators.required, Validators.maxLength(255)],
     updateOn: 'blur',
@@ -105,7 +105,7 @@ export class UserRegisterComponent implements OnInit {
 
   constructor(
     public userService: UserService,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     public dialog: MatDialog,
     private snackBar: MatSnackBar,
     private cepService: CepService

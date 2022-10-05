@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import {
   MatSnackBar,
@@ -33,7 +33,7 @@ export class TriageRegisterComponent implements OnInit {
   triageDate!: Date;
   selectedPainIntensity: number = 4;
   userIdLogged: number | null = 0;
-  form: FormGroup;
+  form: UntypedFormGroup;
   bloodPressure = this.fb.control('', {
     validators: [Validators.maxLength(11)],
     updateOn: 'blur',
@@ -114,7 +114,7 @@ export class TriageRegisterComponent implements OnInit {
 
   constructor(
     public triageService: TriageService,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private route: ActivatedRoute,
     public attendanceService: AttendanceService,
     private router: Router,

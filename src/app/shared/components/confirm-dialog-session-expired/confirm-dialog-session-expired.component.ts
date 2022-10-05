@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/modules/auth/services/auth.service';
 import { CommonHelper } from 'src/app/shared/helpers/common.helper';
 import { Router } from '@angular/router';
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class ConfirmDialogSessionExpiredComponent implements OnInit {
   hidePassword = true;
-  form: FormGroup;
+  form: UntypedFormGroup;
   password = this.fb.control('', {
     validators: [Validators.maxLength(255)],
     updateOn: 'blur',
@@ -21,7 +21,7 @@ export class ConfirmDialogSessionExpiredComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<ConfirmDialogSessionExpiredComponent>,
     @Inject(MAT_DIALOG_DATA) public data: ConfirmDialogSessionExpiredModel,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private authService: AuthService,
     private router: Router
   ) {

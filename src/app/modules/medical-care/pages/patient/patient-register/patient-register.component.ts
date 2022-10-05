@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import {
   MatSnackBar,
@@ -26,7 +26,7 @@ import { PatientService } from '../../../services/patient.service';
 export class PatientRegisterComponent implements OnInit {
   startDate = new Date(1990, 0, 1);
   isActive: boolean = true;
-  form: FormGroup;
+  form: UntypedFormGroup;
   name = this.fb.control('', {
     validators: [Validators.required, Validators.maxLength(255)],
     updateOn: 'blur',
@@ -108,7 +108,7 @@ export class PatientRegisterComponent implements OnInit {
 
   constructor(
     public patientService: PatientService,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private snackBar: MatSnackBar,
     public dialog: MatDialog
   ) {

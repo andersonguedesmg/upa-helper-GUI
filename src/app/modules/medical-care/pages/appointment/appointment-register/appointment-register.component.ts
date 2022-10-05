@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import {
@@ -24,7 +24,7 @@ export class AppointmentRegisterComponent implements OnInit {
   attendanceId!: number;
   attendanceData!: Attendance;
   appointmentDate!: Date;
-  form: FormGroup;
+  form: UntypedFormGroup;
   diagnosis = this.fb.control('', {
     validators: [Validators.maxLength(255)],
     updateOn: 'blur',
@@ -44,7 +44,7 @@ export class AppointmentRegisterComponent implements OnInit {
 
   constructor(
     public appointmentsService: AppointmentService,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private route: ActivatedRoute,
     public attendanceService: AttendanceService,
     private router: Router,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import {
   MatSnackBar,
@@ -34,7 +34,7 @@ export class AttendanceFileRegisterComponent implements OnInit {
   patientAge: number = 0;
   statusId: number = 1;
   isSamu: boolean = false;
-  form: FormGroup;
+  form: UntypedFormGroup;
   receptionInformation = this.fb.control('', {
     validators: [Validators.maxLength(512)],
     updateOn: 'blur',
@@ -44,7 +44,7 @@ export class AttendanceFileRegisterComponent implements OnInit {
 
   constructor(
     public attendanceService: AttendanceService,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private route: ActivatedRoute,
     public patientService: PatientService,
     private router: Router,

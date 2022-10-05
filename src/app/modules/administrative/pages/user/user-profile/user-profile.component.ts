@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import {
   ConfirmDialogComponent,
@@ -21,7 +21,7 @@ import { UserService } from '../../../services/user.service';
 export class UserProfileComponent implements OnInit {
   userIdLogged: number | null = 0;
   userLogged: User = new User();
-  form: FormGroup;
+  form: UntypedFormGroup;
   newPassword = this.fb.control('', {
     validators: [Validators.maxLength(255)],
     updateOn: 'blur',
@@ -34,7 +34,7 @@ export class UserProfileComponent implements OnInit {
   constructor(
     public userService: UserService,
     public dialog: MatDialog,
-    private fb: FormBuilder
+    private fb: UntypedFormBuilder
   ) {
     this.form = this.fb.group({
       newPassword: this.newPassword,
