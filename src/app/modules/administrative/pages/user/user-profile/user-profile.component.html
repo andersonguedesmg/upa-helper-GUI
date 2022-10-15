@@ -3,10 +3,10 @@
     <div class="container">
       <div class="row">
         <div class="col-6">
-          <h3 class="page-title">{{ userLogged?.name }}</h3>
+          <h3 class="page-title">{{ userLogged.name }}</h3>
         </div>
         <div class="col-6">
-          <h3 class="page-title">{{ userLogged?.userTypeId }}</h3>
+          <h3 class="page-title">{{ userLogged.userTypeId }}</h3>
         </div>
       </div>
     </div>
@@ -27,7 +27,7 @@
             <div class="col-6">
               <p>
                 Nascimento:
-                <b>{{ userLogged?.birthday | date: "dd/MM/yyyy" }}</b>
+                <b>{{ userLogged.birthday | date: "dd/MM/yyyy" }}</b>
               </p>
             </div>
           </div>
@@ -51,7 +51,7 @@
             </div>
             <div class="col-6">
               <p>
-                Desde: <b>{{ userLogged?.createdAt | date: "dd/MM/yyyy" }}</b>
+                Desde: <b>{{ userLogged.createdAt | date: "dd/MM/yyyy" }}</b>
               </p>
             </div>
           </div>
@@ -65,51 +65,51 @@
           <div class="row" style="margin-top: 5px">
             <div class="col-12">
               <p>
-                <b>{{ userLogged?.address }}</b>
+                <b>{{ userLogged.address }}</b>
               </p>
             </div>
           </div>
           <div class="row">
             <div class="col-2">
               <p>
-                Número: <b>{{ userLogged?.number }}</b>
+                Número: <b>{{ userLogged.number }}</b>
               </p>
             </div>
             <div class="col-4">
               <p>
-                Bairro: <b>{{ userLogged?.neighborhood }}</b>
+                Bairro: <b>{{ userLogged.neighborhood }}</b>
               </p>
             </div>
             <div class="col-4">
               <p>
-                Cidade: <b>{{ userLogged?.city }}</b>
+                Cidade: <b>{{ userLogged.city }}</b>
               </p>
             </div>
             <div class="col-2">
               <p>
-                Estado: <b>{{ userLogged?.state }}</b>
+                Estado: <b>{{ userLogged.state }}</b>
               </p>
             </div>
           </div>
           <div class="row" style="margin-top: 5px">
             <div class="col-3">
               <p>
-                CEP: <b>{{ userLogged?.zipCode }}</b>
+                CEP: <b>{{ userLogged.zipCode }}</b>
               </p>
             </div>
             <div class="col-3">
               <p>
-                RG: <b>{{ userLogged?.rg }}</b>
+                RG: <b>{{ userLogged.rg }}</b>
               </p>
             </div>
             <div class="col-3">
               <p>
-                CPF: <b>{{ userLogged?.cpf }}</b>
+                CPF: <b>{{ userLogged.cpf }}</b>
               </p>
             </div>
             <div class="col-3">
               <p>
-                Conselho: <b>{{ userLogged?.council }}</b>
+                Conselho: <b>{{ userLogged.council }}</b>
               </p>
             </div>
           </div>

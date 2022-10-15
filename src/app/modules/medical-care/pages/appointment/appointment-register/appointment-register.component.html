@@ -6,7 +6,7 @@
       </div>
       <div class="col-2">
         <p class="attendance-number">
-          Atendimento: <b>{{ attendanceData?.id }}</b>
+          Atendimento: <b>{{ attendanceData.id }}</b>
         </p>
       </div>
     </div>
@@ -19,7 +19,7 @@
         <div class="row">
           <div class="col-12">
             <p>
-              Nome: <b>{{ attendanceData?.patient?.name }}</b>
+              Nome: <b>{{ attendanceData.patient.name }}</b>
             </p>
           </div>
         </div>
@@ -28,24 +28,22 @@
           <div class="col-3">
             <p>
               Nascimento:
-              <b>{{
-                attendanceData?.patient?.birthday | date: "dd/MM/yyyy"
-              }}</b>
+              <b>{{ attendanceData.patient.birthday | date: "dd/MM/yyyy" }}</b>
             </p>
           </div>
           <div class="col-3">
             <p>
-              Idade: <b>{{ attendanceData?.patientAge + " Anos" }}</b>
+              Idade: <b>{{ attendanceData.patientAge + " Anos" }}</b>
             </p>
           </div>
           <div class="col-3">
             <p>
-              Sexo: <b>{{ attendanceData?.patient?.genderId }}</b>
+              Sexo: <b>{{ attendanceData.patient.genderId }}</b>
             </p>
           </div>
           <div class="col-3">
             <p>
-              Cor/Raça/Etnia: <b>{{ attendanceData?.patient?.ethnicityId }}</b>
+              Cor/Raça/Etnia: <b>{{ attendanceData.patient.ethnicityId }}</b>
             </p>
           </div>
         </div>
@@ -53,12 +51,12 @@
         <div class="row">
           <div class="col-6">
             <p>
-              Pai: <b>{{ attendanceData?.patient?.fatherName }}</b>
+              Pai: <b>{{ attendanceData.patient.fatherName }}</b>
             </p>
           </div>
           <div class="col-6">
             <p>
-              Mãe: <b>{{ attendanceData?.patient?.motherName }}</b>
+              Mãe: <b>{{ attendanceData.patient.motherName }}</b>
             </p>
           </div>
         </div>
@@ -69,17 +67,17 @@
         <div class="row" style="margin-top: 5px">
           <div class="col-4">
             <p>
-              RG: <b>{{ attendanceData?.patient?.rg }}</b>
+              RG: <b>{{ attendanceData.patient.rg }}</b>
             </p>
           </div>
           <div class="col-4">
             <p>
-              CPF: <b>{{ attendanceData?.patient?.cpf }}</b>
+              CPF: <b>{{ attendanceData.patient.cpf }}</b>
             </p>
           </div>
           <div class="col-4">
             <p>
-              CNS: <b>{{ attendanceData?.patient?.cns }}</b>
+              CNS: <b>{{ attendanceData.patient.cns }}</b>
             </p>
           </div>
         </div>
@@ -91,17 +89,17 @@
         <div class="row" style="margin-top: 5px">
           <div class="col-8">
             <p>
-              Logradouro: <b>{{ attendanceData?.patient?.address }}</b>
+              Logradouro: <b>{{ attendanceData.patient.address }}</b>
             </p>
           </div>
           <div class="col-2">
             <p>
-              Número: <b>{{ attendanceData?.patient?.number }}</b>
+              Número: <b>{{ attendanceData.patient.number }}</b>
             </p>
           </div>
           <div class="col-2">
             <p>
-              CEP: <b>{{ attendanceData?.patient?.zipCode }}</b>
+              CEP: <b>{{ attendanceData.patient.zipCode }}</b>
             </p>
           </div>
         </div>
@@ -109,17 +107,17 @@
         <div class="row">
           <div class="col-5">
             <p>
-              Bairro: <b>{{ attendanceData?.patient?.neighborhood }}</b>
+              Bairro: <b>{{ attendanceData.patient.neighborhood }}</b>
             </p>
           </div>
           <div class="col-5">
             <p>
-              Cidade: <b>{{ attendanceData?.patient?.city }}</b>
+              Cidade: <b>{{ attendanceData.patient.city }}</b>
             </p>
           </div>
           <div class="col-2">
             <p>
-              Estado: <b>{{ attendanceData?.patient?.state | uppercase }}</b>
+              Estado: <b>{{ attendanceData.patient.state | uppercase }}</b>
             </p>
           </div>
         </div>
@@ -131,7 +129,7 @@
           <div class="col-12">
             <p>
               Informação:
-              <b>{{ attendanceData?.receptionInformation }}</b>
+              <b>{{ attendanceData.receptionInformation }}</b>
             </p>
           </div>
         </div>
@@ -141,7 +139,7 @@
             <p>
               Chegada:
               <b>{{
-                attendanceData?.arrivalDate
+                attendanceData.arrivalDate
                   | date: "EEEE, dd 'de' MMMM 'de' y 'às' h:mm:ss"
               }}</b>
             </p>
@@ -156,7 +154,7 @@
         <div class="row">
           <div class="col-12">
             <p>
-              Informações: <b>{{ attendanceData?.triage?.preInformation }}</b>
+              Informações: <b>{{ attendanceData.triage.preInformation }}</b>
             </p>
           </div>
         </div>
@@ -164,14 +162,14 @@
           <div class="col-12">
             <p>
               Medicamentos em uso:
-              <b>{{ attendanceData?.triage?.medicines }}</b>
+              <b>{{ attendanceData.triage.medicines }}</b>
             </p>
           </div>
         </div>
         <div class="row">
           <div class="col-12">
             <p>
-              Alergias: <b>{{ attendanceData?.triage?.allergies }}</b>
+              Alergias: <b>{{ attendanceData.triage.allergies }}</b>
             </p>
           </div>
         </div>
@@ -182,17 +180,17 @@
         <div class="row">
           <div class="col-4">
             <p>
-              P.A.: <b>{{ attendanceData?.triage?.bloodPressure }} mmHg</b>
+              P.A.: <b>{{ attendanceData.triage.bloodPressure }} mmHg</b>
             </p>
           </div>
           <div class="col-4">
             <p>
-              Pulso: <b>{{ attendanceData?.triage?.pulse }} FC</b>
+              Pulso: <b>{{ attendanceData.triage.pulse }} FC</b>
             </p>
           </div>
           <div class="col-4">
             <p>
-              Glicemia: <b>{{ attendanceData?.triage?.bloodGlucose }} mg/dL</b>
+              Glicemia: <b>{{ attendanceData.triage.bloodGlucose }} mg/dL</b>
             </p>
           </div>
         </div>
@@ -200,18 +198,18 @@
         <div class="row">
           <div class="col-4">
             <p>
-              Temperatura: <b>{{ attendanceData?.triage?.temperature }} °C</b>
+              Temperatura: <b>{{ attendanceData.triage.temperature }} °C</b>
             </p>
           </div>
           <div class="col-4">
             <p>
               Freq. Respiratória:
-              <b>{{ attendanceData?.triage?.respiratoryFrequency }} bpm</b>
+              <b>{{ attendanceData.triage.respiratoryFrequency }} bpm</b>
             </p>
           </div>
           <div class="col-4">
             <p>
-              Sat O2: <b>{{ attendanceData?.triage?.saturation }} %</b>
+              Sat O2: <b>{{ attendanceData.triage.saturation }} %</b>
             </p>
           </div>
         </div>
@@ -222,17 +220,17 @@
         <div class="row">
           <div class="col-4">
             <p>
-              Peso: <b>{{ attendanceData?.triage?.weight }} Kg</b>
+              Peso: <b>{{ attendanceData.triage.weight }} Kg</b>
             </p>
           </div>
           <div class="col-4">
             <p>
-              Altura: <b>{{ attendanceData?.triage?.height }} m</b>
+              Altura: <b>{{ attendanceData.triage.height }} m</b>
             </p>
           </div>
           <div class="col-4">
             <p>
-              IMC: <b>{{ attendanceData?.triage?.imc }} kg/m²</b>
+              IMC: <b>{{ attendanceData.triage.imc }} kg/m²</b>
             </p>
           </div>
         </div>
@@ -298,7 +296,9 @@
                       >Alta a Pedido / a Revelia</mat-radio-button
                     >
                   </p>
-                  <p><mat-radio-button value="Óbito">Óbito</mat-radio-button></p>
+                  <p>
+                    <mat-radio-button value="Óbito">Óbito</mat-radio-button>
+                  </p>
                 </mat-radio-group></mat-card
               >
             </div>
