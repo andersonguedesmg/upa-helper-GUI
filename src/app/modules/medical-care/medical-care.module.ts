@@ -20,6 +20,7 @@ import { AppointmentComponent } from './pages/appointment/appointment/appointmen
 import { AppointmentRegisterComponent } from './pages/appointment/appointment-register/appointment-register.component';
 import { PatientEditModalComponent } from './components/patient-edit-modal/patient-edit-modal.component';
 import { AttendanceUnknownModalComponent } from './components/attendance-unknown-modal/attendance-unknown-modal.component';
+import { PatientProfileComponent } from './pages/patient/patient-profile/patient-profile.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { AttendanceUnknownModalComponent } from './components/attendance-unknown
     AppointmentRegisterComponent,
     PatientEditModalComponent,
     AttendanceUnknownModalComponent,
+    PatientProfileComponent,
   ],
   imports: [
     CommonModule,

@@ -1,42 +1,159 @@
 <h2 mat-dialog-title>Editar Paciente</h2>
 <mat-dialog-content class="mat-typography">
-  <h3>Develop across all platforms</h3>
-  <p>
-    Mussum Ipsum, cacilds vidis litro abertis. Quem num gosta di mé, boa gentis
-    num é.Atirei o pau no gatis, per gatis num morreus.Per aumento de cachacis,
-    eu reclamis.Casamentiss faiz malandris se pirulitá.
-  </p>
-
-  <h3>Speed &amp; Performance</h3>
-  <p>
-    Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss deixa as pessoas
-    mais interessantis.Per aumento de cachacis, eu reclamis.Vehicula non. Ut sed
-    ex eros. Vivamus sit amet nibh non tellus tristique interdum.Mé faiz
-    elementum girarzis, nisi eros vermeio.
-  </p>
-
-  <h3>Incredible tooling</h3>
-  <p>
-    Mussum Ipsum, cacilds vidis litro abertis. Per aumento de cachacis, eu
-    reclamis.Leite de capivaris, leite de mula manquis sem cabeça.Quem manda na
-    minha terra sou euzis!Quem num gosta di mé, boa gentis num é.
-  </p>
-
-  <h3>Loved by millions</h3>
-  <p>
-    Mussum Ipsum, cacilds vidis litro abertis. Em pé sem cair, deitado sem
-    dormir, sentado sem cochilar e fazendo pose.Mé faiz elementum girarzis, nisi
-    eros vermeio.Copo furadis é disculpa de bebadis, arcu quam euismod
-    magna.Quem num gosta di mé, boa gentis num é.
-  </p>
-
-  <h3>What is Angular?</h3>
-
-  <p>
-    Mussum Ipsum, cacilds vidis litro abertis. Mé faiz elementum girarzis, nisi
-    eros vermeio.Diuretics paradis num copo é motivis de denguis.Paisis, filhis,
-    espiritis santis.Leite de capivaris, leite de mula manquis sem cabeça.
-  </p>
+  <form [formGroup]="form">
+    <div class="row form-first-row">
+      <div class="col-6">
+        <mat-form-field class="form-field-full-width" appearance="fill">
+          <mat-label>Nome</mat-label>
+          <input matInput [formControl]="name" />
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field class="form-field-full-width" appearance="fill">
+          <mat-label>Nome Social</mat-label>
+          <input matInput [formControl]="socialName" />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <mat-form-field class="form-field-full-width" appearance="fill">
+          <mat-label>Nascimento</mat-label>
+          <input matInput [matDatepicker]="picker" [formControl]="birthday" />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker
+            #picker
+            startView="year"
+            [startAt]="startDate"
+          ></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="col-4">
+        <mat-form-field class="form-field-full-width" appearance="fill">
+          <mat-label>Sexo</mat-label>
+          <mat-select [formControl]="genderId">
+            <mat-option [value]="1">Masculino</mat-option>
+            <mat-option [value]="2">Feminino</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-4">
+        <mat-form-field class="form-field-full-width" appearance="fill">
+          <mat-label>Cor/Raça/Etnia</mat-label>
+          <mat-select [formControl]="ethnicityId">
+            <mat-option [value]="1">Branca</mat-option>
+            <mat-option [value]="2">Preta</mat-option>
+            <mat-option [value]="3">Parda</mat-option>
+            <mat-option [value]="4">Amarela</mat-option>
+            <mat-option [value]="5">Indígena</mat-option>
+            <mat-option [value]="99">Sem informação</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <mat-form-field class="form-field-full-width" appearance="fill">
+          <mat-label>CNS</mat-label>
+          <input matInput [formControl]="cns" mask="000 0000 0000 0000" />
+        </mat-form-field>
+      </div>
+      <div class="col-4">
+        <mat-form-field class="form-field-full-width" appearance="fill">
+          <mat-label>RG</mat-label>
+          <input matInput [formControl]="rg" mask="00.000.000-0" />
+        </mat-form-field>
+      </div>
+      <div class="col-4">
+        <mat-form-field class="form-field-full-width" appearance="fill">
+          <mat-label>CPF</mat-label>
+          <input matInput [formControl]="cpf" mask="000.000.000-00" />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <mat-form-field class="form-field-full-width" appearance="fill">
+          <mat-label>CEP</mat-label>
+          <input matInput [formControl]="zipCode" mask="00000-000" />
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field class="form-field-full-width" appearance="fill">
+          <mat-label>Logradouro</mat-label>
+          <input matInput [formControl]="address" />
+        </mat-form-field>
+      </div>
+      <div class="col-2">
+        <mat-form-field class="form-field-full-width" appearance="fill">
+          <mat-label>Número</mat-label>
+          <input matInput [formControl]="number" />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <mat-form-field class="form-field-full-width" appearance="fill">
+          <mat-label>Bairro</mat-label>
+          <input matInput [formControl]="neighborhood" />
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field class="form-field-full-width" appearance="fill">
+          <mat-label>Cidade</mat-label>
+          <input matInput [formControl]="city" />
+        </mat-form-field>
+      </div>
+      <div class="col-2">
+        <mat-form-field class="form-field-full-width" appearance="fill">
+          <mat-label>Estado</mat-label>
+          <input
+            matInput
+            [formControl]="state"
+            mask="AA"
+            style="text-transform: uppercase"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <mat-form-field class="form-field-full-width" appearance="fill">
+          <mat-label>Complemento</mat-label>
+          <input matInput [formControl]="complement" />
+        </mat-form-field>
+      </div>
+      <div class="col-4">
+        <mat-form-field class="form-field-full-width" appearance="fill">
+          <mat-label>Celular</mat-label>
+          <input matInput [formControl]="cell" mask="(00) 00000-0000" />
+        </mat-form-field>
+      </div>
+      <div class="col-4">
+        <mat-form-field class="form-field-full-width" appearance="fill">
+          <mat-label>Telefone</mat-label>
+          <input matInput [formControl]="telephone" mask="(00) 0000-0000" />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <mat-form-field class="form-field-full-width" appearance="fill">
+          <mat-label>Nome do Pai</mat-label>
+          <input matInput [formControl]="fatherName" />
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field class="form-field-full-width" appearance="fill">
+          <mat-label>Nome da Mãe</mat-label>
+          <input matInput [formControl]="motherName" />
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button

@@ -1,14 +1,18 @@
 // USER
 export const CONFIRM_DIALOG_TITLE_SAVE_USER = `Salvar colaborador`;
 export const CONFIRM_DIALOG_MESSAGE_SAVE_USER = `Deseja salvar esse colaborador?`;
-export const CONFIRM_DIALOG_TITLE_DELETE_USER = `Desativar colaborador`;
-export const CONFIRM_DIALOG_MESSAGE_DELETE_USER = `Deseja desativar esse colaborador?`;
 export const MESSAGE_SUCCESS_SAVE_USER = `Colaborador salvo com sucesso!`;
 export const MESSAGE_ERROR_SAVE_USER = `Falha ao salvar o colaborador!`;
-export const MESSAGE_SUCCESS_UPDATE_USER = `Colaborador alterado com sucesso!`;
-export const MESSAGE_ERROR_UPDATE_USER = `Falha ao alterar o colaborador!`;
+
+export const CONFIRM_DIALOG_TITLE_DELETE_USER = `Desativar colaborador`;
+export const CONFIRM_DIALOG_MESSAGE_DELETE_USER = `Deseja desativar esse colaborador?`;
 export const MESSAGE_SUCCESS_DELETE_USER = `Colaborador desativado com sucesso!`;
 export const MESSAGE_ERROR_DELETE_USER = `Falha ao desativar o colaborador!`;
+
+export const CONFIRM_DIALOG_TITLE_UPDATE_USER = `Alterar colaborador`;
+export const CONFIRM_DIALOG_MESSAGE_UPDATE_USER = `Deseja alterar esse colaborador?`;
+export const MESSAGE_SUCCESS_UPDATE_USER = `Colaborador alterado com sucesso!`;
+export const MESSAGE_ERROR_UPDATE_USER = `Falha ao alterar o colaborador!`;
 
 // PASSWORD
 export const CONFIRM_DIALOG_TITLE_CHANGE_PASSWORD = `Trocar senha`;
